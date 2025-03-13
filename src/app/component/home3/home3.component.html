@@ -1,0 +1,796 @@
+<!--<div class="sidebar">-->
+<!--  <div class="text-center mb-4">-->
+<!--    <img alt="Burger Spot Logo" height="100" src="assets/feane/images/Art.png" width="200"/>-->
+<!--  </div>-->
+<!--  <div class="text-center mb-4">-->
+
+<!--  </div>-->
+<!--  <div class="section-title">-->
+<!--    Nos menus-->
+<!--  </div>-->
+<!--  <ul class="nav nav-pills d-flex justify-content-between nav-pills-custom gap-3 mb-6">-->
+<!--    <li class="nav-item mb-3 me-0 mx-3 card1 bg-transparent" *ngFor="let cat of productCategory" style="border-radius: 1.5rem;  ">-->
+<!--      &lt;!&ndash;begin::Nav link&ndash;&gt;-->
+<!--      <a class="nav-link nav-link-border-solid btn btn-outline btn-flex btn-active-color-primary flex-column flex-stack pt-9 pb-7 page-bg db"-->
+<!--         data-bs-toggle="pill"-->
+<!--         type="button"  style="width: 138px; height: 180px">-->
+<!--&lt;!&ndash;         (click)="selectCategoryId = cat.id;"&ndash;&gt;-->
+
+<!--        &lt;!&ndash;begin::Icon&ndash;&gt;-->
+<!--        <div class="nav-icon">-->
+<!--          <img src="{{ cat.imgUrl }}" class="w-50px" alt="{{ cat.categoryName }}" />-->
+<!--        </div>-->
+<!--        &lt;!&ndash;end::Icon&ndash;&gt;-->
+<!--        &lt;!&ndash;begin::Info&ndash;&gt;-->
+<!--        <div>-->
+<!--          <span class="text-gray-800 fw-bold fs-2 d-block">{{ cat.categoryName }}</span>-->
+<!--          &lt;!&ndash; <span class="text-gray-500 fw-semibold fs-7">14 Salads</span> &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash;end::Info&ndash;&gt;-->
+<!--      </a>-->
+<!--      &lt;!&ndash;end::Nav link&ndash;&gt;-->
+<!--    </li>-->
+<!--  </ul>-->
+
+<!--</div>-->
+
+<!--<div class="content mt-4">-->
+<!--  <h1 class="fw-bold mt-5 mb-5">-->
+<!--    Menus-->
+<!--  </h1>-->
+
+<!--  <div class="row">-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Cheesy" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/wDgd52y4me3gR6ELBmcAmhEf8Y5elhu7PEfqJD2tREQStBRPB.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Cheesy-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            12,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Double steak" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/bKjH8IDQrgZfJiyWZzo5KWZBddHkluQpNJrPrLxYwe2ObQ0TA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Double steak-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            15,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Chicken folie" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/D9kBTXe69VRMNCpeEtWuUgrnaDQfVgnmrED5RkW6QqF22gonA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Chicken folie-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            11,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Veggie" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/Ga6OkiOxWT7wHt8swI3wfzeJ6LXdCh43ohPhWGD8zM4QbQ0TA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Veggie-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            13,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Spicy" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/T6NxA3ZTsP5PDZbyfUfQ2kS7blUuSTUavkR1SPLeOfTqtBRPB.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Spicy-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            13,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Duo boeuf &amp; fish" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/DIwQEIREFFIwC9Ls39QBYaNWXtWJBp5G6edvw4BqaHkqNI6JA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Duo boeuf &amp; fish-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            13,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Montagnard" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/yrpKdLByu0YqNlKNdmu3gLcjSRY2nhJWrMctfW2IXRWrNI6JA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Montagnard-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            14,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Le marin" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/5uNhBwewQk2WCqoBuMauffmThZn2xTa1eLeTVLA2ZDZtZDieE.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Le marin-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            14,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <img alt="Menu Double cheddar &amp; bacon" class="card-img-top" height="200" src="https://storage.googleapis.com/a1aa/image/eGy2wdvlvIxFeE81yYahLYFO7AAqdC205ejar5OT08px2gonA.jpg" width="300"/>-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">-->
+<!--            Menu Double cheddar &amp; bacon-->
+<!--          </h5>-->
+<!--          <p class="card-text">-->
+<!--            15,90€-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="footer">-->
+<!--  <div class="flags">-->
+<!--    <img alt="French Flag" height="20" src="https://storage.googleapis.com/a1aa/image/7RY59rQElDaJPZPEewG1r3SsATJoOQfj38SBnUyuuaqPbQ0TA.jpg" width="30"/>-->
+<!--    <img alt="English Flag" height="20" src="https://storage.googleapis.com/a1aa/image/x17DYsT62haSNNe05yaBQ0Qg9LOafIkgy8IjkR8fqvrz2gonA.jpg" width="30"/>-->
+<!--    <img alt="Italian Flag" height="20" src="https://storage.googleapis.com/a1aa/image/JM4IFofoQc36cSJPD6239snDbnSMSiBeK0PiPNyxVfuZ2gonA.jpg" width="30"/>-->
+<!--    <img alt="German Flag" height="20" src="https://storage.googleapis.com/a1aa/image/WgRfUVZAJM0OTq1bgJs0wZR5smt2NGyUVrbjAzTPaL9pNI6JA.jpg" width="30"/>-->
+<!--  </div>-->
+<!--  <button class="btn">-->
+<!--    MA COMMANDE-->
+<!--    <i class="fas fa-hamburger">-->
+<!--    </i>-->
+<!--  </button>-->
+<!--  <div class="total">-->
+<!--    Total: 0,00€-->
+<!--  </div>-->
+<!--</div>-->
+
+<div  *ngIf="chooseCh;else noChoose" style="background-image: url('assets/feane/images/arF.png');background-position: center;min-height: 100vh;height: auto;overflow: hidden">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center mt-5">
+          <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
+        </div>
+        <div class="w-100 mt-5"></div>
+
+        <div class="col" style="margin-top: 40%">
+          <h1 style="font-family: Arial, sans-serif;font-size: 40px;font-weight: bold;" class="text-center">Où souhaitez-vous manger ?</h1>
+        </div>
+        <div class="w-100 mt-3"></div>
+        <div class="col text-center">
+          <div class="options">
+
+              <button class="option"  (click)="selectTable();selectOption('surPlace')" >
+              <i class="fas fa-utensils">
+              </i>
+              <h4 style="font-size: 40px">
+                Sur place
+              </h4>
+              </button>
+            <button class="option"  (click)="goMenu();selectOption('aEmporter')" >
+              <i class="fas fa-shopping-bag">
+              </i>
+              <h4 style="font-size: 40px">
+                À emporter
+              </h4>
+            </button>
+
+
+          </div>
+        </div>
+        <div class="w-100 mt-3"></div>
+        <div class="col text-center" *ngIf="chooseT">
+          <div class="options">
+
+            <button class="option2" (click)="tableS('Table 1')">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADD0lEQVR4nO2Yz0sVURTHR4MWbvoBWdCzRVoUGAa1K9fhH5BbMW2b7TPInW0LlwkFJWKl9AvSVhVW+6idkgsX/RBNAhfpJ+7r++I6zdyZed55vmK+MIs559xzznfur3MmCAoUKFDgvwBQAiaA73oeAEf+qfj8dvKNv2FkB3PL3nd8fQmDx2agnieSjQc5A1/xNZXY7IEWyZbzIuA9PrCiQaUtOaoS+IqvjYWms6TnqWQTeRHwHh84CnyN2WxtQc7AZ3xtsHFN84o2YO4k6iV+/YHNF5L5IneB5hrG3w+MKXb6CxF4B7xJuJA+AXtqQGIvsOC6EO18w4PLiLmQDLEXkt2oAZGbijUTdyHa+bqIRF1IxyVbqAGRBcU6FnePpCUSaRQ72D+RMqrJse6JAA0Sb2QhsqHXBlcArWFfmM6DSKRRyKYZ/9i3HUQ69fo22CKMD/k66yDSKPG616UF9On1tgcid+TrwnYQGdbrFQ9EBuVruKZEQjjvgUh3lONgs80OiX9mIbKu18aQzauIeB0eiHRE+H3pg0ilF4hs9OV0TTPX5IFIk3ytGd8xNqZMMljJQsRUuqgrK0XYtvouV6yypDVCZ8qTZ3aHmJaIYf+FZMx4JJLmcv1c+bAuIqvSlXsO4BBwD1h0OB7xSGTEEWdRq6TF6lUMVqMcPZLyPnAgZdABj0QG0nwckxvwULZTUQamTF8mG7o8EunKGHvZLvPDzk5ldHbYI5HKAZIWp13O2mX0sdqjMrYFTSaS6kgHPijHE2mm97nD5qRs3sfoy8hKJJRkh8NmOnFZA/0yGk1RTkxWQ8Q1Y8Ckhnc7xt+SzUUXkSEZXXPYXLULvCqIxOqB61IPpshxyEVkVEb9aUtuz0T6kloDMxNJq8Zef+cSlobBmRyIdCY1a9Y+/tMauzZbu8NmSTaXdWQ26WkDeiuJAj3meLb0rZK59JekW9rKyWr/z9rlsJklf8w64u+OLU9C/camPiDCZqe+/BQwB/zQMydZj/Sm5Jm39POS9Sbo+0yMhBxem1xdNgUKFCgQ1DV+ARxikqRBWM11AAAAAElFTkSuQmCC" alt="restaurant-table">
+              <h4 style="font-size: 30px" class="mt-2">
+                Table 1
+              </h4>
+            </button>
+            <button class="option2"  (click)="tableS('Table 2')">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADD0lEQVR4nO2Yz0sVURTHR4MWbvoBWdCzRVoUGAa1K9fhH5BbMW2b7TPInW0LlwkFJWKl9AvSVhVW+6idkgsX/RBNAhfpJ+7r++I6zdyZed55vmK+MIs559xzznfur3MmCAoUKFDgvwBQAiaA73oeAEf+qfj8dvKNv2FkB3PL3nd8fQmDx2agnieSjQc5A1/xNZXY7IEWyZbzIuA9PrCiQaUtOaoS+IqvjYWms6TnqWQTeRHwHh84CnyN2WxtQc7AZ3xtsHFN84o2YO4k6iV+/YHNF5L5IneB5hrG3w+MKXb6CxF4B7xJuJA+AXtqQGIvsOC6EO18w4PLiLmQDLEXkt2oAZGbijUTdyHa+bqIRF1IxyVbqAGRBcU6FnePpCUSaRQ72D+RMqrJse6JAA0Sb2QhsqHXBlcArWFfmM6DSKRRyKYZ/9i3HUQ69fo22CKMD/k66yDSKPG616UF9On1tgcid+TrwnYQGdbrFQ9EBuVruKZEQjjvgUh3lONgs80OiX9mIbKu18aQzauIeB0eiHRE+H3pg0ilF4hs9OV0TTPX5IFIk3ytGd8xNqZMMljJQsRUuqgrK0XYtvouV6yypDVCZ8qTZ3aHmJaIYf+FZMx4JJLmcv1c+bAuIqvSlXsO4BBwD1h0OB7xSGTEEWdRq6TF6lUMVqMcPZLyPnAgZdABj0QG0nwckxvwULZTUQamTF8mG7o8EunKGHvZLvPDzk5ldHbYI5HKAZIWp13O2mX0sdqjMrYFTSaS6kgHPijHE2mm97nD5qRs3sfoy8hKJJRkh8NmOnFZA/0yGk1RTkxWQ8Q1Y8Ckhnc7xt+SzUUXkSEZXXPYXLULvCqIxOqB61IPpshxyEVkVEb9aUtuz0T6kloDMxNJq8Zef+cSlobBmRyIdCY1a9Y+/tMauzZbu8NmSTaXdWQ26WkDeiuJAj3meLb0rZK59JekW9rKyWr/z9rlsJklf8w64u+OLU9C/camPiDCZqe+/BQwB/zQMydZj/Sm5Jm39POS9Sbo+0yMhBxem1xdNgUKFCgQ1DV+ARxikqRBWM11AAAAAElFTkSuQmCC" alt="restaurant-table">
+              <h4 style="font-size: 30px" class="mt-2">
+               Table 2
+              </h4>
+            </button>
+            <button class="option2"  (click)="tableS('Table 3')">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADD0lEQVR4nO2Yz0sVURTHR4MWbvoBWdCzRVoUGAa1K9fhH5BbMW2b7TPInW0LlwkFJWKl9AvSVhVW+6idkgsX/RBNAhfpJ+7r++I6zdyZed55vmK+MIs559xzznfur3MmCAoUKFDgvwBQAiaA73oeAEf+qfj8dvKNv2FkB3PL3nd8fQmDx2agnieSjQc5A1/xNZXY7IEWyZbzIuA9PrCiQaUtOaoS+IqvjYWms6TnqWQTeRHwHh84CnyN2WxtQc7AZ3xtsHFN84o2YO4k6iV+/YHNF5L5IneB5hrG3w+MKXb6CxF4B7xJuJA+AXtqQGIvsOC6EO18w4PLiLmQDLEXkt2oAZGbijUTdyHa+bqIRF1IxyVbqAGRBcU6FnePpCUSaRQ72D+RMqrJse6JAA0Sb2QhsqHXBlcArWFfmM6DSKRRyKYZ/9i3HUQ69fo22CKMD/k66yDSKPG616UF9On1tgcid+TrwnYQGdbrFQ9EBuVruKZEQjjvgUh3lONgs80OiX9mIbKu18aQzauIeB0eiHRE+H3pg0ilF4hs9OV0TTPX5IFIk3ytGd8xNqZMMljJQsRUuqgrK0XYtvouV6yypDVCZ8qTZ3aHmJaIYf+FZMx4JJLmcv1c+bAuIqvSlXsO4BBwD1h0OB7xSGTEEWdRq6TF6lUMVqMcPZLyPnAgZdABj0QG0nwckxvwULZTUQamTF8mG7o8EunKGHvZLvPDzk5ldHbYI5HKAZIWp13O2mX0sdqjMrYFTSaS6kgHPijHE2mm97nD5qRs3sfoy8hKJJRkh8NmOnFZA/0yGk1RTkxWQ8Q1Y8Ckhnc7xt+SzUUXkSEZXXPYXLULvCqIxOqB61IPpshxyEVkVEb9aUtuz0T6kloDMxNJq8Zef+cSlobBmRyIdCY1a9Y+/tMauzZbu8NmSTaXdWQ26WkDeiuJAj3meLb0rZK59JekW9rKyWr/z9rlsJklf8w64u+OLU9C/camPiDCZqe+/BQwB/zQMydZj/Sm5Jm39POS9Sbo+0yMhBxem1xdNgUKFCgQ1DV+ARxikqRBWM11AAAAAElFTkSuQmCC" alt="restaurant-table">
+              <h4 style="font-size: 30px" class="mt-2">
+                Table 3
+              </h4>
+            </button>
+            <button class="option2"  (click)="tableS('Table 4')">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADD0lEQVR4nO2Yz0sVURTHR4MWbvoBWdCzRVoUGAa1K9fhH5BbMW2b7TPInW0LlwkFJWKl9AvSVhVW+6idkgsX/RBNAhfpJ+7r++I6zdyZed55vmK+MIs559xzznfur3MmCAoUKFDgvwBQAiaA73oeAEf+qfj8dvKNv2FkB3PL3nd8fQmDx2agnieSjQc5A1/xNZXY7IEWyZbzIuA9PrCiQaUtOaoS+IqvjYWms6TnqWQTeRHwHh84CnyN2WxtQc7AZ3xtsHFN84o2YO4k6iV+/YHNF5L5IneB5hrG3w+MKXb6CxF4B7xJuJA+AXtqQGIvsOC6EO18w4PLiLmQDLEXkt2oAZGbijUTdyHa+bqIRF1IxyVbqAGRBcU6FnePpCUSaRQ72D+RMqrJse6JAA0Sb2QhsqHXBlcArWFfmM6DSKRRyKYZ/9i3HUQ69fo22CKMD/k66yDSKPG616UF9On1tgcid+TrwnYQGdbrFQ9EBuVruKZEQjjvgUh3lONgs80OiX9mIbKu18aQzauIeB0eiHRE+H3pg0ilF4hs9OV0TTPX5IFIk3ytGd8xNqZMMljJQsRUuqgrK0XYtvouV6yypDVCZ8qTZ3aHmJaIYf+FZMx4JJLmcv1c+bAuIqvSlXsO4BBwD1h0OB7xSGTEEWdRq6TF6lUMVqMcPZLyPnAgZdABj0QG0nwckxvwULZTUQamTF8mG7o8EunKGHvZLvPDzk5ldHbYI5HKAZIWp13O2mX0sdqjMrYFTSaS6kgHPijHE2mm97nD5qRs3sfoy8hKJJRkh8NmOnFZA/0yGk1RTkxWQ8Q1Y8Ckhnc7xt+SzUUXkSEZXXPYXLULvCqIxOqB61IPpshxyEVkVEb9aUtuz0T6kloDMxNJq8Zef+cSlobBmRyIdCY1a9Y+/tMauzZbu8NmSTaXdWQ26WkDeiuJAj3meLb0rZK59JekW9rKyWr/z9rlsJklf8w64u+OLU9C/camPiDCZqe+/BQwB/zQMydZj/Sm5Jm39POS9Sbo+0yMhBxem1xdNgUKFCgQ1DV+ARxikqRBWM11AAAAAElFTkSuQmCC" alt="restaurant-table">
+              <h4 style="font-size: 30px">
+                Table 4
+              </h4>
+            </button>
+            <button class="option2"  (click)="tableS('Table 5')">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADD0lEQVR4nO2Yz0sVURTHR4MWbvoBWdCzRVoUGAa1K9fhH5BbMW2b7TPInW0LlwkFJWKl9AvSVhVW+6idkgsX/RBNAhfpJ+7r++I6zdyZed55vmK+MIs559xzznfur3MmCAoUKFDgvwBQAiaA73oeAEf+qfj8dvKNv2FkB3PL3nd8fQmDx2agnieSjQc5A1/xNZXY7IEWyZbzIuA9PrCiQaUtOaoS+IqvjYWms6TnqWQTeRHwHh84CnyN2WxtQc7AZ3xtsHFN84o2YO4k6iV+/YHNF5L5IneB5hrG3w+MKXb6CxF4B7xJuJA+AXtqQGIvsOC6EO18w4PLiLmQDLEXkt2oAZGbijUTdyHa+bqIRF1IxyVbqAGRBcU6FnePpCUSaRQ72D+RMqrJse6JAA0Sb2QhsqHXBlcArWFfmM6DSKRRyKYZ/9i3HUQ69fo22CKMD/k66yDSKPG616UF9On1tgcid+TrwnYQGdbrFQ9EBuVruKZEQjjvgUh3lONgs80OiX9mIbKu18aQzauIeB0eiHRE+H3pg0ilF4hs9OV0TTPX5IFIk3ytGd8xNqZMMljJQsRUuqgrK0XYtvouV6yypDVCZ8qTZ3aHmJaIYf+FZMx4JJLmcv1c+bAuIqvSlXsO4BBwD1h0OB7xSGTEEWdRq6TF6lUMVqMcPZLyPnAgZdABj0QG0nwckxvwULZTUQamTF8mG7o8EunKGHvZLvPDzk5ldHbYI5HKAZIWp13O2mX0sdqjMrYFTSaS6kgHPijHE2mm97nD5qRs3sfoy8hKJJRkh8NmOnFZA/0yGk1RTkxWQ8Q1Y8Ckhnc7xt+SzUUXkSEZXXPYXLULvCqIxOqB61IPpshxyEVkVEb9aUtuz0T6kloDMxNJq8Zef+cSlobBmRyIdCY1a9Y+/tMauzZbu8NmSTaXdWQ26WkDeiuJAj3meLb0rZK59JekW9rKyWr/z9rlsJklf8w64u+OLU9C/camPiDCZqe+/BQwB/zQMydZj/Sm5Jm39POS9Sbo+0yMhBxem1xdNgUKFCgQ1DV+ARxikqRBWM11AAAAAElFTkSuQmCC" alt="restaurant-table">
+              <h4 style="font-size: 30px" class="mt-2">
+                Table 5
+              </h4>
+            </button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<ng-template #noChoose style="margin: 0;padding: 0">
+  <div class="d-flex flex-column flex-root" *ngIf="totalP==0;else exisTot"  style="background-image: url('assets/feane/images/arF.png'); background-position: center; background-size: cover; min-height: 100vh;height: auto;overflow: hidden">
+    <div class="page d-flex flex-row flex-column-fluid">
+      <div id="kt_aside" class="aside" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle" style="background-color: whitesmoke">
+        <!--begin::Logo-->
+        <div class="aside-logo flex-column-auto  pt-lg-20" id="kt_aside_logo">
+          <a href="index.html">
+            <img alt="Logo" src="assets/feane/images/Art.png" class="h-100px" />
+          </a>
+        </div>
+        <!--end::Logo-->
+        <!--begin::Nav-->
+        <div class="aside-menu py-lg-10" id="kt_aside_menu"  >
+          <!--begin::Aside menu-->
+          <div id="kt_aside_menu_wrapper" class="w-100  d-flex" >
+            <div id="kt_aside_menu" class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-500 menu-arrow-gray-500 fw-semibold fs-6 my-auto" data-kt-menu="true">
+              <!--begin:Menu item-->
+              <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item show here py-2" style="border:  #6c757d" >
+                <!--begin:Menu link-->
+                <span class="menu-link menu-center" (click)="resetFilter()">
+										<span class="menu-icon me-0">
+                      <h4>Menu</h4>
+										</span>
+
+
+									</span>
+
+              </div>
+
+              <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+                <!--begin:Menu link-->
+<!--                <span class="menu-link menu-center">-->
+<!--										<span class="menu-icon me-0">-->
+<!--&lt;!&ndash;											<i class="ki-duotone ki-notification-status fs-2x">&ndash;&gt;-->
+<!--                      &lt;!&ndash;												<span class="path1"></span>&ndash;&gt;-->
+<!--                      &lt;!&ndash;												<span class="path2"></span>&ndash;&gt;-->
+<!--                      &lt;!&ndash;												<span class="path3"></span>&ndash;&gt;-->
+<!--                      &lt;!&ndash;												<span class="path4"></span>&ndash;&gt;-->
+<!--                      &lt;!&ndash;											</i>&ndash;&gt;-->
+<!--                      {{ cat.categoryName }}-->
+<!--										</span>-->
+<!--									</span>-->
+                <ul class="nav nav-pills d-flex justify-content-between nav-pills-custom gap-3 mb-6">
+                  <li class="nav-item mb-3 me-0 card1 border" *ngFor="let cat of productCategory" style="border-radius: 1.5rem;">
+                    <!--begin::Nav link-->
+                    <a class="nav-link nav-link-border-solid btn btn-outline btn-flex flex-column flex-stack pt-9 pb-7 page-bg db"
+                       [ngClass]="{'btn-primary': selectedCategory === cat}"
+                       (click)="selectCategory(cat)"
+                       data-bs-toggle="pill"
+                       type="button"
+                       style="width: 138px;">
+                      <!--begin::Icon-->
+                      <div class="nav-icon">
+                        <img src="{{ cat.imgUrl }}" class="w-50px" alt="{{ cat.categoryName }}" />
+                      </div>
+
+                      <div>
+                        <span class="text-gray-800 fw-bold fs-2 d-block">{{ cat.categoryName }}</span>
+                        <!-- <span class="text-gray-500 fw-semibold fs-7">14 Salads</span> -->
+                      </div>
+                      <!--end::Info-->
+                    </a>
+                    <!--end::Nav link-->
+                  </li>
+                </ul>
+
+
+              </div>
+
+
+
+              <!--end:Menu item-->
+            </div>
+          </div>
+          <!--end::Aside menu-->
+        </div>
+
+      </div>
+
+      <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper"  >
+        <div class="header-mobile py-3">
+          <!--begin::Container-->
+          <div class="container d-flex flex-stack">
+            <!--begin::Mobile logo-->
+            <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+              <a href="index.html">
+                <img alt="Logo" src="assets/media/logos/demo9.svg" class="h-35px" />
+              </a>
+            </div>
+            <!--end::Mobile logo-->
+            <!--begin::Aside toggle-->
+            <button class="btn btn-icon btn-active-color-primary me-n4" id="kt_aside_toggle">
+              <i class="ki-duotone ki-abstract-14 fs-2x">
+                <span class="path1"></span>
+                <span class="path2"></span>
+              </i>
+            </button>
+            <!--end::Aside toggle-->
+          </div>
+          <!--end::Container-->
+        </div>
+
+        <div id="kt_header" class="header py-6 py-lg-0" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{lg: '300px'}"  style="background-image: url('assets/feane/images/arf2.jpg');background-position: center;background-size: cover;">
+          <div class="header-container container-xxl">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 py-3 py-lg-0 me-3">
+              <!--begin::Heading-->
+              <h1 class="d-flex flex-column text-gray-900 fw-bold my-1" style="font-family: Arial, sans-serif;">
+                <span class="text-white fs-1 mx-4">{{ titleHeader }} </span>
+              </h1>
+              <!--end::Heading-->
+            </div>
+            <!--end::Page title=-->
+            <!--begin::Wrapper-->
+
+            <!--end::Wrapper-->
+          </div>
+          <!--end::Container-->
+          <div class="header-offset"></div>
+        </div>
+
+        <div class="row mb-5" style="margin-top: -5%;margin-left: 5%;margin-right: 5%" >
+          <div class="col mb-3" *ngFor="let prod of filteredProducts; let i = index;"
+               [ngClass]="{'active': selectedProduct === prod}"
+               (mouseover)="hoveredProduct = prod"
+               (mouseleave)="hoveredProduct = null" (click)="nextProd(prod.categoryDTO.categoryName);openProd(prod.id);">
+            <div class="card card-flush flex-row-fluid  mw-100">
+
+              <div class="card-body text-center">
+                <img [src]="prod.imageUrl" class="rounded-3 " alt=""  width="200" height="250"/>
+                <div class="mb-2">
+                  <div class="text-center">
+                    <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ prod.name }}</span>
+                    <!--                  <span class="text-gray-500 fw-semibold d-block fs-6 mt-n1 mt-2" *ngIf="prod.active">Disponible</span>-->
+                  </div>
+                  <span class="text-success text-end fw-bold fs-1">{{ prod.unitPrice }} FCFA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--      <div class="content d-flex flex-column flex-column-fluid" id="kt_content">-->
+        <!--        <div  id="kt_content_container">-->
+        <!--          <div class="d-flex flex-column flex-xl-row">-->
+        <!--            <div class="d-flex flex-row-fluid ">-->
+        <!--              <div class="card card-flush card-p-0  border-0 w-100">-->
+        <!--                <div class="card-body">-->
+        <!--                  <div class="tab-content">-->
+        <!--                    <div class="tab-pane fade show active" id="kt_pos_food_content_1" role="tabpanel">-->
+        <!--                      <div class="d-flex flex-wrap d-grid gap-5 gap-xxl-9">-->
+        <!--                        <div class="product-grid">-->
+        <!--                          <div class="card card-flush flex-row-fluid p-6 pb-5 mw-100"  *ngFor="let prod of product; let i = index">-->
+
+        <!--&lt;!&ndash;                               [ngClass]="{'active': selectedProduct === prod}"&ndash;&gt;-->
+        <!--&lt;!&ndash;                               (mouseover)="hoveredProduct = prod"&ndash;&gt;-->
+        <!--&lt;!&ndash;                               (mouseleave)="hoveredProduct = null"&ndash;&gt;-->
+
+        <!--                            <div class="card-body text-center">-->
+
+        <!--                              <img [src]="prod.imageUrl" class="rounded-3 mb-4 product-image" alt="" />-->
+        <!--                              <div class="mb-2">-->
+        <!--                                <div class="text-center">-->
+        <!--                                  <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ prod.name }}</span>-->
+        <!--                                  <span class="text-gray-500 fw-semibold d-block fs-6 mt-n1 mt-2" *ngIf="prod.active">Disponible</span>-->
+        <!--                                </div>-->
+        <!--                                <span class="text-success text-end fw-bold fs-1">{{ prod.unitPrice }} FCFA</span>-->
+        <!--                              </div>-->
+        <!--                            </div>-->
+
+
+        <!--                          </div>-->
+
+
+        <!--                        </div>-->
+        <!--                      </div>-->
+        <!--                    </div>-->
+        <!--                  </div>-->
+        <!--                </div>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--      </div>-->
+
+      </div>
+
+
+    </div>
+  </div>
+  <!--<div class="footer" *ngIf="totalSup==0">-->
+
+
+
+  <!--  <button class="btn">-->
+  <!--    MA COMMANDE-->
+  <!--    <i class="fas fa-hamburger">-->
+  <!--    </i>-->
+  <!--  </button>-->
+  <!--  <div class="total">-->
+  <!--    Total: 0,00€-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <ng-template #exisTot>
+    <body *ngIf="details==false;else noDetails">
+    <div class="card-container" >
+      <div class="card  mx-auto" style="width: 95%;margin-top: 2%;min-height: 0;border-radius: 2%  2% 0 0;height: 100%">
+        <div class="card-body" >
+          <div class="row">
+            <div class="d-flex justify-content-end">
+              <button class="btn-cancel" (click)="annuler()">
+                ANNULER
+              </button>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img width="300" height="300" [src]="productSup.imageUrl" alt="us-dollar-circled--v2" class="mb-3" />
+            </div>
+            <h1 class="fw-bold" style="font-size: 80px;font-family: 'Arial', sans-serif;">{{ productSup.name }}</h1>
+            <h6 class="fw-bold" style="font-size: 30px;">{{ productSup.unitPrice }} FCFA</h6>
+          </div>
+
+          <div class="mt-4" *ngIf="totalSup">
+            <h4 class="fw-bold" style="font-size: 40px; color: #0a6aa1">Un supplement ?</h4>
+            <div class="scrollable-row">
+              <div
+                class="card card1 mx-2"
+                style="width: 18rem;"
+                *ngFor="let sup of supPrd">
+
+                <input type="checkbox" id="{{ sup.name }}" class="custom-checkbox" [checked]="isSelected(sup)" (change)="addToCart1(sup)"/>
+                <label class="card-body" for="{{ sup.name }}">
+                  <img
+                    [src]="sup.imageUrl"
+                    class="card-img-top mt-3"
+                    alt="{{ sup.name }}"
+                    width="100"
+                    height="150"
+                  />
+                  <h5 class="card-text">{{ sup.name }}</h5>
+                  <span>{{ sup.unitPrice }}</span>
+                </label>
+
+              </div>
+            </div>
+          </div>
+          <div class="mt-4" *ngIf="totalSc">
+            <h4 class="fw-bold" style="font-size: 40px; color: #0a6aa1">Une sauce ?</h4>
+            <div class="scrollable-row">
+              <div
+                class="card card1 mx-2"
+                style="width: 18rem;"
+                *ngFor="let sup of saucePrd">
+
+                <input type="checkbox" id="{{ sup.name }}" class="custom-checkbox" [checked]="isSelected(sup)" (change)="addToCart1(sup)"/>
+                <label class="card-body" for="{{ sup.name }}">
+                  <img
+                    [src]="sup.imageUrl"
+                    class="card-img-top mt-3"
+                    alt="{{ sup.name }}"
+                    width="100"
+                    height="150"
+                  />
+                  <h5 class="card-text">{{ sup.name }}</h5>
+                  <span>{{ sup.unitPrice }}</span>
+                </label>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4" *ngIf="totalDes">
+            <h4 class="fw-bold" style="font-size: 40px; color: #0a6aa1">Une Dessert ?</h4>
+            <div class="scrollable-row">
+              <div
+                class="card card1 mx-2"
+                style="width: 18rem;"
+                *ngFor="let sup of dessert">
+
+                <input type="checkbox" id="{{ sup.name }}" class="custom-checkbox" [checked]="isSelected(sup)" (change)="addToCart1(sup)"/>
+                <label class="card-body" for="{{ sup.name }}">
+                  <img
+                    [src]="sup.imageUrl"
+                    class="card-img-top mt-3"
+                    alt="{{ sup.name }}"
+                    width="100"
+                    height="150"
+                  />
+                  <h5 class="card-text">{{ sup.name }}</h5>
+                  <span>{{ sup.unitPrice }}</span>
+                </label>
+
+              </div>
+            </div>
+          </div>
+          <div class="mt-4" *ngIf="totalBois">
+            <h4 class="fw-bold" style="font-size: 40px; color: #0a6aa1">Un Boisson ?</h4>
+            <div class="scrollable-row">
+              <div
+                class="card card1 mx-2"
+                style="width: 18rem;"
+                *ngFor="let sup of bois">
+                <input type="checkbox" id="{{ sup.name }}" class="custom-checkbox" [checked]="isSelected(sup)" (change)="addToCart1(sup)"/>
+                <label class="card-body" for="{{ sup.name }}">
+                  <img
+                    [src]="sup.imageUrl"
+                    class="card-img-top mt-3"
+                    alt="{{ sup.name }}"
+                    width="100"
+                    height="150"
+                  />
+                  <h5 class="card-text">{{ sup.name }}</h5>
+                  <span>{{ sup.unitPrice }}</span>
+                </label>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="container mt-5 mb-3">
+
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="quantity-control mx-4" style="display: flex;align-items: center;">
+          <button class="btn1" (click)="decrementQuantity() ">-</button>
+          <input type="text" readonly="readonly" [value]="quantite" class="ipn1">
+          <button class="btn1" (click)="incrementQuantity()">+</button>
+        </div>
+        <button class="add-to-cart" *ngIf="selectedProducts.length>0;else noSelect" (click)="addToCart(productSup,quantite)">AJOUTER AU PANIER <i class="ms-4 fas fa-shopping-cart fa-3x"></i></button>
+        <ng-template #noSelect>
+          <button class="add-to-cart1" (click)="addToCart(productSup,quantite)">Voir mon panier <i class="ms-4 fas fa-shopping-cart fa-3x"></i></button>
+        </ng-template>
+
+        <div class="tot">Total {{ totalPrice * quantite }}</div>
+      </div>
+
+    </div>
+
+
+    </body>
+
+    <ng-template #noDetails >
+
+      <div *ngIf="viewDetails==false;else vDetails">
+        <div style="background-image: url('assets/feane/images/arF.png');background-position: center;min-height: 100vh;height: auto;overflow: hidden;flex: 1;">
+          <div class="container">
+            <div class="row">
+              <div class="col text-center">
+                <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
+              </div>
+              <div class="w-100"></div>
+
+              <div class="col mx-5">
+                <h3 class="fw-bold" style="font-size: 40px">Mon Panier</h3>
+              </div>
+              <div class="col justify-content-end">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn" [class.active]="selectedOption === 'aEmporter'">
+                    <input type="radio" name="options" id="option1" autocomplete="off"
+                           [checked]="selectedOption === 'aEmporter'"
+                           (change)="selectOption('aEmporter')"> À emporter
+                  </label>
+                  <label class="btn" [class.active]="selectedOption === 'surPlace'">
+                    <input type="radio" name="options" id="option2" autocomplete="off"
+                           [checked]="selectedOption === 'surPlace'"
+                           (change)="selectOption('surPlace')"> Sur place
+                  </label>
+                </div>
+              </div>
+              <div class="w-100 mt-4"></div>
+              <div class="col mt-2">
+                <div *ngFor="let cart of cartItems">
+                  <div *ngIf="cart.quantity > 0">
+                    <div class="d-flex justify-content-center">
+                      <img width="300" height="300" [src]="cart.imageUrl" alt="us-dollar-circled--v2" class="mb-3" />
+                    </div>
+                    <h1 class="fw-bold" style="font-size: 30px;font-family: 'Arial', sans-serif;">{{ cart.name }}</h1>
+                    <h6 class="fw-bold" style="font-size: 30px;">{{ cart.unitPrice }} FCFA</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <hr>
+              <div class="col">
+                <div class="container mt-5">
+                  <div class="row">
+                    <div  *ngFor="let cart of cartItems">
+                      <div class="col" *ngIf="cart.quantity == 0">
+                        <div class="card w-100 mb-3 border-0">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col">
+                                <div class="d-flex align-items-center">
+                                  <img [src]="cart.imageUrl" class="w-100px h-100px rounded-3 me-3" alt="Image of {{ cart.name }}">
+                                  <div class="row">
+                                    <div class="col">
+                                      <h1 class="fw-bold" style="font-size: 20px;font-family: 'Arial', sans-serif;">{{ cart.name }}</h1>
+                                    </div>
+                                    <div class="w-100"></div>
+                                    <div class="col">
+                                      <span *ngFor="let sup1 of cart.surplus">{{ sup1.name }}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-auto text-end">
+                                <h6 class="fw-bold" style="font-size: 15px;">{{ cart.unitPrice }} FCFA</h6>
+                                <div class="mt-6">
+                                  <button type="button" class="btn btn-dark" (click)="remove(cart)">
+                                    <i class="fa-solid fa-trash fa-2xl" style="color: #ffffff;"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card text-center" style="margin-top: auto;background-color:#1b84ff;">
+          <div class="card-body">
+            <div class="container">
+              <div class="row d-flex justify-content-center">
+                <div class="col">
+                  <label class="btn bg-light btn-color-white w-100 px-4"
+                         [ngClass]="{'border-active-primary': selectedValue === '2', 'btn-active-light-primary': selectedValue === '2', 'active': selectedValue === '2'}" data-kt-button="true" (click)="activateLabel('2');onSubmit1()">
+                    <input class="btn-check" type="radio" name="method" value="2" />
+                    <!--                    <i class="ki-duotone ki-paypal fs-2hx mb-2 pe-0">-->
+                    <!--                      <span class="path1"></span>-->
+                    <!--                      <span class="path2"></span>-->
+                    <!--                    </i>-->
+                    <img width="40" height="40" src="https://img.icons8.com/cotton/64/mobile-payment--v3.png" alt="mobile-payment--v3" class="mb-3"/>
+                    <span class="fw-bold d-block " style="font-size: 20px;">E-Mobile Transact</span>
+                  </label>
+                </div>
+                <div class="col">
+                  <label class="btn bg-light btn-color-white  w-100 px-4"
+                         [ngClass]="{'border-active-primary': selectedValue === '0', 'btn-active-light-primary': selectedValue === '0', 'active': selectedValue === '0'}" data-kt-button="true" (click)="activateLabel('0');onSubmit()">
+                    <input class="btn-check" type="radio" name="method" value="0" />
+                    <!--                    <i class="ki-duotone ki-dollar fs-2hx mb-2 pe-0">-->
+                    <!--                      <span class="path1"></span>-->
+                    <!--                      <span class="path2"></span>-->
+                    <!--                      <span class="path3"></span>-->
+                    <!--                    </i>-->
+                    <img width="40" height="40" src="https://img.icons8.com/ios/50/us-dollar-circled--v2.png" alt="us-dollar-circled--v2" class="mb-3"/>
+                    <span class="fw-bold d-block " style="font-size: 20px;">Espece</span>
+                  </label>
+                </div>
+                <div class="col align-content-center">
+                  <h1 class="fw-bold text-white" style="font-size: 30px;font-family: 'Arial', sans-serif;">Total : {{ subTot }} FCFA</h1>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <ng-template #vDetails>
+        <div style="background-color: #1b84ff;min-height: 100vh;height: auto;overflow: hidden;flex: 1;justify-content: center;display: flex;align-items: center;">
+          <div class="container" style="background-color: white;min-height: 95vh;height: auto;overflow: hidden;flex: 1;margin: 0;border-radius: 10px;">
+            <div class="row">
+              <div class="col text-center mt-5">
+                <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
+              </div>
+
+              <div class="w-100"></div>
+              <div class="col d-flex justify-content-center text-center mb-5">
+                <div class="card w-50" style="height: 350px">
+                  <div class="card-body" style="background-color: #1b84ff;">
+                    <img src="data:image/png;base64,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" alt="checked--v1">
+                    <h3 style="font-size: 50px" class="text-white">N° de commande</h3>
+                    <h1 style="font-size: 120px;font-family: Arial" class="text-white">111</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="w-100 mt-5 mb-5"></div>
+              <div class="col text-center mt-5 mb-5">
+                <h2 style="font-family: Arial, sans-serif; font-size: 40px; font-weight: bold;">Votre commande sera préparée<br>après votre paiement en caisse</h2>
+
+              </div>
+              <div class="w-100 mb-5"></div>
+              <div class="col text-center">
+                <div class="checklist-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Récupérez votre ticket de commande</span>
+                </div>
+                <div class="checklist-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Rendez-vous à la caisse pour régler <br>votre commande et lancer la préparation</span>
+                </div>
+                <div class="checklist-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Recevez votre commande et dégustez !</span>
+                </div>
+              </div>
+              <div class="w-100"></div>
+              <div class="col mt-5 text-center d-flex flex-column align-items-center">
+                <h3 class="mb-5">Scanner pour voir l'évolution de votre ticket</h3>
+                <div class="mt-2">
+                  <img src="assets/feane/images/qr.PNG" alt="QR Code" class="img-fluid" width="300" height="300">
+                </div>
+              </div>
+              <div class="w-100 mt-5 mb-5"></div>
+              <div class="col d-flex flex-column align-items-center mt-5">
+                <button class="btn btn-primary mb-3 text-white" (click)="resetCart()" style="font-size:30px">Terminer</button>
+
+                <h2 class="text-center mb-2" style="font-family: Arial, sans-serif;font-size: 40px;">BON APPÉTIT ET À TRÈS BIENTÔT</h2>
+
+                <h4 class="text-center" style="font-family: Arial, sans-serif;font-size: 40px;">TERRASSE ET SALLE À VOTRE DISPOSITION</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </ng-template>
+
+
+    </ng-template>
+
+
+
+  </ng-template>
+
+
+</ng-template>
+
+
+
+
+

@@ -1,0 +1,41 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+}
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.button {
+  position: absolute;
+  bottom: 350px; /* Espace depuis le bas */
+  left: 50%;
+  transform: translateX(-50%); /* Centrer le bouton horizontalement */
+  padding: 10px 20px;
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2%;
+  z-index: 1; /* Assurez-vous que le bouton soit au-dessus de la vidéo */
+}

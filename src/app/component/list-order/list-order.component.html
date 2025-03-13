@@ -1,0 +1,395 @@
+<!--<div *ngIf="log1 === null || authC" class="popup">-->
+<!--  <div class="popup-content text-center w-25">-->
+<!--    <div class="card w-100" style="border:none;">-->
+
+<!--      <form [formGroup]="caissierFormGroup" (ngSubmit)="onSubmit()">-->
+<!--        <div class="card-body">-->
+<!--          <h5> Code d'entree</h5>-->
+<!--          <div class="mb-5">-->
+<!--            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Votre code" formControlName="login">-->
+<!--          </div>-->
+<!--          &lt;!&ndash;        <div class="mb-3">&ndash;&gt;-->
+<!--          &lt;!&ndash;          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="pwd" formControlName="pwd">&ndash;&gt;-->
+<!--          &lt;!&ndash;        </div>&ndash;&gt;-->
+<!--          <button mat-button style="background-color:#fd5c70;color:white" type="submit" >Connexion</button>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;      <div class="card-footer">&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;        <button mat-button>Fermer</button>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;        <button mat-button style="background-color:#fd5c70;color:white" type="submit">Connexion</button>&ndash;&gt;-->
+<!--        &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid">
+    <div id="kt_aside" class="aside" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle" >
+      <!--begin::Logo-->
+      <div class="aside-logo flex-column-auto pt-10 pt-lg-20" id="kt_aside_logo">
+        <a routerLink="/dash">
+          <img alt="Logo" src="assets/feane/images/Art.png" class="h-100px" />
+        </a>
+      </div>
+      <!--end::Logo-->
+      <!--begin::Nav-->
+      <div class="aside-menu flex-column-fluid pt-0 pb-7 py-lg-10" id="kt_aside_menu">
+        <!--begin::Aside menu-->
+        <div id="kt_aside_menu_wrapper" class="w-100  d-flex" >
+          <div id="kt_aside_menu" class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-icon-gray-500 menu-arrow-gray-500 fw-semibold fs-6 my-auto" data-kt-menu="true">
+            <!--begin:Menu item-->
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2" routerLink="/pos">
+              <!--begin:Menu link-->
+              <span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-duotone ki-home-2 fs-2x">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+									</span>
+            </div>
+
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item show here py-2" routerLink="/order">
+              <!--begin:Menu link-->
+              <span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-duotone ki-notification-status fs-2x">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+												<span class="path4"></span>
+											</i>
+										</span>
+									</span>
+
+            </div>
+
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item  py-2" routerLink="/stats">
+              <!--begin:Menu link-->
+              <span class="menu-link menu-center">
+										<span class="menu-icon me-0">
+											<i class="ki-duotone ki-abstract-26 fs-2x">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+									</span>
+
+              <!--end:Menu sub-->
+            </div>
+
+            <!--end:Menu item-->
+          </div>
+        </div>
+        <!--end::Aside menu-->
+      </div>
+      <!--end::Nav-->
+      <!--begin::Footer-->
+      <div class="aside-footer flex-column-auto pb-5 pb-lg-10" id="kt_aside_footer">
+        <!--begin::Menu-->
+        <div class="d-flex flex-center w-100 scroll-px" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-dismiss="click" title="Quick actions">
+          <button type="button" class="btn btn-custom" data-kt-menu-trigger="click" data-kt-menu-overflow="true" data-kt-menu-placement="top-start">
+            <i class="ki-duotone ki-entrance-left fs-2x">
+              <span class="path1"></span>
+              <span class="path2"></span>
+            </i>
+          </button>
+        </div>
+        <!--end::Menu-->
+      </div>
+      <!--end::Footer-->
+    </div>
+
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+      <div class="header-mobile py-3">
+        <!--begin::Container-->
+        <div class="container d-flex flex-stack">
+          <!--begin::Mobile logo-->
+          <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+            <a href="index.html">
+              <img alt="Logo" src="assets/media/logos/demo9.svg" class="h-35px" />
+            </a>
+          </div>
+          <!--end::Mobile logo-->
+          <!--begin::Aside toggle-->
+          <button class="btn btn-icon btn-active-color-primary me-n4" id="kt_aside_toggle">
+            <i class="ki-duotone ki-abstract-14 fs-2x">
+              <span class="path1"></span>
+              <span class="path2"></span>
+            </i>
+          </button>
+          <!--end::Aside toggle-->
+        </div>
+        <!--end::Container-->
+      </div>
+
+      <div id="kt_header" class="header py-6 py-lg-0" data-kt-sticky="true" data-kt-sticky-name="header" data-kt-sticky-offset="{lg: '300px'}"  style="background-color: #0a6aa1;">
+        <div class="header-container container-xxl">
+          <!--begin::Page title-->
+          <div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 py-3 py-lg-0 me-3">
+            <!--begin::Heading-->
+            <h1 class="d-flex flex-column text-gray-900 fw-bold my-1">
+              <span class="text-white fs-1">Les commandes</span>
+            </h1>
+            <!--end::Heading-->
+          </div>
+          <!--end::Page title=-->
+          <!--begin::Wrapper-->
+          <div class="d-flex align-items-center flex-wrap">
+            <!--begin::Search-->
+            <!--            <div class="panier" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+            <!--              <span class="badge">{{ totalQuantity }}</span>-->
+            <!--              <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Panier" />-->
+            <!--            </div>-->
+
+            <a type="button" class="btn btn-icon btn-custom btn-active-color-primary position-relative" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" style="background-color: white" (click)="showEnCours()">
+              <i class="ki-duotone ki-notification-bing fs-1">
+                <span class="path1"></span><span class="path2"></span><span class="path3">
+
+              </span>
+              </i>
+
+            </a>
+            <span class="badge">{{ nbreCom }}</span>
+            <div class="modal" *ngIf="enCours">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Commande des clients</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeEnCours()"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="card mb-3" style="max-width: 700px;" *ngFor="let ordersFF of ordersEnCours">
+                      <div class="row g-0">
+                        <div class="col-md-4">
+                          <img src="https://ehonline.eu/wp-content/uploads/2020/02/commande-en-ligne-restaurant-food-scaled.jpg" class="img-fluid rounded-start w-200px" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Commande n°{{ ordersFF.orderTrackingNumber }}</h5>
+                            <div class="card-text">
+                              Total Prix {{ ordersFF.totalPrice }} ({{ ordersFF.totalQuantity}})
+                            </div>
+                            <div class="card-text mt-3">
+                              <button class="text-muted btn-success" (click)="updateOrders(ordersFF.id)">Valider commande</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--                  <div class="modal-footer">-->
+                  <!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                  <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                  <!--                  </div>-->
+
+                </div>
+              </div>
+            </div>
+            <!--end::Search-->
+            <!--begin::Action-->
+
+            <!--end::Action-->
+          </div>
+          <!--end::Wrapper-->
+        </div>
+        <!--end::Container-->
+        <div class="header-offset"></div>
+      </div>
+      <div class="content d-flex flex-column flex-column-fluid" id="kt_content" data-select2-id="select2-data-kt_content">
+        <!--begin::Container-->
+        <div style="margin-left: 5%;margin-right: 5%" id="kt_content_container" data-select2-id="select2-data-kt_content_container">
+          <!--begin::Card-->
+          <div class="d-flex flex-column flex-xl-row">
+            <div class="d-flex flex-row-fluid me-xl-10 mb-10 mb-xl-0">
+              <div class="card w-100" data-select2-id="select2-data-131-zrlg">
+                <!--begin::Card header-->
+                <div class="card-header border-0 pt-6" data-select2-id="select2-data-130-su7s">
+
+                  <!--begin::Card title-->
+                  <!--begin::Card toolbar-->
+                  <div class="card-toolbar">
+                    <!--begin::Toolbar-->
+                    <div class="d-flex justify-content-start" data-kt-user-table-toolbar="base">
+                           <input type="text" class="form-control" placeholder="Rechercher commande">
+                    </div>
+<!--                    <div class="d-flex justify-content-end">-->
+<!--                      <div class="input-group mb-3">-->
+<!--                        <span class="input-group-text">Date de début</span>-->
+<!--                        <input type="date" class="form-control" [(ngModel)]="today" (input)="applyFilter()" [ngModelOptions]="{standalone: true}">-->
+<!--                      </div>-->
+<!--                    </div>-->
+                  </div>
+                  <!--end::Card toolbar-->
+                </div>
+                <!--end::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body py-4">
+<!--{{ totalOrders }}-->
+
+                      <label class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4" data-kt-button="true" *ngFor="let order of orders" (click)="seeOrderItems(order.id)">
+                        <div class="d-flex justify-content-between" >
+                          <div class=" d-flex justify-content-start">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" class="align-self-center">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 17l5-5l-5-5m7 10l5-5l-5-5"/>
+                          </svg>
+                            <div class="row align-items-center">
+                              <div class="col-auto">
+                                <h4 class="text-primary mb-0">Commande N°{{ order.orderTrackingNumber }}</h4>
+                              </div>
+                              <div class="w-100"></div>
+                              <div class="col-auto">
+                                <p class="mb-0">{{ order.dateCreated | date }}</p>
+                              </div>
+                            </div>
+                          </div>
+
+                           <div class="justify-content-end">
+                             <h4 class="text-primary">{{ order.totalPrice }} FCFA </h4>
+                             <span>{{ order.totalQuantity }} produit(s)</span>
+                           </div>
+                          </div>
+
+                      </label>
+
+
+
+
+                </div>
+                <!--end::Card body-->
+              </div>
+              <!--end::Card-->
+            </div>
+
+            <div class="flex-row-auto w-xl-450px">
+              <div class="card card-flush w-100 bg-body">
+                <div class="card-header pt-5">
+                  <h3 class="card-title fw-bold text-gray-800 fs-2qx">Details de la commande</h3>
+                  <div class="card-toolbar">
+<!--                    <a type="button" class="btn btn-light-primary fs-4 fw-bold py-4" (click)="removeA()">Tout Effacer</a>-->
+                  </div>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="table-responsive mb-8">
+                    <table class="table align-middle gs-0 gy-4 my-0">
+                      <thead>
+                      <tr>
+                        <!--                  <th class="w-500px">Produit</th>-->
+                        <!--                  <th class="w-250px">Quantité</th>-->
+                        <!--                  <th class="w-125px">Prix</th>-->
+                        <!--                  <th class="w-125px">Actions</th>-->
+                        <th class="w-500px"></th>
+                        <th class="w-250px"></th>
+                        <th class="w-125px"></th>
+                        <!--                  <th class="w-125px"></th>-->
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr  *ngFor="let cart of ordersItem">
+                          <td class="pe-0">
+                            <div class="d-flex align-items-start">
+                              <img [src]="cart.imageUrl" class="w-50px h-50px rounded-3 me-3" alt="" />
+                              <div class="row">
+                                <div class="col">
+                                  <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-6 me-1">{{ cart.name }}</span>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col">
+<!--                                         <div *ngFor="let sup2 of sup1.surplus">-->
+                                           <span *ngFor="let sup1 of surplusI">{{ sup1.surplus.name }}</span>
+<!--                                         </div>-->
+                                </div>
+                              </div>
+                            </div>
+
+                          </td>
+                          <td class="pe-0 mx-3">
+                            <input type="text" class="form-control border-0 text-center px-0 fs-3 fw-bold text-gray-800 w-30px" placeholder="Amount" name="manageBudget" readonly="readonly" [value]="cart.quantity" />
+                          </td>
+                          <td class="text-end mt-5 mx-3">
+                            <span class="fw-bold text-primary fs-2 mt-2" data-kt-pos-element="item-total">{{ cart.price * cart.quantity }}</span>
+
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+<!--                  <form [formGroup]="checkoutFormGroup" >-->
+<!--                    <div class="d-flex flex-stack bg-success rounded-3 p-6 mb-11">-->
+<!--                      <div class="fs-6 fw-bold text-white">-->
+<!--                        <span class="d-block lh-1 mb-2">Sous-Total</span>-->
+<!--                        <span class="d-block mb-2">Discounts</span>-->
+<!--                        <span class="d-block mb-9">Tax</span>-->
+<!--                        <span class="d-block fs-2qx lh-1">Total</span>-->
+<!--                      </div>-->
+<!--                      <div class="fs-6 fw-bold text-white text-end">-->
+<!--                        <span class="d-block lh-1 mb-2" data-kt-pos-element="total">{{ totalPrice }}</span>-->
+<!--                        <span class="d-block mb-2" data-kt-pos-element="discount">0 FCFA</span>-->
+<!--                        <span class="d-block mb-9" data-kt-pos-element="tax">0 FCFA</span>-->
+<!--                        <span class="d-block fs-2qx lh-1" data-kt-pos-element="grant-total">{{ totalPrice }}</span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="m-0">-->
+<!--                      <h4 class="fw-bold text-gray-800 mb-5">Methode de Payment</h4>-->
+<!--                      <div class="d-flex flex-equal gap-5 gap-xxl-9 px-0 mb-12" data-kt-buttons="true">-->
+<!--                        <label class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4"-->
+<!--                               [ngClass]="{'border-active-primary': selectedValue === '0',-->
+<!--                             'btn-active-light-primary': selectedValue === '0',-->
+<!--                             'active': selectedValue === '0'}" data-kt-button="true" (click)="activateLabel('0')">-->
+<!--                          <input class="btn-check" type="radio" name="method" value="0" />-->
+<!--                          <i class="ki-duotone ki-dollar fs-2hx mb-2 pe-0">-->
+<!--                            <span class="path1"></span>-->
+<!--                            <span class="path2"></span>-->
+<!--                            <span class="path3"></span>-->
+<!--                          </i>-->
+<!--                          <span class="fs-7 fw-bold d-block">Espece</span>-->
+<!--                        </label>-->
+
+<!--                        <label class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4"-->
+<!--                               [ngClass]="{'border-active-primary': selectedValue === '2',-->
+<!--                             'btn-active-light-primary': selectedValue === '2',-->
+<!--                             'active': selectedValue === '2'}" data-kt-button="true" (click)="activateLabel('2');">-->
+<!--                          <input class="btn-check" type="radio" name="method" value="2" />-->
+<!--                          <i class="ki-duotone ki-paypal fs-2hx mb-2 pe-0">-->
+<!--                            <span class="path1"></span>-->
+<!--                            <span class="path2"></span>-->
+<!--                          </i>-->
+<!--                          <span class="fs-7 fw-bold d-block">E-Mobile Transact</span>-->
+<!--                        </label>-->
+<!--                      </div>-->
+
+
+
+<!--                      <button class="btn btn-primary fs-1 w-100 py-4" type="submit" *ngIf="selectedValue === '0'" [disabled]="totalQuantity === 0" (click)="onSubmit1()">Imprimer Ticket</button>-->
+
+<!--                      <button class="btn btn-primary fs-1 w-100 py-4" type="submit" *ngIf="selectedValue === '2'" [disabled]="totalQuantity === 0" (click)="onSubmit2()">Passer au payment</button>-->
+
+<!--                    </div>-->
+<!--                  </form>-->
+
+                </div>
+
+
+              </div>
+
+
+
+
+            </div>
+
+
+          </div>
+        </div>
+        <!--end::Container-->
+      </div>
+
+
+    </div>
+  </div>
+</div>

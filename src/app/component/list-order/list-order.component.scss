@@ -1,0 +1,22 @@
+h5{
+  font-family: "Open Sans", sans-serif;
+}
+.modal {
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  position: fixed; /* Position fixe */
+  z-index: 1050; /* Z-index pour le modal */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  overflow: hidden; /* Pas de défilement */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.modal-dialog {
+  max-width: 730px; /* Largeur maximale du modal */
+  width: 100%; /* Largeur complète jusqu'à la largeur maximale */
+  margin: 0; /* Supprime la marge par défaut */
+}
