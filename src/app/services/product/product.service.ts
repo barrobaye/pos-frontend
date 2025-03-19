@@ -10,30 +10,28 @@ import {ProductSup} from '../../common/productSup';
 })
 export class ProductService {
 
-  private baseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/products";
+ /*  private baseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/products";
 
   private categoryUrl = "https://posback.jcloud-ver-jpe.ik-server.com/categories";
 
   private productSupUrl = "https://posback.jcloud-ver-jpe.ik-server.com/productSup";
   private supleant = "https://posback.jcloud-ver-jpe.ik-server.com/surplus";
-  private productCt = "https://posback.jcloud-ver-jpe.ik-server.com/productsCat";
+  private productCt = "https://posback.jcloud-ver-jpe.ik-server.com/productsCat"; */
 
-  // private baseUrl = "http://localhost:8080/products";
-  //
-  // private categoryUrl = "http://localhost:8080/categories";
-  //
-  // private productSupUrl = "http://localhost:8080/productSup";
-  // private supleant = "http://localhost:8080/surplus";
-  //
-  // private productCt = "http://localhost:8080/productsCat";
+  private baseUrl = "http://localhost:8080/products";
+  
+  private categoryUrl = "http://localhost:8080/categories";
+  
+  private productSupUrl = "http://localhost:8080/productSup";
+  private supleant = "http://localhost:8080/surplus";
+  
+  private productCt = "http://localhost:8080/productsCat";
+
   constructor(private http: HttpClient) { }
-
   getProducts():  Observable<any[]> {
+    console.log (this.http.get<any[]>(this.baseUrl));
     return this.http.get<any[]>(this.baseUrl);
-
   }
-
-
 
   getCategories():  Observable<ProductCategory[]> {
     return this.http.get<ProductCategory[]>(this.categoryUrl).pipe(
@@ -76,12 +74,6 @@ export class ProductService {
       map(data => data)
     )
   }
-
-
-
-
-
-
 
   // getProduct(theProductId: number): Observable<Product>{
   //   const productUrl = `${this.baseUrl}/${theProductId}`;

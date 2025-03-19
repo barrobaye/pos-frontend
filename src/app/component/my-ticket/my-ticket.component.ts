@@ -2,13 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {OrderService} from '../../services/order/order.service';
 import {catchError, EMPTY, map, Subscription, switchMap, timer} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {QRCodeComponent} from 'angularx-qrcode';
+import {QRCodeModule} from 'angularx-qrcode';
 
 @Component({
   selector: 'app-my-ticket',
   standalone: true,
   imports: [
-    QRCodeComponent
+    QRCodeModule
   ],
   templateUrl: './my-ticket.component.html',
   styleUrl: './my-ticket.component.scss'
@@ -59,6 +59,4 @@ export class MyTicketComponent implements OnInit{
       }
     )
   }
-
-
 }

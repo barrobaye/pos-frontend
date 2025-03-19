@@ -8,13 +8,13 @@ import {Caissier} from '../../../common/caissier';
 })
 export class CaisseService {
 
-  private caisseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/caissier";
+/*   private caisseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/caissier";
   private caisseUrl2 = "https://posback.jcloud-ver-jpe.ik-server.com/caissiers";
-  private connexionUrl = "https://posback.jcloud-ver-jpe.ik-server.com/caissierConnexion";
+  private connexionUrl = "https://posback.jcloud-ver-jpe.ik-server.com/caissierConnexion"; */
 
-  // private caisseUrl = "http://localhost:8080/caissier";
-  // private caisseUrl2 = "http://localhost:8080/caissiers";
-  // private connexionUrl = "http://localhost:8080/caissierConnexion";
+  private caisseUrl = "http://localhost:8080/caissier";
+  private caisseUrl2 = "http://localhost:8080/caissiers";
+  private connexionUrl = "http://localhost:8080/caissierConnexion";
   private isLoggedIn = false;
   private login!:any;
   constructor(private http: HttpClient) { }

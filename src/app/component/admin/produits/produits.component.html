@@ -83,7 +83,7 @@
         </div>
         <!--end::Aside menu-->
       </div>
-      <!--end::Nav-->
+      <!--end::Nav--> 
       <!--begin::Footer-->
       <div class="aside-footer flex-column-auto pb-5 pb-lg-10" id="kt_aside_footer">
         <!--begin::Menu-->
@@ -110,11 +110,11 @@
         <!--begin::Container-->
         <div class="container d-flex flex-stack">
           <!--begin::Mobile logo-->
-          <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+         <!--  <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="index.html">
               <img alt="Logo" src="assets/media/logos/demo9.svg" class="h-35px" />
             </a>
-          </div>
+          </div> -->
           <!--end::Mobile logo-->
           <!--begin::Aside toggle-->
           <button class="btn btn-icon btn-active-color-primary me-n4" id="kt_aside_toggle">
@@ -227,7 +227,7 @@
                               <div class="image-input image-input-outline image-input-placeholder text-center" data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
 
-                                <div class="image-input-wrapper w-125px h-125px" *ngIf="prod;else noImg" style="background-image: url({{ prod.imageUrl }});"></div>
+                                <div class="image-input-wrapper w-125px h-125px" *ngIf="prod;else noImg" style="background-image: url({{ prod.imgUrl}})"></div>
                                 <ng-template #noImg>
                                   <div class="image-input-wrapper w-125px h-125px"  style="background-image: url(../../assets/images/f1.png);"></div>
 
@@ -378,7 +378,7 @@
                               <div class="image-input image-input-outline image-input-placeholder text-center" data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
 
-                                <div class="image-input-wrapper w-125px h-125px"  style="background-image: url({{ prod.imageUrl }});"></div>
+                                <div class="image-input-wrapper w-125px h-125px"  style="background-image: url({{ prod.imageUrl }})"></div>
 
                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
                                   <i class="ki-duotone ki-pencil fs-7">
@@ -556,8 +556,6 @@
                       </div>
                     </div>
                   </div>
-
-
                   <th class="min-w-125px">Date de creation</th>
                   <th class="d-flex justify-content-center">Actions</th>
                 </tr>
@@ -601,7 +599,6 @@
                       {{ produits.dateCreated | date }}
                     </td>
                     <td class="text-end d-flex justify-content-center">
-
                       <div class="p-2">
                         <a type="button" class="text-secondary font-weight-bold text-xs " data-toggle="tooltip" data-original-title="Edit user" (click)="viewProduit(produits.id,false)">
                           <i class="fa-solid fa-eye"></i>
@@ -619,10 +616,6 @@
                         </a>
                       </div>
                     </td>
-
-
-
-
                   </tr>
                 </tbody>
               </table>

@@ -216,7 +216,7 @@ admin = 1;
     this.produitService.getProducts().subscribe(
       res=>{
       this.products = res;
-      console.log(this.products);
+     // console.log(this.products);
       }
     )
   }
@@ -247,10 +247,10 @@ admin = 1;
         res=>{
           this.prod = res;
           this.name = res.name;
-          console.log(this.prod);
+        // console.log(this.prod);
 
           this.produitForm = this.formBuilder.group({
-              // imageUrl:[this.prod.imageUrl],
+               imageUrl:[this.prod.imageUrl],
               name:[this.prod.name],
               description:[this.prod.description],
               sku:[this.prod.sku],
@@ -262,7 +262,6 @@ admin = 1;
         }
       )
       this.addView = true;
-
     }else{
       this.produitService.getProductById(id).subscribe(
         res=>{

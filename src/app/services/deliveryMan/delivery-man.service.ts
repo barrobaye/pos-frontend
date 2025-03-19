@@ -9,8 +9,8 @@ import {HttpClient} from '@angular/common/http';
 export class DeliveryManService {
 
 
-  private baseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/deliveryMans";
-  // private baseUrl = "http://localhost:8080/deliveryMans";
+  // private baseUrl = "https://posback.jcloud-ver-jpe.ik-server.com/deliveryMans";
+   private baseUrl = "http://localhost:8080/deliveryMans";
   constructor(private http: HttpClient) { }
 
   loginD = "";

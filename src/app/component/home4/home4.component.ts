@@ -15,7 +15,7 @@ import {OrderItem} from '../../common/order-item';
 import {OrderSurplus} from '../../common/orderSurplus';
 import {Purchase} from '../../common/purchase';
 import {response} from 'express';
-import {QRCodeComponent} from 'angularx-qrcode';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-home4',
@@ -24,7 +24,7 @@ import {QRCodeComponent} from 'angularx-qrcode';
     NgIf,
     NgForOf,
     NgClass,
-    QRCodeComponent
+    QRCodeModule
   ],
   templateUrl: './home4.component.html',
   styleUrl: './home4.component.scss'
@@ -47,7 +47,6 @@ export class Home4Component implements OnInit{
     this.listCategory();
     this.updateCartStatus();
     this.listCartDetails();
-
   }
 
   chooseCh = true;

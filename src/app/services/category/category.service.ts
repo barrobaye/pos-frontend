@@ -8,8 +8,8 @@ import {ProductCategory} from '../../common/product-category';
 })
 export class CategoryService {
 
-  private urlCategory = "https://posback.jcloud-ver-jpe.ik-server.com/categories";
-  // private urlCategory = "http://localhost:8080/categories";
+  // private urlCategory = "https://posback.jcloud-ver-jpe.ik-server.com/categories";
+   private urlCategory = "http://localhost:8080/categories";
   constructor(private http: HttpClient) { }
 
 

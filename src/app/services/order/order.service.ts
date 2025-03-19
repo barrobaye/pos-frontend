@@ -10,7 +10,7 @@ import {Orders} from '../../common/model/orders';
 })
 export class OrderService {
 
-  private orderUrl = 'https://posback.jcloud-ver-jpe.ik-server.com/lOrder';
+/*   private orderUrl = 'https://posback.jcloud-ver-jpe.ik-server.com/lOrder';
   private orderItemUrl = 'https://posback.jcloud-ver-jpe.ik-server.com/orderItem';
   private orders = 'https://posback.jcloud-ver-jpe.ik-server.com/allOrder';
   private cuisineOrder = 'https://posback.jcloud-ver-jpe.ik-server.com/orderPayes';
@@ -30,28 +30,28 @@ export class OrderService {
 
   private orderDetails = "https://posback.jcloud-ver-jpe.ik-server.com/ordersurplusI";
 
-  private orderTr = "https://posback.jcloud-ver-jpe.ik-server.com/ordersTr";
+  private orderTr = "https://posback.jcloud-ver-jpe.ik-server.com/ordersTr"; */
 
-  // private orderUrl = "http://localhost:8080/lOrder";
-  // private orderItemUrl = "http://localhost:8080/orderItem";
-  // private orders = "http://localhost:8080/allOrder";
-  // private cuisineOrder = "http://localhost:8080/orderPayes";
-  // private updateUrl = "http://localhost:8080/orders";
-  // private orderEn = "http://localhost:8080/orderEnCours";
-  // private ordersCaissierUrl = "http://localhost:8080/ordersCaissier";
-  // private orderDelivery = "http://localhost:8080/orderDelivery";
-  //
-  // private EnPrep = "http://localhost:8080/ordersEnPrep";
-  // private FinPrep = "http://localhost:8080/ordersFinPrep";
-  // private EncoursPrep = "http://localhost:8080/orderEnCuisson";
-  // private EncoursLivraison = "http://localhost:8080/orderEnLivraison";
-  //
-  // private EnLivraison  = "http://localhost:8080/ordersEnLivr";
-  // private FinLivraison = "http://localhost:8080/ordersFinLivr";
-  //
-  // private orderDetails = "http://localhost:8080/ordersurplusI";
-  //
-  // private orderTr = "http://localhost:8080/ordersTr";
+  private orderUrl = "http://localhost:8080/lOrder";
+  private orderItemUrl = "http://localhost:8080/orderItem";
+  private orders = "http://localhost:8080/allOrder";
+  private cuisineOrder = "http://localhost:8080/orderPayes";
+  private updateUrl = "http://localhost:8080/orders";
+  private orderEn = "http://localhost:8080/orderEnCours";
+  private ordersCaissierUrl = "http://localhost:8080/ordersCaissier";
+  private orderDelivery = "http://localhost:8080/orderDelivery";
+  
+  private EnPrep = "http://localhost:8080/ordersEnPrep";
+  private FinPrep = "http://localhost:8080/ordersFinPrep";
+  private EncoursPrep = "http://localhost:8080/orderEnCuisson";
+  private EncoursLivraison = "http://localhost:8080/orderEnLivraison";
+  
+  private EnLivraison  = "http://localhost:8080/ordersEnLivr";
+  private FinLivraison = "http://localhost:8080/ordersFinLivr";
+  
+  private orderDetails = "http://localhost:8080/ordersurplusI";
+  
+  private orderTr = "http://localhost:8080/ordersTr";
 
   constructor(private http: HttpClient) {}
 
