@@ -6,14 +6,20 @@
   z-index: 1050; /* Z-index pour le modal */
   left: 0;
   top: 0;
-  width: 100%; /* Largeur complète */
+  width: 1000px; /* Largeur complète */
   height: 100%; /* Hauteur complète */
-  overflow: hidden; /* Pas de défilement */
+  margin-left: 185px;
+ margin-top: 10px;
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+.modal-body{
+  height:100%;
+  width:  90%;  
+  overflow-y: scroll;
 }
 
 .modal-dialog {
-  max-width: 500px; /* Largeur maximale du modal */
+  max-width: 850px; /* Largeur maximale du modal */
   width: 100%; /* Largeur complète jusqu'à la largeur maximale */
   margin: 0; /* Supprime la marge par défaut */
 }

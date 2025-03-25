@@ -183,7 +183,7 @@ admin = 1;
     this.categoryService.listCategory().subscribe(
       res=>{
         this.categories = res;
-        console.log(this.categories);
+       // console.log(this.categories);
       }
     );
   }

@@ -29,7 +29,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
   getProducts():  Observable<any[]> {
-    console.log (this.http.get<any[]>(this.baseUrl));
+   // console.log (this.http.get<any[]>(this.baseUrl));
     return this.http.get<any[]>(this.baseUrl);
   }
 

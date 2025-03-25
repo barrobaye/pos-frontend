@@ -25,6 +25,7 @@ export class CaisseService {
       map(data => data )
     )
   }
+  
   listCaissier():Observable<Caissier>{
     return this.http.get<Caissier>(this.caisseUrl2);
   }
