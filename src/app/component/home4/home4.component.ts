@@ -16,6 +16,7 @@ import {OrderSurplus} from '../../common/orderSurplus';
 import {Purchase} from '../../common/purchase';
 import {response} from 'express';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ApiUrlService } from '../../core/api-url.service';
 
 @Component({
   selector: 'app-home4',
@@ -32,7 +33,9 @@ import { QRCodeModule } from 'angularx-qrcode';
 export class Home4Component implements OnInit{
 
   checkoutFormGroup:FormGroup;
-  constructor(private produitService:ProductService,private cartService:CartService,private formBuilder: FormBuilder,private router: Router,
+  constructor(  private productService: ProductService,
+    public apiUrlService: ApiUrlService,
+    private produitService:ProductService,private cartService:CartService,private formBuilder: FormBuilder,private router: Router,
               private checkoutService:CheckoutService) {
     this.checkoutFormGroup = this.formBuilder.group({
       // customer:this.formBuilder.group({

@@ -137,7 +137,7 @@
             <div class="card card-flush flex-row-fluid  mw-100">
 
               <div class="card-body text-center">
-                <img [src]="prod.imageUrl" class="rounded-3 " alt=""  width="200" height="250"/>
+                <img [src]="apiUrlService.getApiImageUrl + (prod.imageUrl)" class="rounded-3 " alt=""  width="200" height="250"/>
                 <div class="mb-2">
                   <div class="text-center">
                     <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ prod.name }}</span>

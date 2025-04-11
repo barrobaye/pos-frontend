@@ -1,25 +1,134 @@
 .modal {
-  display: flex; /* Utilise Flexbox pour centrer le contenu */
-  align-items: center; /* Centre verticalement */
-  justify-content: center; /* Centre horizontalement */
-  position: fixed; /* Position fixe */
-  z-index: 1050; /* Z-index pour le modal */
-  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
   top: 0;
-  width: 1000px; /* Largeur complète */
-  height: 100%; /* Hauteur complète */
-  margin-left: 185px;
- margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
 }
-.modal-body{
-  height:100%;
-  width:  90%;  
-  overflow-y: scroll;
+/* .btn-icon {
+  border: 2px solid red !important;
+} */
+/* i.ki-duotone {
+  border: 2px solid red !important;
+} */
+.modal-dialog {
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.image-preview-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+  border: 2px solid #ddd;
+margin-right: -22px;  
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    width: 95%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-dialog {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-dialog {
-  max-width: 850px; /* Largeur maximale du modal */
-  width: 100%; /* Largeur complète jusqu'à la largeur maximale */
-  margin: 0; /* Supprime la marge par défaut */
+  max-width: 80%;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 95%;
+  }
+}
+
+.image-input {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ddd;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.image-input input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }

@@ -186,198 +186,120 @@
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user" (click)="showAdd()">
                   <i class="ki-duotone ki-plus fs-2" style="color: white"></i><span style="color: white">Ajouter produit</span></button>
-                  <!--end::Add user-->
                 </div>
-                <div class="modal" tabindex="-1" *ngIf="addView">
-                  <div class="modal-dialog">
+                 <!--modal::Add user-->
+                <div class="modal show d-block" *ngIf="addView">
+                  <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 *ngIf="prod;else noProd">Update produit {{ prod.name }}</h5>
+                        <h5 *ngIf="prod; else noProd">Update produit {{ prod.name }}</h5>
                         <ng-template #noProd>
-                          <h5 class="modal-title">Creation de produit</h5>
+                          <h5 class="modal-title">Création de produit</h5>
                         </ng-template>
-                        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+                        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close">
+                          <i class="fa fa-times" aria-hidden="true"></i> </button>
                       </div>
                       <div class="modal-body">
-                        <form id="kt_modal_add_user_form" [formGroup]="produitForm"  enctype="multipart/form-data" >
-                          <!--begin::Scroll-->
-                          <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="d-block fw-semibold fs-6 ">Avatar</label>
-                              <!--end::Label-->
-                              <!--begin::Image placeholder-->
-                              <style>.image-input-placeholder { background-image: url('assets/images/f1.png'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
-                              <!--end::Image placeholder-->
-                              <!--begin::Image input-->
-                              <div class="image-input image-input-outline image-input-placeholder text-center" data-kt-image-input="true">
-                                <!--begin::Preview existing avatar-->
-
-                                <div class="image-input-wrapper w-125px h-125px" *ngIf="prod;else noImg" style="background-image: url({{ prod.imgUrl}})"></div>
-                                <ng-template #noImg>
-                                  <div class="image-input-wrapper w-125px h-125px"  style="background-image: url(../../assets/images/f1.png);"></div>
-                                </ng-template>
-                                <!--end::Preview existing avatar-->
-                                <!--begin::Label-->
-                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                  <i class="ki-duotone ki-pencil fs-7">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                  </i>
-                                  <!--begin::Inputs-->
-                                  <input type="file" formControlName="imageUrl" accept=".png, .jpg, .jpeg" (change)="onFileSelected1($event)"/>
-
-                                  <!--end::Inputs-->
+                        <form [formGroup]="produitForm">
+                          <div class="container-fluid">
+                            <div class="row mb-3">
+                              <div class="col-md-4 text-center">
+                                <!-- Label -->
+                                <div class="col-md-4 text-center">
+                                  <!-- Label -->
+                                  <label class="d-block fw-semibold fs-6">Avatar</label>
+                                 <div class="image-preview-container">
+                                      <img *ngIf="selectedImage" [src]="selectedImage" alt="Aperçu" class="image-preview">
+                                    </div>
+                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                      <i class="ki-duotone ki-pencil fs-7">
+                                        <span class="path1"></span>
+                                        <input type="file" formControlName="image" accept=".png, .jpg, .jpeg" (change)="onFileSelected1($event)" style="display:none;" />
+                                        <span class="path2"></span>
+                                      </i>
+                                    </label>
+                                  <div class="form-text">Formats autorisés: PNG, JPG, JPEG.</div>
+                                </div>                                
+                              </div>   
+                              <div class="col-md-8">
+                                <div class="mb-3">
+                                  <label class="form-label">Nom Produit</label>
+                                  <input type="text" class="form-control" placeholder="Nom produit" formControlName="name">
+                                </div>
+                
+                                <div class="mb-3">
+                                  <label class="form-label">Diminutif Produit</label>
+                                  <input type="text" class="form-control" placeholder="Diminutif produit" formControlName="sku">
+                                </div>
+                                
+                                <div class="mb-3">
+                                  <label class="form-label">Description Produit</label>
+                                  <input type="text" class="form-control" placeholder="Description produit" formControlName="description">
+                                </div>
+                              </div>
+                            </div>
+                
+                            <div class="row mb-3">
+                              <div class="col-md-6">
+                                <label class="form-label">Prix Produit</label>
+                                <input type="number" class="form-control" placeholder="Prix produit" formControlName="unitPrice">
+                              </div>
+                              
+                              <div class="col-md-6">
+                                <label class="form-label">Stock Disponible</label>
+                                <input type="number" class="form-control" placeholder="Stock produit" formControlName="unitStock">
+                              </div>
+                            </div>
+                
+                            <div class="row mb-3">
+                              <div class="col-md-6">
+                                <label class="form-label">Catégorie</label>
+                                <select class="form-select" formControlName="categoryId">
+                                  <option value="">Choisir une catégorie</option>
+                                  <ng-container *ngFor="let category of categories">
+                                    <option [value]="category.id">{{ category.categoryName }}</option>
+                                  </ng-container>
+                                </select>
+                              </div>
+                         <!-- Ajouter Surplus ou non -->
+                              <div class="col-md-6">
+                                <label class="form-label">
+                                  Ajouter un surplus
+                                  <button type="button" class="btn btn-sm btn-outline-primary" (click)="addInput()">+</button>
                                 </label>
-                                <!--end::Label-->
-                                <!--begin::Cancel-->
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																			<i class="ki-duotone ki-cross fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</span>
-                                <!--end::Cancel-->
-                                <!--begin::Remove-->
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-																			<i class="ki-duotone ki-cross fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</span>
-                                <!--end::Remove-->
-                              </div>
-                              <!--end::Image input-->
-                              <!--begin::Hint-->
-                              <div class="form-text">Types de fichiers autorisés: png, jpg, jpeg.</div>
-                              <!--end::Hint-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="row mb-7">
-                              <!-- Nom Produit -->
-                              <div class="col-md-6">
-                                <div class="fv-row">
-                                  <!--begin::Label-->
-                                  <label class="required fw-semibold fs-6 mb-2">Nom Produit</label>
-                                  <!--end::Label-->
-                                  <!--begin::Input-->
-                                  <input type="text" class="form-control form-control-solid mb-3 mb-lg-0" 
-                                         placeholder="Nom produit" formControlName="name" *ngIf="prod; else noName" 
-                                         [value]="prod.name"/>
-                                  <ng-template #noName>
-                                    <input type="text" class="form-control form-control-solid mb-3 mb-lg-0" 
-                                           placeholder="Nom produit" formControlName="name"/>
-                                  </ng-template>
-                                  <!--end::Input-->
-                                </div>
-                              </div>
-                              <!-- Diminutif Produit -->
-                              <div class="col-md-6">
-                                <div class="fv-row">
-                                  <!--begin::Label-->
-                                  <label class="required fw-semibold fs-6 mb-2">Diminutif Produit</label>
-                                  <!--end::Label-->
-                                  <!--begin::Input-->
-                                  <input type="text" class="form-control form-control-solid mb-3 mb-lg-0" 
-                                         placeholder="Diminutif produit" formControlName="sku"/>
-                                  <!--end::Input-->
+                                
+                                <div formArrayName="inputs">
+                                  <div *ngFor="let input of inputs.controls; let i = index" [formGroupName]="i" class="d-flex gap-2 align-items-center mb-2">
+                                    <input class="form-control" formControlName="name" placeholder="Nom supplément">
+                                    <input class="form-control" type="number" formControlName="price" placeholder="Prix supplément"> 
+                                    <!-- Bouton de suppression dans chaque ligne -->
+                                    <button type="button" class="btn btn-danger btn-sm" (click)="removeInput(i)">-</button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                        <div class="row mb-7">
-                         <div class="col-md-6">
-                            <div class="fv-row">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Description Produit</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <input type="text" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Nom produit" formControlName="description" />
-                              <!--end::Input-->
-                            </div>
+                          <!-- End  Surplus ou non -->
                           </div>
-                          <div class="col-md-6">
-                            <div class="fv-row">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Prix Produit</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <input type="number"  class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Prix produit" formControlName="unitPrice" />
-                              <!--end::Input-->
-                            </div>
+                          <div class="text-center pt-3">
+                            <button type="reset" class="btn btn-light me-3">Annuler</button>
+                            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Valider</button>
                           </div>
-                        </div>
-                        <div class="row mb-7">
-                        <div class="col-md-6">
-                            <div class="fv-row " formGroupName="category">
-                              <label class="required fw-semibold fs-6 mb-2">Catégorie</label>
-                              <select class="form-select form-select required fw-semibold fs-6 mb-2"
-                                      formControlName ="categoryId">
-                                <option value="">Choisir un category</option>
-                                <ng-container *ngFor="let category of categories" >
-                                  <option  [value]="category.id">{{ category.categoryName }}</option>
-                                </ng-container>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="fv-row">
-                              <label class="required fw-semibold fs-6 mb-2">Ajouter un surplus<button type="button" (click)="addInput()">+</button> </label>
-                              <div formArrayName="inputs">
-                                <div *ngFor="let input of inputs.controls; let i = index" [formGroupName]="i" class="d-flex justify-content-center mb-2">
-                                  <input class="form-control form-control-solid mx-2" formControlName="name" placeholder="Entrez le suppleant" />
-                                  <input class="form-control form-control-solid " type="number" formControlName="price" placeholder="Entrez le prix" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                              <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Stock Produit Disponible</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <input type="number" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0"
-                                     placeholder="Nombre de produit disponible" formControlName="unitStock"/>
-                              <!--end::Input-->
-                            </div>
-
-
-
-
-                          </div>
-                          <!--end::Scroll-->
-                          <!--begin::Actions-->
-                          <div class="text-center pt-10">
-                            <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
-                            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-                              <span class="indicator-label">Valider</span>
-
-                            </button>
-                          </div>
-                          <!--end::Actions-->
                         </form>
                       </div>
-
                     </div>
                   </div>
-                </div>
-
-
+                </div>    
                 <div class="modal" tabindex="-1" *ngIf="upView">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 *ngIf="prod;else noProd">Update produit {{ prod.name }}</h5>
                         <ng-template #noProd>
-                          <h5 class="modal-title">Creation de produit</h5>
+                          <h5 class="modal-title">Update Produit</h5>
                         </ng-template>
                         <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-
-                          <!--begin::Scroll-->
                           <div class="d-flex flex-column  px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                             <!--begin::Input group-->
                             <div class="fv-row mb-7">
@@ -410,10 +332,8 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-7">
                               <!--begin::Label-->
-
                               <label class="required fw-semibold fs-6 mb-2">Nom Produit</label>
                               <h5 class="form-control form-control-solid mb-3 mb-lg-0">{{ prod.name }}</h5>
-
                             </div>
                             <div class="fv-row mb-7">
                               <!--begin::Label-->
@@ -486,76 +406,52 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title">Creation de category</h5>
-                          <button type="button" class="btn-close" (click)="closeCategory()" aria-label="Close"></button>
+                          <button type="button" class="btn-close" (click)="closeCategory()" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                          </button>
                         </div>
                         <div class="modal-body">
                           <form id="kt_modal_add_user_form"  class="form" enctype="multipart/form-data" [formGroup]="categoryForm" >
-                            <!--begin::Scroll-->
                             <div class="d-flex flex-column scroll-y px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-                              <!--begin::Input group-->
                               <div class="fv-row mb-7">
-                                <!--begin::Label-->
                                 <label class="d-block fw-semibold fs-6 mb-5">Avatar</label>
-                                <!--end::Label-->
-                                <!--begin::Image placeholder-->
-                                <style>.image-input-placeholder { background-image: url('assets/images/f1.png'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
-                                <!--end::Image placeholder-->
-                                <!--begin::Image input-->
+                                 <!-- Cercle pour afficher l'image -->
+                                    <div class="image-preview-container">
+                                      <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="Aperçu" class="image-preview">
+                                    </div>
+                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                <i class="ki-duotone ki-pencil fs-7">
+                                  <span class="path1"></span>
+                                  <input type="file" formControlName="imgUrl" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" style="display:none; visibility:hidden;" />
+                                  <span class="path2"></span>
+                                </i>
+                              </label>
+                              <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                <i class="ki-duotone ki-cross fs-2">
+                                  <span class="path1"></span>
+                                  <span class="path2"></span>
+                                </i>
+                              </span> 
+                              <!--   <style>.image-input-placeholder { background-image: url('assets/images/f1.png'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
                                 <div class="image-input image-input-outline image-input-placeholder text-center" data-kt-image-input="true">
-                                  <!--begin::Preview existing avatar-->
                                   <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/images/f1.png);"></div>
-                                  <!--end::Preview existing avatar-->
-                                  <!--begin::Label-->
-                                  <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                    <i class="ki-duotone ki-pencil fs-7">
-                                      <span class="path1"></span>
-                                      <span class="path2"></span>
-                                    </i>
-                                    <!--begin::Inputs-->
-                                    <input type="file" formControlName="imgUrl" accept=".png, .jpg, .jpeg" (change)="onFileSelected($event)" />
-
-                                    <!--end::Inputs-->
-                                  </label>
-                                  <!--end::Label-->
-                                  <!--begin::Cancel-->
-                                  <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																			<i class="ki-duotone ki-cross fs-2">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																			</i>
-																		</span>
-                                  <!--end::Cancel-->
-                                  <!--begin::Remove-->
-
-                                </div>
-                                <!--end::Image input-->
-                                <!--begin::Hint-->
+                                </div>  -->   
                                 <div class="form-text" *ngIf="imageCategory;else noImage;">
                                   {{ imageCategory.name }}
                                 </div>
                                 <ng-template #noImage>
                                   <div class="form-text">Types de fichiers autorisés: png, jpg, jpeg.</div>
                                 </ng-template>
-                                <!--end::Hint-->
-                              </div>
-                              <!--end::Input group-->
-                              <!--begin::Input group-->
-                              <div class="fv-row mb-7">
-                                <!--begin::Label-->
+                              </div>     
+                              </div> 
+                              <div class="fv-row mb-7"> 
                                 <label class="required fw-semibold fs-6 mb-2">Nom category</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Nom category" formControlName="categoryName" />
-                                <!--end::Input-->
                               </div>
-                              <!--end::Input group-->
-                            </div>
-                            <!--end::Scroll-->
-                            <!--begin::Actions-->
                             <div class="text-center pt-10">
-                              <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+                              <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Annuler</button>
                               <button type="submit" class="btn btn-primary" (click)="onSubmit1()">
-                                Creer category
+                                Crée Categorie
                               </button>
                             </div>
                             <!--end::Actions-->
@@ -580,11 +476,9 @@
                     <td class="d-flex align-items-center">
                       <!--begin:: Avatar -->
                       <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-
                           <div class="symbol-label">
-                            <img [src]="produits.imageUrl" alt="Emma Smith" class="w-100" />
+                            <img [src]="'http://localhost:8080' + produits.imageUrl" alt="Emma Smith" class="w-100" />
                           </div>
-
                       </div>
                       <!--end::Avatar-->
                       <!--begin::User details-->
@@ -602,7 +496,7 @@
                       <div class=" badge-light-success fw-bold" >Disponible</div>
                     </td>
                     <td>
-                      <div class="justify-content-center"> {{ produits.categoryDTO.categoryName }}</div>
+                      <div class="justify-content-center"> {{ produits.category?.categoryName || '—' }}</div>
                     </td>
                     <td class="align-content-center">
                       {{ produits.dateCreated | date }}

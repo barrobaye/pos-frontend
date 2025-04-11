@@ -13,6 +13,7 @@ import {Admin} from '../../../common/admin';
 import {Surplus} from '../../../common/surplus';
 import {ProductSup} from '../../../common/productSup';
 
+
 @Component({
   selector: 'app-produits',
   standalone: true,
@@ -32,7 +33,58 @@ export class ProduitsComponent implements OnInit{
   produitForm!:FormGroup;
   categoryForm!:FormGroup;
   inputs!: FormArray;
+  selectedImageUrl: string | null = null;
 
+
+  ngOnInit() {
+    this.listProduits();
+    this.listCategory();
+  }
+//Parti Catégorie
+  categories!:any;
+  listCategory(){
+    this.categoryService.listCategory().subscribe(
+      res=>{
+        this.categories = res;
+        console.log(this.categories); 
+      }
+    );
+  }
+  onSubmit1() {
+    let formData = new FormData();
+    formData.append('categoryName', this.categoryForm.controls['categoryName'].value);
+    formData.append('image', this.imageCategory);
+
+    this.categoryService.saveCategory(formData).subscribe(
+      {
+        next:response=>{
+          alert(`Category ${this.categoryForm.value['categoryName']} est bien cree`);
+          this.categoryForm.reset();
+          this.addCategory = false;
+          window.location.reload();
+        },
+        error:err=>{
+          alert(`Quelque chose n'a pas marche : ${err.message}`)
+        }
+      }
+    )
+    console.log(formData);
+  }
+  imageCategory!:File;
+  onFileSelected(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.imageCategory = fileInput.files[0];
+  
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectedImageUrl = e.target.result;
+      };
+      reader.readAsDataURL(this.imageCategory);
+    }
+  }
+
+// End Categorie
   constructor(private produitService:ProductService,
               private formBuilder:FormBuilder,private categoryService:CategoryService,
               private authService:AdminService)  {
@@ -42,69 +94,57 @@ export class ProduitsComponent implements OnInit{
         imgUrl:[]
     });
     this.produitForm = this.formBuilder.group({
-          sku:[],
-          name:[],
-          description:[],
-          unitPrice:[],
-          unitStock:[],
-          imageUrl:[],
-          admin:this.formBuilder.group({
-            login:[this.authService.getLoginA()]
-          }),
-          category:this.formBuilder.group({
-            categoryId:[]
-          }),
-          inputs: this.formBuilder.array([this.createInput()])
-
+      sku: [''],
+      name: [''],
+      description: [''],
+      unitPrice: [0],
+      unitStock: [0],
+      image: [null], // doit correspondre au formControlName dans le HTML
+    
+      categoryId: [null], // à plat comme dans <select>
+  
+  // Pas besoin d'un formGroup pour admin, juste récupérer le login directement
+  admin: [this.authService.getLoginA() || '1'], // Login par défaut '1'
+      inputs: this.formBuilder.array([this.createInput()])
     });
+  
     this.inputs = this.produitForm.get('inputs') as FormArray;
   }
 
 
-  addInput() {
-    this.inputs.push(this.createInput());
-  }
-  createInput(): FormGroup {
-    return this.formBuilder.group({
-      price: [0],
-      name:['']
-    });
-  }
+//touch01
 
-  imageCategory!:File;
-  onFileSelected(event: Event) {
+
+
+//touch01
+
+/*   onFileSelected(event: Event) {
     const fileInput:any  = event.target as HTMLInputElement;
     if (fileInput.files.length > 0) {
       this.imageCategory = fileInput.files[0];
 
     }
-  }
-  imageProduit!:File;
-  onFileSelected1(event: Event) {
-    const fileInput:any  = event.target as HTMLInputElement;
-    if (fileInput.files.length > 0) {
+  } */
+  imageProduit!: File;
+  selectedImage: string | null = null;
+  
+  onFileSelected1(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+  
+    if (fileInput.files && fileInput.files.length > 0) {
       this.imageProduit = fileInput.files[0];
-
+  
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.selectedImage = e.target.result; // Mise à jour de l'aperçu de l'image
+      };
+      reader.readAsDataURL(this.imageProduit);
     }
   }
 
 
-
-admin = 1;
-  onSubmit(){
-      // let formData = new FormData();
-      // formData.append('sku',this.produitForm.value['sku']);
-      // formData.append('name',this.produitForm.value['name']);
-      // formData.append('description',this.produitForm.value['description']);
-      // formData.append('unitPrice',this.produitForm.value['unitPrice']);
-      // formData.append('unitStock',this.produitForm.value['unitStock']);
-      // formData.append('image',this.imageProduit);
-      // formData.append('categoryId',this.produitForm.value['categoryId']);
-      // formData.append('adminId',this.admin);
-
-
-    // let Product
-    //
+//admin = 1;
+ /*  onSubmit(){
       let product = new Product();
       product.sku = this.produitForm.value['sku'];
       product.name = this.produitForm.value['name'];
@@ -142,7 +182,7 @@ admin = 1;
     formData.append('productSup', new Blob([JSON.stringify(productSup)], { type: 'application/json' }));
     formData.append('imageP',this.imageProduit);
       console.log(productSup);
-      this.produitService.createProduct(formData).subscribe(
+      this.produitService.saveProduct(formData).subscribe(
         {
           next:response=>{
             alert(`Produit ${name} ajoute avec succe`);
@@ -156,44 +196,15 @@ admin = 1;
         }
       )
 
-  }
+  } */
 
-  onSubmit1() {
-    let formData = new FormData();
-    formData.append('categoryName', this.categoryForm.controls['categoryName'].value);
-    formData.append('image', this.imageCategory);
 
-    this.categoryService.saveCategory(formData).subscribe(
-      {
-        next:response=>{
-          alert(`Category ${this.categoryForm.value['categoryName']} est bien cree`);
-          this.categoryForm.reset();
-          this.addCategory = false;
-          window.location.reload();
-        },
-        error:err=>{
-          alert(`Quelque chose n'a pas marche : ${err.message}`)
-        }
-      }
-    )
-    console.log(formData);
-  }
-  categories!:any;
-  listCategory(){
-    this.categoryService.listCategory().subscribe(
-      res=>{
-        this.categories = res;
-       // console.log(this.categories);
-      }
-    );
-  }
 
+ 
+//modal
   addView = false;
   addCategory = false;
-  ngOnInit() {
-    this.listProduits();
-    this.listCategory();
-  }
+
 
   showCategory(){
     this.addCategory = true;
@@ -203,22 +214,99 @@ admin = 1;
   }
   showAdd(){
     this.addView = true;
-  }
+  } 
+  showUp(){
+    this.upView = true;
+  } 
 
   closeModal(){
     this.addView = false;
     this.upView = false;
     this.produitForm.reset();
   }
+   //End Modal
 
-
+//produits
   listProduits(){
     this.produitService.getProducts().subscribe(
       res=>{
       this.products = res;
-     // console.log(this.products);
+      console.log(this.products);
       }
     )
+  }
+
+  onSubmit() {
+    // Création du FormData
+    const formData = new FormData();
+    const formValue = this.produitForm.value;
+
+       // Récupère le login directement via l'authService (ou '1' par défaut si aucun login n'est trouvé)
+  const adminLogin = this.authService.getLoginA() || '1L'; 
+
+  // Ajoute le login dans le FormData sans avoir besoin de l'input caché
+  formData.append('admin', adminLogin);
+    // Ajout des champs du produit
+    formData.append('name', this.produitForm.value['name']);
+    formData.append('sku', this.produitForm.value['sku']);
+    formData.append('description', this.produitForm.value['description']);
+    formData.append('unitPrice', this.produitForm.value['unitPrice']);
+    formData.append('unitStock', this.produitForm.value['unitStock']);
+    formData.append('categoryId', this.produitForm.value.categoryId);
+    //formData.append('active', this.produitForm.value.active);
+  
+
+  /*   const categoryId = typeof formValue.categoryId === 'object'
+    ? formValue.categoryId?.id
+    : formValue.categoryId;
+  
+  if (categoryId) {
+    formData.append('categoryId', categoryId.toString());
+  } */
+
+    // Image
+  if (this.imageProduit) {
+    formData.append('image', this.imageProduit, this.imageProduit.name);
+  } else {
+    alert('Veuillez sélectionner une image');
+    return;
+  }
+    // Ajout de l'image
+   /*  if (this.imageProduit) {
+      formData.append('image', this.imageProduit, this.imageProduit.name);
+    } */
+  
+    // Ajout des surplus
+    const inputs = this.produitForm.value.inputs;
+    for (let i = 0; i < inputs.length; i++) {
+      formData.append('surplusNames', inputs[i].name);
+      formData.append('surplusPrices', inputs[i].price);
+    }
+   //voir les donnés avant l'envoi   
+    // ===== LOGGING COMPLET =====
+    console.log('FormData contents:');
+    formData.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+    });
+
+    // Envoi au service
+    this.produitService.saveProduct(formData).subscribe({
+      next: (response) => {
+        alert(`Produit ${this.produitForm.value['name']} ajouté avec succès`);
+        this.produitForm.reset();
+        this.addView = false;
+        this.listProduits(); // Rafraîchir la liste au lieu de reload
+      },
+      error: (err) => {
+       // alert(`Erreur lors de l'ajout: ${err.error.message || err.message}`);
+       console.error('Erreur détaillée:', err);
+       if (err.error) {
+         console.error('Corps de l\'erreur:', err.error);
+       }
+       alert(`Erreur lors de l'ajout: ${err.error?.message || err.message}`);
+     }
+      
+    });
   }
 
   deleteProd(id:any){
@@ -248,7 +336,6 @@ admin = 1;
           this.prod = res;
           this.name = res.name;
         // console.log(this.prod);
-
           this.produitForm = this.formBuilder.group({
                imageUrl:[this.prod.imageUrl],
               name:[this.prod.name],
@@ -272,5 +359,23 @@ admin = 1;
       )
     }
   }
+
+  // Start champ surplus
+  addInput() {
+    this.inputs.push(this.createInput());
+  }
+  createInput(): FormGroup {
+    return this.formBuilder.group({
+      price: [0],
+      name:['']
+    });
+  }
+  removeInput(index: number) {
+  if (this.inputs.length > 1) { // Évite de supprimer tous les champs
+    this.inputs.removeAt(index);
+  }
+}
+
+// EnD champ surplus
 
 }

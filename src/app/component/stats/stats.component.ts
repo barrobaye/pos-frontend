@@ -45,15 +45,12 @@ export class StatsComponent implements OnInit{
         // }, 0);
 
         console.log(this.orders);
-
         this.totalOrder = this.orders.length;
-
       },
       error:err=>{
         alert("Quelque chose ne marche pas ressayer")
       }
     });
-
 
   }
 

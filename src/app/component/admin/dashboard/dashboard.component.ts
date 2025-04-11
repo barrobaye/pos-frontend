@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit{
         console.log(this.admin);
       }
     )
-
+      
     this.orderService.listOrders().subscribe(
       res=>{
         this.orders = res;
