@@ -1,0 +1,98 @@
+<meta http-equiv="refresh" content="300">
+<div class="background">
+
+  <div class="card1 mt-5" >
+    <div class="heading_container heading_center">
+      <img src="assets/feane/images/Art.png" alt="" class="img-fluid w-100px">
+      <h2>
+        Notre menu des livraisons
+      </h2>
+    </div>
+
+
+
+    <div class="row" *ngIf="ordersDelivery;else noOrdersDelivery">
+      <h4>Commande Disponibles</h4>
+      <ng-container *ngFor="let order of ordersDelivery">
+        <div class="col-md-5 col-sm-6 mb-3"> <!-- Ajustez les classes pour définir le nombre d'éléments par ligne -->
+          <div class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4" >
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-start">
+                <img src="https://www.pixcrafter.com/wp-content/uploads/2023/05/vector-delivery-boy-illustration.jpg" class="img-fluid rounded-start w-80px" alt="...">
+                <div class="row align-items-center">
+                  <div class="d-flex justify-content-between">
+                    <div class="col-auto">
+                      <h6 class="text-primary mb-0">Commande N°{{ order.orderTrackingNumber }}</h6>
+                    </div>
+                    <div class="col-auto">
+                      <p class="text-primary mb-0">{{ order.totalPrice }} FCFA ( {{ order.totalQuantity }} produit(s))</p>
+                    </div>
+
+
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="d-flex justify-content-between">
+                    <div class="col-auto">
+                      <p class="mb-0">{{ order.dateCreated | date }}</p>
+                    </div>
+                    <div class="col-auto">
+                      <button class="btn-success mb-0" (click)="submit(order.id)" style="border-radius: 5px;">Prendre</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <h4>Commande En cours de livraison</h4>
+      <ng-container *ngFor="let order of ordersDeliv">
+        <div class="col-md-5 col-sm-6 mb-3"> <!-- Ajustez les classes pour définir le nombre d'éléments par ligne -->
+          <div class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4" >
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-start">
+                <img src="https://www.pixcrafter.com/wp-content/uploads/2023/05/vector-delivery-boy-illustration.jpg" class="img-fluid rounded-start w-80px" alt="...">
+                <div class="row align-items-center">
+                  <div class="d-flex justify-content-between">
+                    <div class="col-auto">
+                      <h6 class="text-primary mb-0">Commande N°{{ order.orderTrackingNumber }}</h6>
+                    </div>
+                    <div class="col-auto">
+                      <p class="text-primary mb-0">{{ order.totalPrice }} FCFA ( {{ order.totalQuantity }} produit(s))</p>
+                    </div>
+
+
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="d-flex justify-content-between">
+                    <div class="col-auto">
+                      <p class="mb-0">{{ order.dateCreated | date }}</p>
+                    </div>
+                    <div class="col-auto">
+                      <button class="btn-success mb-0" (click)="submit2(order.id)" style="border-radius: 5px;">Livrais</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <ng-template #noOrdersDelivery>
+      <h3> Pas de commandes disponibles</h3>
+    </ng-template>
+
+
+
+
+
+
+
+  </div>
+</div>

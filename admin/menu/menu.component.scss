@@ -1,0 +1,29 @@
+.sidebar {
+  width: 120px; /* Définir la largeur de la sidebar */
+  height: 100%; /* Prendre toute la hauteur de l'écran */
+  position: fixed; /* Fixer la sidebar sur le côté */
+  left: 0; /* Alignement à gauche */
+  top: 0; /* Alignement en haut */
+  /* Couleur de fond */
+  border-right: 1px none #ccc;
+  background-color: #f4f4f4;/* Bordure droite */
+  overflow-y: auto; /* Défilement vertical si nécessaire */
+}
+
+.sidebar-header {
+  padding: 10px; /* Espacement en haut */
+  border-bottom: 1px none #ccc; /* Bordure inférieure */
+}
+
+.sidebar-body {
+  flex: 1; /* Prendre tout l'espace disponible */
+  overflow-y: auto; /* Défilement vertical si nécessaire */
+  padding: 20px; /* Espacement dans le corps */
+}
+
+.sidebar-footer {
+  background-color: #f9f9f9; /* Couleur de fond du footer */
+  border-top: 1px none #ccc; /* Bordure supérieure */
+  padding: 10px; /* Espacement en bas */
+  text-align: center; /* Alignement du texte */
+}

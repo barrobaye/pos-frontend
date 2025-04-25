@@ -1,0 +1,171 @@
+.option {
+  background-color: #f9a825;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.option i {
+  margin-top: 50px;
+  font-size: 100px;
+  align-content: center;
+}
+
+.modal {
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  z-index: 1050; /* Z-index pour le modal */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  overflow: hidden; /* Pas de défilement */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.modal-dialog {
+  max-width: 700px; /* Largeur maximale du modal */
+  width: 100%; /* Largeur complète jusqu'à la largeur maximale */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+.modal-footer {
+  justify-content: space-between;
+}
+.btn-prim {
+  background-color: #00A261;
+  border-color: #00A261;
+  border-radius: 20px;
+  padding: 10px 20px;
+
+  color: whitesmoke;
+}
+
+.btn-prim2 {
+  background-color: #0c5460;
+  border-color: #0c5460;
+  border-radius: 20px;
+  padding: 10px 20px;
+
+  color: whitesmoke;
+}
+.btn-second {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: 20px;
+  color: whitesmoke;
+  font-size:25px;
+}
+.btn-link2 {
+  background-color: #00b2ff;
+  border-color: #00b2ff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: whitesmoke;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.custom-checkbox {
+  position: absolute;
+  opacity: 0; /* Rendre la case à cocher invisible */
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+}
+.custom-checkbox:checked + .card-body {
+  background-color: #f0f8ff; /* Couleur de fond lorsque la case est cochée */
+  border-color: #007bff; /* Couleur de bordure lorsque cochée */
+}
+
+body {
+  background-color: #1b84ff;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  margin: 0;
+}
+.card-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  height: 1990px;
+}
+
+.btn-cancel {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 35%;
+  font-size: 20px;
+}
+
+.btn-custom {
+  width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: none;
+}
+.btn-custom i {
+  font-size: 40px;
+  color: black;
+}
+.btn-custom p {
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+}
+
+.btn-group-toggle .btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 1.5rem;
+}
+.btn-group-toggle .btn.active {
+  background-color: #000;
+  color: #fff;
+}
+.btn-group-toggle .btn:not(.active) {
+  background-color: #d3d3d3;
+  color: #000;
+}
+.btn-group-toggle input[type="radio"] {
+  display: none;
+}
+
+.btn-cancel {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.checklist-item i {
+  color: #f0c419;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.checklist-item span {
+  text-align: left;
+  display: inline-block;
+}

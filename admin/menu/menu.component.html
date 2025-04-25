@@ -1,0 +1,88 @@
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="aside-logo flex-column-auto pt-10 pt-lg-20" id="kt_aside_logo">
+      <img alt="Logo" ngSrc="assets/essamai/images/logo/logo.png" class="h-100px" width="384" height="319">
+    </div>
+    <!-- Bouton de fermeture de la sidebar (si nécessaire) -->
+    <!-- <button type="button" class="btn-close" aria-label="Close" onclick="toggleSidebar()"></button> -->
+  </div>
+
+  <div class="sidebar-body mx-auto">
+    <div class="row">
+      <div class="col mb-2 mt-5">
+        <div [ngClass]="{'border-active-primary': selectedValue1 === '0', 'btn-active-light-primary': selectedValue1 === '0', 'active': selectedValue1 === '0'}" data-kt-button="true" (click)="activateLabel('0')">
+          <button type="button" class="btn btn-light" style="border-radius: 15px">
+            <span class="menu-link menu-center">
+              <span class="menu-icon me-0">
+                <i class="ki-duotone ki-home-2 fs-2x">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="col mb-2 mt-5">
+        <div [ngClass]="{'border-active-primary': selectedValue1 === '1', 'btn-active-light-primary': selectedValue1 === '1', 'active': selectedValue1 === '1'}" data-kt-button="true" (click)="activateLabel('1')">
+          <button type="button" class="btn btn-light" style="border-radius: 15px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20">
+              <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                <path d="M5 9a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm0 1a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/>
+                <path d="M3.854 8.896a.5.5 0 0 1 0 .708l-.338.337A3.47 3.47 0 0 0 2.5 12.394v1.856a.5.5 0 1 1-1 0v-1.856a4.47 4.47 0 0 1 1.309-3.16l.337-.338a.5.5 0 0 1 .708 0Zm11.792-.3a.5.5 0 0 0 0 .708l.338.337A3.469 3.469 0 0 1 17 12.094v2.156a.5.5 0 0 0 1 0v-2.156a4.47 4.47 0 0 0-1.309-3.16l-.337-.338a.5.5 0 0 0-.708 0Z"/>
+                <path d="M14 9a2 2 0 1 1 0-4a2 2 0 0 1 0 4Zm0 1a3 3 0 1 1 0-6a3 3 0 0 1 0 6Zm-4.5 3.25a2.5 2.5 0 0 0-2.5 2.5v1.3a.5.5 0 0 1-1 0v-1.3a3.5 3.5 0 0 1 7 0v1.3a.5.5 0 1 1-1 0v-1.3a2.5 2.5 0 0 0-2.5-2.5Z"/>
+                <path d="M9.5 11.75a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm0 1a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+
+
+
+      <div class="col mt-5">
+        <div [ngClass]="{'border-active-primary': selectedValue1 === '2', 'btn-active-light-primary': selectedValue1 === '2', 'active': selectedValue1 === '2'}" data-kt-button="true" (click)="activateLabel('2')">
+          <button type="button" class="btn btn-light" style="border-radius: 15px">
+            <span class="menu-link menu-center">
+              <span class="menu-icon me-0">
+                <i class="ki-duotone ki-notification-status fs-2x">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                  <span class="path3"></span>
+                  <span class="path4"></span>
+                </i>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="col mt-5">
+        <div [ngClass]="{'border-active-primary': selectedValue1 === '3', 'btn-active-light-primary': selectedValue1 === '3', 'active': selectedValue1 === '3'}" data-kt-button="true" (click)="activateLabel('3')">
+          <button type="button" class="btn btn-light" style="border-radius: 15px">
+            <span class="menu-link menu-center">
+              <span class="menu-icon me-0">
+                <i class="ki-duotone ki-abstract-26 fs-2x">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-footer position-absolute bottom-0 start-50 translate-middle-x">
+    <!-- Ajout d'un bouton en tant que footer -->
+    <button type="button" class="btn btn-light" (click)="logOut()">
+      <i class="ki-duotone ki-entrance-left fs-2x">
+        <span class="path1"></span>
+        <span class="path2"></span>
+      </i>
+    </button>
+  </div>
+</div>

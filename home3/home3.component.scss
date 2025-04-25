@@ -1,0 +1,315 @@
+//body {
+//  font-family: Arial, sans-serif;
+//  background-color: #f8f8f8;
+//}
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  width: 250px;
+  border-right: 1px solid #ddd;
+}
+.sidebar img {
+  width: 100%;
+  border-radius: 10px;
+}
+.sidebar .nav-link {
+  color: #000;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.sidebar .nav-link.active {
+  background-color: #ffcc00;
+  border-radius: 5px;
+}
+.content {
+  margin-left: 270px;
+  padding: 20px;
+}
+.content h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+.content .btn-group .btn {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+}
+.content .btn-group .btn.active {
+  background-color: #ffcc00;
+}
+.menu-card {
+  background-color: #ff5722; /* Couleur orange */
+  color: #fff;
+  border: none;
+  margin-bottom: 20px; /* Espace entre la carte et le groupe de boutons */
+  border-radius: 10px; /* Arrondir les coins */
+}
+.menu-card h1 {
+  margin: 0; /* Supprimer la marge par défaut */
+  font-size: 36px; /* Taille du texte */
+}
+//.card {
+//  border: none;
+//  border-radius: 10px;
+//  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+//  margin-bottom: 20px;
+//}
+//.card img {
+//  border-top-left-radius: 10px;
+//  border-top-right-radius: 10px;
+//}
+//.card-body {
+//  text-align: center;
+//}
+//.card-body h5 {
+//  font-size: 18px;
+//  font-weight: bold;
+//}
+//.card-body p {
+//  font-size: 16px;
+//  color: #ff5722;
+//}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .btn {
+  background-color: #007a51;
+  color: whitesmoke;
+  font-weight: bold;
+  border: none;
+}
+.footer .total {
+  font-size: 18px;
+  font-weight: bold;
+}
+.footer .flags img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.product-grid .card {
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+}
+
+.product-grid .card:hover,
+.product-grid .card.active {
+  background-color: #e0f7fa; /* Couleur de fond lors du survol ou clic */
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product-grid .card {
+  margin-bottom: 20px;
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+body {
+  background-color: #1b84ff;
+  font-family: 'Arial', sans-serif;
+
+  width: 100%;
+  margin: 0;
+
+}
+.card-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  height: 1990px;
+}
+
+.btn-cancel {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 20%;
+}
+.btn1{
+  background-color: #000;color: #fff;border: none;
+  width: 50px;height: 50px;display: flex;align-items: center;justify-content: center;font-size: 20px;
+}
+
+.ipn1{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: none;
+  margin: 0 5px;
+}
+
+.add-to-cart {
+  background-color: #00A261;
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart1 {
+  background-color: #f39c12;
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tot{
+  color: #fff;
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+
+.scrollable-row {
+  display: flex; /* Aligne les cartes horizontalement */
+  overflow-x: auto; /* Active le défilement horizontal */
+  gap: 1rem; /* Ajoute un espacement entre les cartes */
+  padding: 10px; /* Espacement interne */
+  scrollbar-width: none; /* Pour les navigateurs compatibles */
+}
+
+.scrollable-row::-webkit-scrollbar {
+  height: 8px; /* Hauteur de la barre de défilement */
+}
+
+.scrollable-row::-webkit-scrollbar-thumb {
+  background: #0a6aa1; /* Couleur de la barre */
+  border-radius: 10px; /* Arrondi de la barre */
+}
+
+.scrollable-row::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Couleur de la piste */
+}
+
+.card1 {
+  flex: 0 0 auto; /* Empêche les cartes de rétrécir ou de s'agrandir */
+  transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.card1:hover {
+  transform: scale(1.05); /* Agrandit légèrement la carte au survol */
+}
+
+.option {
+  background-color: #f9a825;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.option i {
+  margin-top: 50px;
+  font-size: 100px;
+  align-content: center;
+}
+
+.option2 {
+  background-color: #007a51;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+.option2 i {
+  margin-top: 10px;
+  font-size: 50px;
+  align-content: center;
+}
+
+
+
+
+.card-body {
+  position: relative; /* Positionner le label par rapport à la carte */
+  padding: 1rem; /* Espacement autour du contenu de la carte */
+  border: 1px solid #ddd; /* Bordure de la carte */
+  border-radius: 0.5rem; /* Coins arrondis */
+  transition: background-color 0.3s; /* Transition pour le changement de couleur */
+}
+.custom-checkbox {
+  position: absolute;
+  opacity: 0; /* Rendre la case à cocher invisible */
+  cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+}
+.custom-checkbox:checked + .card-body {
+  background-color: #f0f8ff; /* Couleur de fond lorsque la case est cochée */
+  border-color: #007bff; /* Couleur de bordure lorsque cochée */
+}
+
+.card-body:hover {
+  background-color: #f9f9f9; /* Couleur de fond au survol */
+}
+.btn-group-toggle .btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 1.5rem;
+}
+.btn-group-toggle .btn.active {
+  background-color: #000;
+  color: #fff;
+}
+.btn-group-toggle .btn:not(.active) {
+  background-color: #d3d3d3;
+  color: #000;
+}
+.btn-group-toggle input[type="radio"] {
+  display: none;
+}
+
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.checklist-item i {
+  color: #f0c419;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.checklist-item span {
+  text-align: left;
+  display: inline-block;
+}

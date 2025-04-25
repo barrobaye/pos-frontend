@@ -1,0 +1,131 @@
+.ct {
+  background-color: #333;
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+.order-card {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+.order-header {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.order-body {
+  padding: 10px;
+  flex-grow: 1;
+}
+.order-footer {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+.order-footer button {
+  width: 100%;
+}
+.order-header .badge {
+  font-size: 1rem;
+}
+.order-header .time {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.order-header .details {
+  font-size: 0.9rem;
+}
+.order-header .icon {
+  font-size: 1.2rem;
+}
+.order-header .icon i {
+  margin-right: 5px;
+}
+.order-header .icon img {
+  width: 20px;
+  height: 20px;
+}
+.order-header .status {
+  font-size: 0.8rem;
+}
+.order-header .status i {
+  margin-right: 5px;
+}
+.order-header .status .badge {
+  font-size: 0.8rem;
+}
+.order-body .section-title {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.order-body .item {
+  margin-left: 10px;
+}
+.order-body .item .note {
+  font-size: 0.8rem;
+  color: #888;
+}
+.navbar {
+  background-color: #444;
+  padding: 10px;
+}
+.navbar .nav-item {
+  color: #fff;
+  margin-right: 20px;
+}
+//.navbar .nav-item i {
+//  //margin-right: 5px;
+//}
+.navbar .nav-item.active {
+  border-bottom: 2px solid #fff;
+}
+.navbar .nav-item .badge {
+  background-color: #ffcc00;
+  color: #000;
+}
+.navbar .nav-item .badge i {
+  margin-right: 5px;
+}
+.navbar .nav-item .badge span {
+  font-size: 0.8rem;
+}
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.order-container {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
+}
+.order-container .col-md-3 {
+  flex: 1 1 calc(25% - 20px);
+  display: flex;
+}
+.footer-navbar {
+  background-color: #444;
+  padding: 10px;
+}
+.footer-navbar .nav-item {
+  color: #fff;
+  margin-right: 20px;
+}
+.footer-navbar .nav-item i {
+  margin-right: 5px;
+}
+.footer-navbar .nav-item.active {
+  border-bottom: 2px solid #fff;
+}
+
+
