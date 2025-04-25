@@ -1,0 +1,420 @@
+<div class="modal" *ngIf="showT">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-body">
+       <div class="row justify-content-center">
+         <h1 class="text-center mb-4 mt-3">Bienvenue chez Essamai</h1>
+         <div class="col">
+           <label class="btn bg-light btn-color-gray-900 border border-3 border-gray-100 w-100 px-4 label-animation"
+                  [ngClass]="{'border-active-primary': selectTypeOrder === '0', 'btn-active-light-primary': selectTypeOrder === '0', 'active': selectTypeOrder === '0'}" data-kt-button="true" (click)="activateLabel('0')">
+             <input class="btn-check" type="radio" name="method" value="0"  (click)="chooseType()"/>
+             <!--                    <i class="ki-duotone ki-dollar fs-2hx mb-2 pe-0">-->
+             <!--                      <span class="path1"></span>-->
+             <!--                      <span class="path2"></span>-->
+             <!--                      <span class="path3"></span>-->
+             <!--                    </i>-->
+             <img width="100" height="100" src="https://img.icons8.com/external-nawicon-glyph-nawicon/64/external-take-away-food-delivery-nawicon-glyph-nawicon-3.png" alt="external-take-away-food-delivery-nawicon-glyph-nawicon-3"/>
+             <span class="fw-bold d-block " style="font-size: 30px">Emporter</span>
+           </label>
+         </div>
+         <div class="col">
+           <label class="btn bg-light btn-color-gray-900 border border-3 border-gray-100 w-100 px-4 label-animation"
+                  [ngClass]="{'border-active-primary': selectTypeOrder === '1', 'btn-active-light-primary': selectedValue === '1', 'active': selectTypeOrder === '1'}" data-kt-button="true" (click)="activateLabel('1')">
+             <input class="btn-check" type="radio" name="method" value="0"  (click)="chooseType()"/>
+             <!--                    <i class="ki-duotone ki-dollar fs-2hx mb-2 pe-0">-->
+             <!--                      <span class="path1"></span>-->
+             <!--                      <span class="path2"></span>-->
+             <!--                      <span class="path3"></span>-->
+             <!--                    </i>-->
+             <img width="100" height="100" src="https://img.icons8.com/ios/50/restaurant-table.png" alt="restaurant-table"/>
+             <span class="fw-bold d-block" style="font-size: 30px">Sur place</span>
+           </label>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="showEnd">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Commande Effectuée</div>
+      </div>
+      <div class="modal-body " style="flex-direction: column;">
+        <div class="row justify-content-md-center text-center">
+          <div class="col-auto mb-4">
+            <div class="validation-icon"></div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-auto align-self-center">
+            <button class="btn btn-outline-success" (click)="closeEnd()">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="food_section layout_padding">
+  <div class="container">
+
+    <div class="heading_container heading_center" style="margin-top: -5%">
+      <img [src]="imgA" alt="" class="img-fluid w-100px">
+      <h2>
+       Notre menu
+      </h2>
+    </div>
+
+    <ul class="filters_menu" >
+<!--      <li class="active" data-filter="*">All</li>-->
+<!--      <div   *ngFor="let category of productCategory">-->
+<!--      <li  value="{{ category.id }}" >{{ category.categoryName }}</li>-->
+      <form>
+<!--          <li [(ngModel)]="selectCategorie" (ngModelChange)="applyFilter()">-->
+<!--            <input type="button" *ngFor="let service of productCategory" (ngModelChange)="applyFilter()" value="{{ service.categoryName }}">-->
+<!--          </li>-->
+        <label class="btn bg-light btn-color-gray-600 btn-active-text-gray-800 border border-3 border-gray-100 border-active-primary btn-active-light-primary w-40 px-4 mx-3" data-kt-button="true" *ngFor="let service of productCategory">
+          <!--begin::Input-->
+          <input type="button" class="btn-check" type="radio" name="method" (ngModelChange)="applyFilter()" value="{{ service.categoryName }}">
+          <!--end::Input-->
+          <!--begin::Icon-->
+<!--          <i class="ki-duotone ki-paypal fs-2hx mb-2 pe-0">-->
+<!--            <span class="path1"></span>-->
+<!--            <span class="path2"></span>-->
+<!--          </i>-->
+          <!--end::Icon-->
+          <!--begin::Title-->
+          <span class="fs-7 fw-bold d-block">{{ service.categoryName }}</span>
+          <!--end::Title-->
+        </label>
+      </form>
+<!--      <li data-filter=".burger" (input)="applyFilter()"></li>-->
+<!--      <li data-filter=".pizza" (input)="applyFilter()">Pizza</li>-->
+<!--      <li data-filter=".pasta" (input)="applyFilter()">Pasta</li>-->
+<!--      <li data-filter=".fries" (input)="applyFilter()">Fries</li>-->
+
+<!--      <input type="radio" class="form-control" [(ngModel)]="selectCategorie" (input)="applyFilter()" [ngModelOptions]="{standalone: true}"> {{ category.categoryName }}-->
+<!--      </div>-->
+
+<!--      <select class="form-control"  [(ngModel)]="selectCategorie" (ngModelChange)="applyFilter()" aria-label="Default select example">-->
+<!--        <option value="" selected>Tous les categories</option>-->
+<!--        <option *ngFor="let service of productCategory" (ngModelChange)="applyFilter()" value="{{ service.id }}">{{ service.categoryName }}</option>-->
+<!--      </select>-->
+    </ul>
+
+
+    <div class="filters-content">
+      <div class="row grid">
+        <div class="col-sm-6 col-lg-4 all pizza" *ngFor="let prod of productFilter">
+          <div class="box">
+            <div class="img-box" (click)="openSuplean(prod.id)">
+              <img [src]="prod.imageUrl" alt="" >
+            </div>
+            <div class="detail-box">
+              <h5>{{ prod.name }}</h5>
+<!--              <p>-->
+<!--                {{ prod.description }} ({{ prod.category }}-->
+<!--              </p>-->
+              <div class="options">
+                <h6>
+                  {{ prod.unitPrice }} FCFA
+                </h6>
+<!--                (click)="addToCart(prod)"-->
+                <a type="button" (click)="openSuplean(prod.id)" >
+                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                        <g>
+                          <g>
+                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                          </g>
+                        </g>
+                    <g>
+                          <g>
+                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                          </g>
+                        </g>
+                    <g>
+                          <g>
+                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                          </g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                    <g>
+                        </g>
+                      </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+     </div>
+    </div>
+
+
+<!--    <div class="btn-box">-->
+<!--      <a href="">-->
+<!--        View More-->
+<!--      </a>-->
+<!--    </div>-->
+  </div>
+</section>
+<div class="panier" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showAd()">
+  <span class="badge">{{ totalQuantity }}</span>
+  <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Panier" />
+</div>
+
+
+<!-- Modal -->
+<div class="modal" *ngIf="viewPa">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Votre Panier</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeAd()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card card-flush bg-body" id="kt_pos_form">
+          <div class="card-header pt-5">
+            <h3 class="card-title fw-bold text-gray-800 fs-2qx">Commande</h3>
+            <div class="card-toolbar">
+              <a type="button" class="btn btn-light-primary fs-4 fw-bold py-4" (click)="removeA()">Tout Effacer</a>
+            </div>
+          </div>
+
+          <div class="card-body pt-0">
+            <div class="table-responsive mb-8">
+              <table class="table align-middle gs-0 gy-4 my-0">
+                <thead>
+                <tr>
+<!--                  <th class="w-500px">Produit</th>-->
+<!--                  <th class="w-250px">Quantité</th>-->
+<!--                  <th class="w-125px">Prix</th>-->
+<!--                  <th class="w-125px">Actions</th>-->
+                  <th class="w-500px"></th>
+                  <th class="w-250px"></th>
+                  <th class="w-125px"></th>
+<!--                  <th class="w-125px"></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let cart of cartItems">
+                  <td class="pe-0">
+                    <div class="d-flex align-items-center">
+                      <img [src]="cart.imageUrl" class="w-50px h-50px rounded-3 me-3" alt="" />
+                      <div class="row">
+                        <div class="col">
+                          <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-6 me-1">{{ cart.name }}</span>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                          <span *ngFor="let sup1 of cart.surplus">{{ sup1.name }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="pe-0 mx-3">
+                    <input type="text" class="form-control border-0 text-center px-0 fs-3 fw-bold text-gray-800 w-30px" placeholder="Amount" name="manageBudget" readonly="readonly" [value]="cart.quantity" />
+                  </td>
+                  <td>
+                    <span class="fw-bold text-primary fs-2" data-kt-pos-element="item-total">{{ cart.subTotalPrice }}</span>
+                  </td>
+                  <td>
+                    <button type="button" class="btn-close" aria-label="Close" (click)="remove(cart)"></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <form [formGroup]="checkoutFormGroup">
+              <div class="d-flex flex-stack bg-secondary rounded-3 p-6 mb-11">
+                <div class="fs-6 fw-bold text-white">
+                  <span class="d-block lh-1 mb-2">Sous-Total</span>
+                  <span class="d-block mb-2">Discounts</span>
+                  <span class="d-block mb-9">Tax</span>
+                  <span class="d-block fs-2qx lh-1">Total</span>
+                </div>
+                <div class="fs-6 fw-bold text-white text-end">
+                  <span class="d-block lh-1 mb-2" data-kt-pos-element="total">{{ totalPrice }}</span>
+                  <span class="d-block mb-2" data-kt-pos-element="discount">0 FCFA</span>
+                  <span class="d-block mb-9" data-kt-pos-element="tax">0 FCFA</span>
+                  <span class="d-block mt-5 mx-3" data-kt-pos-element="grant-total">{{ totalPrice }}</span>
+                </div>
+              </div>
+              <div class="m-0">
+                <h5 class="fw-bold text-gray-800 mb-5">Methode de Payment</h5>
+                <div class="d-flex flex-equal gap-5 gap-xxl-9 px-0 mb-12" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button]">
+                  <label class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4"
+                         [ngClass]="{'border-active-primary': selectedValue === '0', 'btn-active-light-primary': selectedValue === '0', 'active': selectedValue === '0'}" data-kt-button="true" (click)="activateLabel('0')">
+                    <input class="btn-check" type="radio" name="method" value="0" (click)="especeOrder()" />
+<!--                    <i class="ki-duotone ki-dollar fs-2hx mb-2 pe-0">-->
+<!--                      <span class="path1"></span>-->
+<!--                      <span class="path2"></span>-->
+<!--                      <span class="path3"></span>-->
+<!--                    </i>-->
+                    <img width="40" height="40" src="https://img.icons8.com/ios/50/us-dollar-circled--v2.png" alt="us-dollar-circled--v2" class="mb-3"/>
+                    <span class="fs-7 fw-bold d-block">Espece</span>
+                  </label>
+                  <label class="btn bg-light btn-color-gray-600 border border-3 border-gray-100 w-100 px-4"
+                         [ngClass]="{'border-active-primary': selectedValue === '2', 'btn-active-light-primary': selectedValue === '2', 'active': selectedValue === '2'}" data-kt-button="true" (click)="activateLabel('2');mob();">
+                    <input class="btn-check" type="radio" name="method" value="2" />
+<!--                    <i class="ki-duotone ki-paypal fs-2hx mb-2 pe-0">-->
+<!--                      <span class="path1"></span>-->
+<!--                      <span class="path2"></span>-->
+<!--                    </i>-->
+                    <img width="40" height="40" src="https://img.icons8.com/cotton/64/mobile-payment--v3.png" alt="mobile-payment--v3" class="mb-3"/>
+                    <span class="fs-7 fw-bold d-block">E-Mobile Transact</span>
+                  </label>
+                </div>
+                <div class="input-space text-center" *ngIf="cartItems.length > 0 && selectedValue === '0'" formGroupName="customer">
+                  <input formControlName="numTel" type="text" placeholder="Saisir votre numero de telephone" class="w-75 justify-content-center py-2 mb-3 form-control mx-auto">
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-outline-success fs-1 w-100 py-4 button" type="submit" (click)="onSubmit()" *ngIf="selectedValue === '0'" [disabled]="totalQuantity === 0" >Passer à la caisse</button>
+                  <button class="btn btn-outline-success fs-1 w-100 py-4 button" type="submit" (click)="onSubmit1()" *ngIf="selectedValue === '2'" [disabled]="totalQuantity === 0">Payez en ligne</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid">
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+  <div style="margin-left: 5%;margin-right: 5%" id="kt_content_container">
+    <div class="d-flex flex-column flex-xl-row">
+      <div class="d-flex flex-row-fluid me-xl-9 mb-10 mb-xl-0">
+        <div class="card card-flush card-p-0  border-0 w-100">
+        </div>
+        <div class="modal" *ngIf="showSuplean">
+          <div class="modal-dialog2">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">{{ productSup.name }} / Prix : {{ subTot }}</h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeSuplean()"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card" style="border: none;">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                          <img [src]="productSup.imageUrl" class="w-200px text-center" alt="" />
+                        </div>
+                        <div class="row ">
+                          <div class="col text-center mt-2">
+                            <h3 class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ productSup.name }}</h3>
+                          </div>
+                          <div class="w-100"></div>
+
+                          <div class="colmt-3">
+                            <h6 class="fw-bold text-gray-500 cursor-pointer text-hover-primary fs-3 fs-xl-1">Quantite </h6>
+                          </div>
+                          <div class="col">
+                            <div class="d-flex align-items-center" data-kt-dialer="true" data-kt-dialer-min="1" data-kt-dialer-max="10" data-kt-dialer-step="1" data-kt-dialer-decimals="0">
+                              <!--begin::Decrease control-->
+                              <button type="button" class="btn btn-icon btn-sm btn-light btn-icon-gray-500" data-kt-dialer-control="decrease" (click)="decrementQuantity()"  style="border-radius: 50%">
+<!--                                <i class="ki-duotone ki-minus fs-3x"></i>-->
+                                <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/minus-math.png" alt="minus-math"/>
+                              </button>
+                              <!--end::Decrease control-->
+                              <!--begin::Input control-->
+                              <input type="text" class="form-control border-0 text-center px-0 fs-3 fw-bold text-gray-800 w-30px" data-kt-dialer-control="input" placeholder="Amount" name="manageBudget" readonly="readonly" [value]="quantite" />
+                              <!--end::Input control-->
+                              <!--begin::Increase control-->
+                              <button type="button" class="btn btn-icon btn-sm btn-light btn-icon-gray-500" data-kt-dialer-control="increase" (click)="incrementQuantity()" style="border-radius: 50%">
+<!--                                <i class="ki-duotone ki-plus fs-3x"></i>-->
+                                <img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/plus-math.png" alt="plus-math"/>
+                              </button>
+                              <!--end::Increase control-->
+                            </div>
+                          </div>
+                          <div class="w-100"></div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card" style="border: none">
+                      <div class="card-body">
+                        <h5 class="d-flex justify-content-start" >Liste des supplementaires disponibles</h5>
+
+                        <hr class="mt-3 mb-3">
+                        <div class="d-flex justify-content-start" >
+                          <div class="fv-row mb-7 mt-3">
+                            <div *ngFor="let sup of supleant">
+                              <input  type="checkbox" (change)="onCheckBoxChange($event, sup)" [value]="sup.id"> {{ sup.name }} / {{ sup.priceS }} FCFA
+                            </div>
+                          </div>
+
+                        </div>
+                        <h6 class="fw-bold text-gray-500 cursor-pointer text-hover-primary fs-3 fs-xl-1">Prix : {{ subTot }}  </h6>
+                        <hr class="mt-3 mb-3 ">
+                        <button class="btn btn-outline-dark mt-4 button" (click)="addToCart(productSup,selectedSup,quantite)" [disabled]="!quantite">Ajouter a mon panier</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <!--                        "-->
+
+
+              </div>
+              <!--                  <div class="modal-footer">-->
+              <!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+              <!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+              <!--                  </div>-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>

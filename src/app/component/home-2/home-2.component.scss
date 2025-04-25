@@ -1,0 +1,140 @@
+.panier {
+  position: fixed;
+  bottom: 20px; /* Distance du bas de la page */
+  right: 20px; /* Distance de la droite de la page */
+  background-color: yellow; /* Couleur de fond */
+  border-radius: 50%; /* Forme ronde */
+  padding: 10px; /* Espacement intérieur */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  position: absolute;
+  top: -5px; /* Ajustez pour positionner le badge correctement */
+  right: -5px; /* Ajustez pour positionner le badge correctement */
+  background-color: red; /* Couleur du badge */
+  color: white; /* Couleur du texte */
+  border-radius: 50%; /* Forme ronde */
+  padding: 2px 5px; /* Espacement intérieur */
+  font-size: 12px; /* Taille du texte */
+}
+
+.modal {
+  display: flex; /* Utilise Flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  z-index: 1050; /* Z-index pour le modal */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largeur complète */
+  height: 100%; /* Hauteur complète */
+  overflow: hidden; /* Pas de défilement */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.modal-dialog {
+  max-width: 500px; /* Largeur maximale du modal */
+  width: 100%; /* Largeur complète jusqu'à la largeur maximale */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+.table {
+  width: 100%; /* Assurez-vous que la table utilise toute la largeur disponible */
+}
+
+.table-responsive {
+  overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+}
+.modal-dialog2 {
+  max-width: 730px; /* Largeur maximale du modal */
+  width: 100%; /* Largeur complète jusqu'à la largeur maximale */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+
+.btn-hover {
+  transition: color 0.3s, border 0.3s; /* Pour une transition douce */
+}
+
+.btn-hover:hover {
+  color: black; /* Couleur du texte au survol */
+  border: 2px solid blue; /* Bordure bleue au survol */
+}
+
+.validation-icon {
+  width: 300px;
+  height:300px;
+
+  background-image: url('https://www.freeiconspng.com/uploads/check-mark-png-picture-3.png'); /* Remplacez par votre image */
+  background-size: cover;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px, 0); }
+  50% { transform: translate(5px, 0); }
+  75% { transform: translate(-5px, 0); }
+  100% { transform: translate(0); }
+}
+
+.custom-modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centrer le texte si nécessaire */
+}
+
+.button{
+  background-color: #00A261;
+  color:whitesmoke;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.button2{
+  background-color: #1b84ff;
+  color:whitesmoke;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.label-animation {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.label-animation:hover {
+  transform: scale(1.05); /* Agrandit légèrement le label */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
+}
+
+
+.border-success {
+  border-color: green !important; /* Couleur de la bordure pour les produits sélectionnés */
+}
+
+.border-danger {
+  border-color: red !important; /* Couleur de la bordure pour les produits non sélectionnés (si nécessaire) */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+.product-item {
+  /* Add any specific styles for the product items here */
+}
+
+.clearfix {
+  clear: both;
+}

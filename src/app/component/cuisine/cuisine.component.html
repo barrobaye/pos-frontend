@@ -1,0 +1,168 @@
+<div class="ct">
+<div class="container-fluid d-flex flex-column h-100">
+  <div class="row">
+    <div class="col-12">
+      <div class="navbar d-flex justify-content-between align-items-center">
+        <div class="nav-item">
+          <i class="fas fa-hat-chef">
+          </i>
+          CUISINE
+        </div>
+        <div class="nav-item">
+       <span class="badge">
+        <i class="fas fa-clock">
+        </i>
+     <!--    {{ orders.length }} en attente -->
+       </span>
+        </div>
+        <div class="nav-item">
+       <span class="badge">
+        <i class="fas fa-hourglass-half">
+        </i>
+       <!--  {{ ordersPrep.length }} --> en cours
+       </span>
+        </div>
+        <div class="nav-item">
+       <span class="badge">
+        <i class="fas fa-hourglass-half">
+        </i>
+        3 en cours
+       </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="content mt-2">
+    <div class="row mt-3 order-container ">
+      <div class="col-md-3 d-flex" *ngFor="let order of orders;let i = index">
+        <div class="order-card flex-fill scrollable-row " *ngIf="i<3">
+          <div class="order-header d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <div class="time">
+                  {{ order.dateCreated | date:'HH:mm' }}
+                </div>
+              </div>
+            </div>
+            <div class="status mt-2 d-flex justify-content-start">
+            <span class="badge" [ngClass]="getOrderStatusBadgeClass(order.serviceType)">
+              <i [class.fas]="true" [class.fa-utensils]="order.serviceType === 'surPlace' || order.serviceType === 'livraison'"></i>
+              <i [class.fas]="true" [class.fa-shopping-bag]="order.serviceType === 'aEmporter'"></i>
+              {{ order.serviceType }}
+            </span>
+              <div class="details mx-5">
+                #{{ order.id }}
+              </div>
+            </div>
+          </div>
+
+          <div class="order-body">
+            <div class="section-title">
+              Détails de la commande
+            </div>
+
+            <!-- Affichage direct des items de la commande -->
+            <div *ngFor="let item of order.items">
+              <div class="item" *ngIf="item.quantity > 0; else noQuantity">
+                <img [src]="item.imageUrl" width="100" height="100" class="text-center">
+                <div class="note">
+                  {{ item.name }}
+                </div>
+              </div>
+              <ng-template #noQuantity>
+                <div class="section-title">
+                  {{ item.name }}
+                </div>
+              </ng-template>
+            </div>
+
+          </div>
+          <div class="order-footer">
+            <button class="btn btn-success" (click)="submit(order.id)">
+              Commencer
+            </button>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-md-3 d-flex" *ngFor="let order of ordersPrep;let i = index">
+        <div class="order-card flex-fill scrollable-row " *ngIf="i<1">
+          <div class="order-header d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <div class="time">
+                  {{ order.dateCreated | date:'HH:mm' }}
+                </div>
+              </div>
+            </div>
+            <div class="status mt-2 d-flex justify-content-start">
+            <span class="badge" [ngClass]="getOrderStatusBadgeClass(order.serviceType)">
+              <i [class.fas]="true" [class.fa-utensils]="order.serviceType === 'surPlace' || order.serviceType === 'livraison'"></i>
+              <i [class.fas]="true" [class.fa-shopping-bag]="order.serviceType === 'aEmporter'"></i>
+              {{ order.serviceType }}
+            </span>
+              <div class="details mx-5">
+                #{{ order.id }}
+              </div>
+            </div>
+          </div>
+
+          <div class="order-body">
+            <div class="section-title">
+              Détails de la commande
+            </div>
+
+            <!-- Affichage direct des items de la commande -->
+            <div *ngFor="let item of order.items">
+              <div class="item" *ngIf="item.quantity > 0; else noQuantity">
+                <img [src]="item.imageUrl" width="100" height="100" class="text-center">
+                <div class="note">
+                  {{ item.name }}
+                </div>
+              </div>
+              <ng-template #noQuantity>
+                <div class="section-title">
+                  {{ item.name }}
+                </div>
+              </ng-template>
+            </div>
+
+          </div>
+          <div class="order-footer">
+            <button class="btn btn-success" (click)="submit2(order.id)">
+              Marquer comme pret
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="footer-navbar d-flex justify-content-around align-items-center">
+        <div class="nav-item active">
+          <i class="fas fa-list">
+          </i>
+          Commandes actives
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-clock">
+          </i>
+          Dans 30 min
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-history">
+          </i>
+          Historique
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
