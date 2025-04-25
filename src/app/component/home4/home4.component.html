@@ -5,7 +5,11 @@
         <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
       </div>
       <div class="w-100 mt-5"></div>
+<<<<<<< HEAD
       <div class="col" style="">
+=======
+      <div class="col" >
+>>>>>>> mon-travail-local
         <h1 style="font-family: Arial, sans-serif;font-size: 40px;font-weight: bold;" class="text-center">Où souhaitez-vous manger ?</h1>
       </div>
       <div class="w-100 mt-3"></div>
@@ -129,15 +133,24 @@
           <!--end::Container-->
           <div class="header-offset"></div>
         </div>
+<<<<<<< HEAD
         <div class="row mb-5" style="margin-top: -5%;margin-left: 5%;margin-right: 5%" >
+=======
+       <div class="row mb-5" style="margin-top: -5%;margin-left: 5%;margin-right: 5%" >
+>>>>>>> mon-travail-local
           <div class="col mb-3" *ngFor="let prod of filteredProducts; let i = index;"
                [ngClass]="{'active': selectedProduct === prod}"
                (mouseover)="hoveredProduct = prod"
                (mouseleave)="hoveredProduct = null" (click)="openSuplean(prod.id);">
             <div class="card card-flush flex-row-fluid  mw-100">
+<<<<<<< HEAD
 
               <div class="card-body text-center">
                 <img [src]="apiUrlService.getApiImageUrl + (prod.imageUrl)" class="rounded-3 " alt=""  width="200" height="250"/>
+=======
+              <div class="card-body text-center">
+                <img [src]="apiUrlService.getImageUrl(prod.imageUrl)" class="rounded-3 " alt=""  width="200" height="250"/>
+>>>>>>> mon-travail-local
                 <div class="mb-2">
                   <div class="text-center">
                     <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ prod.name }}</span>
@@ -148,6 +161,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
 
         <!--      <div class="content d-flex flex-column flex-column-fluid" id="kt_content">-->
@@ -192,6 +206,9 @@
         <!--          </div>-->
         <!--        </div>-->
         <!--      </div>-->
+=======
+       </div>
+>>>>>>> mon-travail-local
       </div>
     </div>
   </div>
@@ -199,15 +216,26 @@
     <div class="modal-dialog2">
       <div class="modal-content">
         <div class="modal-header">
+<<<<<<< HEAD
           <h5 class="modal-title">{{ productSup.name }} / Prix : {{ subTot }} x {{ quantite }} </h5>
           <!--                      <button class="btn btn-success" (click)="nextProd(productSup.categoryDTO.categoryName);addToCart(productSup,quantite)" *ngIf="totalOrder == 0">Suivant</button>-->
           <button class="btn btn-prim" style="border-radius: 20px;font-size: 20px;padding:10px 32px;"
                   (click)="nextProd(productSup.categoryDTO.categoryName, quantite, productSup);addToCart(productSup,quantite)"
+=======
+          <h5 class="modal-title">
+            {{ productSup?.name }} / Prix : {{ subTot }} x {{ quantite }} </h5>
+          <!--                      <button class="btn btn-success" (click)="nextProd(productSup.categoryDTO.categoryName);addToCart(productSup,quantite)" *ngIf="totalOrder == 0">Suivant</button>-->
+          <button class="btn btn-prim" style="border-radius: 20px;font-size: 20px;padding:10px 32px;"
+                  (click)="nextProd(productSup.category.categoryName, quantite, productSup);addToCart(productSup,quantite)"
+>>>>>>> mon-travail-local
                   *ngIf="totalOrder == 0;else noTot">Suivant</button>
           <ng-template #noTot>
             <button type="button" class="btn-close" aria-label="Close" (click)="closeSuplean()"></button>
           </ng-template>
+<<<<<<< HEAD
 
+=======
+>>>>>>> mon-travail-local
         </div>
         <div class="modal-body">
           <div *ngIf="totalOrder > 0;">
@@ -219,12 +247,17 @@
                       class="btn-check custom-checkbox"
                       type="checkbox"
                       [checked]="isSelected(prod)"
+<<<<<<< HEAD
                       (change)="onCheckBoxChange($event, prod)" />
+=======
+                      (change)="onCheckBoxChange($event, prod)"/>
+>>>>>>> mon-travail-local
                     <img width="200" height="200" [src]="prod.imageUrl" alt="Product Image" class="mb-3" />
                     <span class="fw-bold d-block" style="font-size: 20px">{{ prod.unitPrice }}</span>
                   </label>
                   <div *ngIf="i % 4 === 3" class="clearfix"></div> </div>
               </div>
+<<<<<<< HEAD
 
               <!--                          </div>-->
             </div>
@@ -239,16 +272,29 @@
           <!--                        </ul>-->
           <!--                      </div>-->
 
+=======
+            </div>
+          </div>
+          
+>>>>>>> mon-travail-local
           <div class="row" *ngIf="totalOrder == 0">
             <div class="col-sm">
               <div class="card" style="border: none;">
                 <div class="card-body">
                   <div class="d-flex justify-content-center">
+<<<<<<< HEAD
                     <img [src]="productSup.imageUrl" class="w-200px text-center" alt="" />
                   </div>
                   <div class="row justify-content-center">
                     <div class="col text-center mt-2">
                       <h3 class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ productSup.name }}</h3>
+=======
+                    <img [src]="apiUrlService.getImageUrl(productSup?.imageUrl)" class="w-200px text-center" alt="" />
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col text-center mt-2">
+                      <h3 class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ productSup?.name }}</h3>
+>>>>>>> mon-travail-local
                     </div>
                     <div class="w-100"></div>
                     <div class="col-3 mt-3">
@@ -292,6 +338,7 @@
     </div>
   </div>
   <ng-template #exisTot>
+<<<<<<< HEAD
     <body *ngIf="details==false;else noDetails">
     <div style="background-image: url('assets/feane/images/arF.png');background-position: center;min-height: 100vh;height: auto;overflow: hidden;flex: 1;">
       <div class="container">
@@ -360,6 +407,78 @@
                               <button type="button" class="btn btn-dark" (click)="remove(cart)">
                                 <i class="fa-solid fa-trash fa-2xl" style="color: #ffffff;"></i>
                               </button>
+=======
+    <ng-template #exisTot>
+      <body *ngIf="details==false;else noDetails">
+      <div style="background-image: url('assets/feane/images/arF.png');background-position: center;min-height: 100vh;height: auto;overflow: hidden;flex: 1;">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
+            </div>
+            <div class="w-100"></div>
+  
+            <div class="col mx-5">
+              <h3 class="fw-bold" style="font-size: 40px">Mon Panier</h3>
+            </div>
+            <div class="col justify-content-end">
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn" [class.active]="selectedOption === 'aEmporter'">
+                  <input type="radio" name="options" id="option1" autocomplete="off"
+                         [checked]="selectedOption === 'aEmporter'"
+                         (change)="selectOption('aEmporter')"> À emporter
+                </label>
+                <label class="btn" [class.active]="selectedOption === 'surPlace'">
+                  <input type="radio" name="options" id="option2" autocomplete="off"
+                         [checked]="selectedOption === 'surPlace'"
+                         (change)="selectOption('surPlace')"> Sur place
+                </label>
+              </div>
+            </div>
+            <div class="w-100 mt-4"></div>
+            <div class="col mt-2">
+              <div *ngFor="let cart of cartItems">
+                <div *ngIf="cart.quantity > 0">
+                  <div class="d-flex justify-content-center">
+                    <img width="300" height="300" [src]="cart.imageUrl" alt="us-dollar-circled--v2" class="mb-3" />
+                  </div>
+                  <h1 class="fw-bold" style="font-size: 30px;font-family: 'Arial', sans-serif;">{{ cart.name }}</h1>
+                  <h6 class="fw-bold" style="font-size: 30px;">{{ cart.unitPrice }} FCFA</h6>
+                </div>
+              </div>
+            </div>
+            <div class="w-100"></div>
+            <hr>
+            <div class="col">
+              <div class="container mt-5">
+                <div class="row">
+                  <div  *ngFor="let cart of cartItems">
+                    <div class="col" *ngIf="cart.quantity == 0">
+                      <div class="card w-100 mb-3 border-0">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col">
+                              <div class="d-flex align-items-center">
+                                <img [src]="cart.imageUrl" class="w-100px h-100px rounded-3 me-3" alt="Image of {{ cart.name }}">
+                                <div class="row">
+                                  <div class="col">
+                                    <h1 class="fw-bold" style="font-size: 20px;font-family: 'Arial', sans-serif;">{{ cart.name }}</h1>
+                                  </div>
+                                  <div class="w-100"></div>
+                                  <div class="col">
+                                    <span *ngFor="let sup1 of cart.surplus">{{ sup1.name }}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-auto text-end">
+                              <h6 class="fw-bold" style="font-size: 15px;">{{ cart.unitPrice }} FCFA</h6>
+                              <div class="mt-6">
+                                <button type="button" class="btn btn-dark" (click)="remove(cart)">
+                                  <i class="fa-solid fa-trash fa-2xl" style="color: #ffffff;"></i>
+                                </button>
+                              </div>
+>>>>>>> mon-travail-local
                             </div>
                           </div>
                         </div>
@@ -372,6 +491,7 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
     <div class="card text-center" style="margin-top: auto;background-color:#1b84ff;">
       <div class="card-body">
@@ -392,10 +512,32 @@
             </div>
             <div class="col align-content-center">
               <h1 class="fw-bold text-white" style="font-size: 30px;font-family: 'Arial', sans-serif;">Total : {{ subTot }} FCFA</h1>
+=======
+      <div class="card text-center" style="margin-top: auto;background-color:#1b84ff;">
+        <div class="card-body">
+          <div class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="col">
+                <button class="btn btn-custom" (click)="onSubmit1()">
+                  <img width="35" height="35" src="https://img.icons8.com/cotton/64/mobile-payment--v3.png" alt="mobile-payment--v3" class="mb-3"/>
+                  <p>Mobile Money</p>
+                </button>
+              </div>
+              <div class="col">
+                <button class="btn btn-custom" (click)="onSubmit()">
+                  <i class="fas fa-dollar-sign"></i>
+                  <p class="mt-4">Espece</p>
+                </button>
+              </div>
+              <div class="col align-content-center">
+                <h1 class="fw-bold text-white" style="font-size: 30px;font-family: 'Arial', sans-serif;">Total : {{ subTot }} FCFA</h1>
+              </div>
+>>>>>>> mon-travail-local
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
     </body>
     <ng-template #noDetails>
@@ -458,6 +600,14 @@
       </div>
     </ng-template>
   </ng-template>
+=======
+      </body>
+  
+    <ng-template #noDetails>
+      <app-ticket></app-ticket>
+    </ng-template>
+ 
+>>>>>>> mon-travail-local
 </ng-template>
 
 

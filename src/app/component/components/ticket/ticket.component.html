@@ -1,0 +1,60 @@
+<ng-template #noDetails>
+    <div style="background-color: #1b84ff;min-height: 100vh;height: auto;overflow: hidden;flex: 1;justify-content: center;display: flex;align-items: center;">
+      <div class="container" style="background-color: white;min-height: 95vh;height: auto;overflow: hidden;flex: 1;margin: 0;border-radius: 10px;">
+        <div class="row">
+          <div class="col text-center mt-5">
+            <img src="assets/feane/images/Art.png" alt="" class="img-fluid" width="200" height="200">
+          </div>
+          <div class="w-100"></div>
+          <div class="col d-flex justify-content-center text-center mb-5">
+            <div class="card w-50" style="height: 350px">
+              <div class="card-body" style="background-color: #1b84ff;">
+                <img src="data:image/png;base64,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" alt="checked--v1">
+                <h3 style="font-size: 50px" class="text-white">N° de commande</h3>
+                <!-- <h1 style="font-size: 120px;font-family: Arial;margin-bottom:30px;" class="text-white" >{{ response }}</h1> -->
+              </div>
+            </div>
+          </div>
+          <div class="w-100 mt-5 mb-5"></div>
+          <div class="col text-center mt-5 mb-5">
+            <h2 style="font-family: Arial, sans-serif; font-size: 40px; font-weight: bold;">Votre commande sera préparée<br>après votre paiement en caisse</h2>
+          </div>
+          <div class="w-100 mb-3"></div>
+          <div class="col text-center">
+            <div class="d-flex flex-column align-items-center">
+              <div class="checklist-item d-flex align-items-center mb-4">
+                <i class="fas fa-check-circle me-2"></i>
+                <span style="font-size:25px">Récupérez votre ticket de commande</span>
+              </div>
+              <div class="checklist-item d-flex align-items-center mb-4 ms-5">
+                <i class="fas fa-check-circle me-2 ms-1"></i>
+                <span style="font-size:25px">Rendez-vous à la caisse pour régler <br>votre commande et lancer la préparation</span>
+              </div>
+              <div class="checklist-item d-flex align-items-center mb-4 ms-4">
+                <i class="fas fa-check-circle me-2"></i>
+                <span style="font-size:25px">Recevez votre commande et dégustez !</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col mt-5 d-flex flex-column align-items-center">
+
+            <h3 class="mb-5" style="font-size:40px;">Scanner pour voir l'évolution de votre ticket</h3>
+            <div class="mt-2">
+                <qrcode [qrdata]="'https://posapita.apitasn.com/myTicket/'" [width]="300" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
+              <!-- <qrcode [qrdata]="'https://posapita.apitasn.com/myTicket/'+response" [width]="300" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode> -->
+<!--                <img src="assets/feane/images/qr.PNG" alt="QR Code" class="img-fluid" width="300" height="300">-->
+            </div>
+          </div>
+          <div class="w-100 mt-5 mb-5"></div>
+          <div class="col d-flex flex-column align-items-center mt-5">
+            <button class="btn btn-primary mb-3 text-white" (click)="terminer()" style="font-size:30px">Terminer</button>
+
+            <h2 class="text-center mb-2" style="font-family: Arial, sans-serif;font-size: 40px;">BON APPÉTIT ET À TRÈS BIENTÔT</h2>
+
+            <h4 class="text-center" style="font-family: Arial, sans-serif;font-size: 40px;">TERRASSE ET SALLE À VOTRE DISPOSITION</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-template>

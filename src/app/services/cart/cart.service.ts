@@ -55,8 +55,11 @@ export class CartService {
           break;
         }
       }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> mon-travail-local
     }
 
 
