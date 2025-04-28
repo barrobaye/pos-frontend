@@ -12,7 +12,10 @@ import {AdminService} from '../../../services/auth/admin/admin.service';
 import {Admin} from '../../../common/admin';
 import {Surplus} from '../../../common/surplus';
 import {ProductSup} from '../../../common/productSup';
+<<<<<<< HEAD
+=======
 import { ApiUrlService } from '../../../core/api-url.service';
+>>>>>>> mon-travail-local
 
 
 @Component({
@@ -41,15 +44,22 @@ export class ProduitsComponent implements OnInit{
     this.listProduits();
     this.listCategory();
   }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> mon-travail-local
 //Parti Catégorie
   categories!:any;
   listCategory(){
     this.categoryService.listCategory().subscribe(
       res=>{
         this.categories = res;
+<<<<<<< HEAD
+        console.log(this.categories); 
+=======
        // console.log(this.categories); 
+>>>>>>> mon-travail-local
       }
     );
   }
@@ -89,10 +99,15 @@ export class ProduitsComponent implements OnInit{
 
 // End Categorie
   constructor(private produitService:ProductService,
+<<<<<<< HEAD
+              private formBuilder:FormBuilder,private categoryService:CategoryService,
+              private authService:AdminService)  {
+=======
               private formBuilder:FormBuilder,
               private categoryService:CategoryService,
               private authService:AdminService,
               public apiUrlService: ApiUrlService)  {
+>>>>>>> mon-travail-local
 
     this.categoryForm  = this.formBuilder.group({
       categoryName:[''],
@@ -259,9 +274,13 @@ export class ProduitsComponent implements OnInit{
     formData.append('unitStock', this.produitForm.value['unitStock']);
     formData.append('categoryId', this.produitForm.value.categoryId);
     //formData.append('active', this.produitForm.value.active);
+<<<<<<< HEAD
+  
+=======
       // Ajouter seulement si les surplus existent et sont valides
 // Filtrage des surplus valides
 
+>>>>>>> mon-travail-local
 
   /*   const categoryId = typeof formValue.categoryId === 'object'
     ? formValue.categoryId?.id
@@ -285,6 +304,12 @@ export class ProduitsComponent implements OnInit{
   
     // Ajout des surplus
     const inputs = this.produitForm.value.inputs;
+<<<<<<< HEAD
+    for (let i = 0; i < inputs.length; i++) {
+      formData.append('surplusNames', inputs[i].name);
+      formData.append('surplusPrices', inputs[i].price);
+    }
+=======
 
     if (inputs && inputs.length > 0) {
       for (let i = 0; i < inputs.length; i++) {
@@ -299,6 +324,7 @@ export class ProduitsComponent implements OnInit{
       }
     }
 
+>>>>>>> mon-travail-local
    //voir les donnés avant l'envoi   
     // ===== LOGGING COMPLET =====
     console.log('FormData contents:');
@@ -383,8 +409,13 @@ export class ProduitsComponent implements OnInit{
   }
   createInput(): FormGroup {
     return this.formBuilder.group({
+<<<<<<< HEAD
+      price: [0],
+      name:['']
+=======
       price: [null],
       name: ['']
+>>>>>>> mon-travail-local
     });
   }
   removeInput(index: number) {
