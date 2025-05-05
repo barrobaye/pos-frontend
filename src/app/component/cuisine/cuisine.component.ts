@@ -4,6 +4,7 @@ import {Order} from '../../common/order';
 import {DatePipe, NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {catchError, interval, map, Subject, Subscription, switchMap, takeUntil, timer} from 'rxjs';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cuisine',
@@ -25,8 +26,10 @@ export class CuisineComponent implements OnInit,OnDestroy{
   ordersPrep!:any;
   // private destroy$ = new Subject<void>();
   // cuisineForm:FormGroup;
+  
 
-  constructor(private orderService: OrderService,private ngZone: NgZone)  {
+  constructor(private orderService: OrderService,
+    private ngZone: NgZone)  {
       // this.cuisineForm = formBuilder.group({
       //   orderId : []
       // })
@@ -39,6 +42,10 @@ export class CuisineComponent implements OnInit,OnDestroy{
 
   ngOnInit() {
 
+
+  /*   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/cuisine']);
+    }); */
   // this.subscription.add(
   //       interval(10000).pipe(
   //         switchMap(() => this.orderService.listOrderCuisine().pipe(

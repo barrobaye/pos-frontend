@@ -10,22 +10,12 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {CheckoutService} from '../../services/checkout/checkout.service';
 import {Order} from '../../common/order';
-<<<<<<< HEAD
-import {Customer} from '../../common/customer';
-import {OrderItem} from '../../common/order-item';
-import {OrderSurplus} from '../../common/orderSurplus';
-import {Purchase} from '../../common/purchase';
-import {response} from 'express';
-import { QRCodeModule } from 'angularx-qrcode';
-import { ApiUrlService } from '../../core/api-url.service';
-=======
 import {OrderItem} from '../../common/order-item';
 import {OrderSurplus} from '../../common/orderSurplus';
 import {Purchase} from '../../common/purchase';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ApiUrlService } from '../../core/api-url.service';
 import { TicketComponent } from "../components/ticket/ticket.component";
->>>>>>> mon-travail-local
 
 @Component({
   selector: 'app-home4',
@@ -34,26 +24,15 @@ import { TicketComponent } from "../components/ticket/ticket.component";
     NgIf,
     NgForOf,
     NgClass,
-<<<<<<< HEAD
-    QRCodeModule
-  ],
-=======
     QRCodeModule,
     TicketComponent
 ],
->>>>>>> mon-travail-local
   templateUrl: './home4.component.html',
   styleUrl: './home4.component.scss'
 })
 export class Home4Component implements OnInit{
 
   checkoutFormGroup:FormGroup;
-<<<<<<< HEAD
-  constructor(  private productService: ProductService,
-    public apiUrlService: ApiUrlService,
-    private produitService:ProductService,private cartService:CartService,private formBuilder: FormBuilder,private router: Router,
-              private checkoutService:CheckoutService) {
-=======
   constructor(  
     public apiUrlService: ApiUrlService,
     private produitService:ProductService,
@@ -61,7 +40,6 @@ export class Home4Component implements OnInit{
     private formBuilder: FormBuilder,
     private router: Router,
     private checkoutService:CheckoutService) {
->>>>>>> mon-travail-local
     this.checkoutFormGroup = this.formBuilder.group({
       // customer:this.formBuilder.group({
       //   numTel:['']
@@ -77,10 +55,6 @@ export class Home4Component implements OnInit{
     this.listCartDetails();
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> mon-travail-local
   chooseCh = true;
   hoveredProduct: any = null; // Pour gérer le survol
   selectedProduct: any = null;
@@ -112,25 +86,14 @@ export class Home4Component implements OnInit{
     )
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> mon-travail-local
   filteredProducts: any[] = [];
   titleHeader = "Tous les produits";
   selectCategory(category: any): void {
     this.selectedCategory = category;
-<<<<<<< HEAD
-    console.log(category)
-    this.titleHeader = category.categoryName;
-    // Filtrer les produits par catégorie
-    this.filteredProducts = this.product.filter(product => product.categoryDTO.id === category.id); // Assurez-vous que 'categoryId' et 'id' correspondent à votre modèle
-=======
   //  console.log(category)
     this.titleHeader = category.categoryName;
     // Filtrer les produits par catégorie
     this.filteredProducts = this.product.filter(product => product.categoryId === category.id); // Assurez-vous que 'categoryId' et 'id' correspondent à votre modèle
->>>>>>> mon-travail-local
   }
   resetFilter(): void {
     this.titleHeader = "Tous les produits"
@@ -159,11 +122,7 @@ export class Home4Component implements OnInit{
     this.produitService.getCategories().subscribe(
       data=>{
         this.productCategory = data;
-<<<<<<< HEAD
-        console.log(this.productCategory);
-=======
        // console.log(this.productCategory);
->>>>>>> mon-travail-local
       }
     )
   }
@@ -213,31 +172,19 @@ export class Home4Component implements OnInit{
     this.cartService.removeAllCartItems();
     this.currentCategoryIndex=0;
     this.currentCategory = '';
-<<<<<<< HEAD
-    window.location.reload();
-
-  }
-=======
     this.resetFilter
   //  window.location.reload();
 
   }
   
->>>>>>> mon-travail-local
   openSuplean(id:number){
     this.showSuplean = true;
     this.produitService.getProductById(id).subscribe(
       res=>{
-<<<<<<< HEAD
-        this.productSup =res;
-        this.productId = res.id;
-        console.log(this.productId);
-=======
         console.log(res);
         this.productSup =res;
         this.productId = res.id;
        // console.log(name); 
->>>>>>> mon-travail-local
       }
     )
     // this.produitService.listSuplean(id).subscribe(
@@ -271,12 +218,8 @@ export class Home4Component implements OnInit{
       case 'Pizza':
         this.produitService.listProdCt('Suppleant').subscribe({
           next: (response) => {
-<<<<<<< HEAD
-            this.ortherProd = response;
-=======
             console.log('Produits reçus pour Suppleant:', response);
             this.ortherProd = response;        
->>>>>>> mon-travail-local
             this.totalOrder = this.ortherProd.length;
             this.currentCategoryIndex = 1; // Mettre à jour l'index de catégorie
           },
@@ -405,15 +348,11 @@ export class Home4Component implements OnInit{
 
   }
   isSelected(prod: any): boolean {
-<<<<<<< HEAD
-    return this.selectedProducts.some(item => item.product.id === prod.id);
-=======
    // console.log("produit Seléctionné");
    // console.log(prod);
     return this.selectedProducts.some(item => item.product.id === prod.id);
    // console.log( prod.id);
     
->>>>>>> mon-travail-local
   }
 
   onCheckBoxChange(event: any, prod: any) {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
-import {map, Observable} from 'rxjs';
+import {catchError, map, Observable, throwError} from 'rxjs';
 import {ProductCategory} from '../../common/product-category';
 import {Product} from '../../common/product';
 import {ProductSup} from '../../common/productSup';
@@ -28,15 +28,9 @@ export class ProductService {
 
   private baseUrl: string;
   private categoryUrl: string;
-<<<<<<< HEAD
-  private productSupUrl: string;
-  private supleantUrl: string;
-  private productCtUrl: string;
-=======
  // private productSupUrl: string;
   private supleantUrl: string;
   private productCatUrl: string;
->>>>>>> mon-travail-local
 
   constructor(
     private http: HttpClient,
@@ -44,15 +38,9 @@ export class ProductService {
   ) {
     this.baseUrl = this.apiUrlService.getFullPath('/products');
     this.categoryUrl = this.apiUrlService.getFullPath('/categories');
-<<<<<<< HEAD
-    this.productSupUrl = this.apiUrlService.getFullPath('/productSup');
-    this.supleantUrl = this.apiUrlService.getFullPath('/surplus');
-    this.productCtUrl = this.apiUrlService.getFullPath('/productsCat');
-=======
     //this.productSupUrl = this.apiUrlService.getFullPath('/productSup');
     this.supleantUrl = this.apiUrlService.getFullPath('/surplus');
     this.productCatUrl = this.apiUrlService.getFullPath('/productsCat');
->>>>>>> mon-travail-local
   }
 
   getProducts(): Observable<any[]> {
@@ -71,8 +59,25 @@ export class ProductService {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
-  updateProduct(id: any, p: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.baseUrl}/${id}`, p);
+  updateProduct(id: number, formData: FormData): Observable<Product> {
+    return this.http.put(`${this.baseUrl}/${id}`, formData).pipe(
+      map(response => {
+        // Gestion des réponses vides (cas où vous faisiez .ok().build())
+        if (response === null) {
+        //  return { id } as Product;
+        // Si vous avez besoin d'une réponse vide, vous pouvez retourner un objet vide ou null
+          return {} as Product; // ou null;
+        }
+        return response as Product;
+      }),
+      catchError(error => {
+        // Si le message d'erreur est une string, la convertir en objet d'erreur
+        if (typeof error.error === 'string') {
+          throw { error: { message: error.error } };
+        }
+        throw error;
+      })
+    );
   }
 
   deleteProduct(id: any): Observable<any> {
@@ -84,11 +89,7 @@ export class ProductService {
   }
 
   listProdCt(name: any): Observable<any> {
-<<<<<<< HEAD
-    return this.http.get(`${this.productCtUrl}/${name}`);
-=======
     return this.http.get(`${this.productCatUrl}/${name}`);
->>>>>>> mon-travail-local
   }
   }
 

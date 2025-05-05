@@ -17,13 +17,10 @@ export class ApiUrlService {
   getImageUrl(imagePath: string): string {
     return `${this.baseUrl}${imagePath}`;
   }
-<<<<<<< HEAD
-=======
  /*  getImageUrl(filePath: string | undefined | null): string {
     if (!filePath) return '/assets/default-image.jpg'; // ou une image de fallback
     return '/api/images/' + filePath.replace(/^\/+/, '');
   } */
->>>>>>> mon-travail-local
   getFullPath(path: string): string {
     return `${this.baseUrl}${path.startsWith('/') ? path : '/' + path}`;
   }

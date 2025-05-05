@@ -79,14 +79,6 @@ export class OrderService {
     )
   }
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> mon-travail-local
    listODelivery():Observable<any>{
     return this.http.get(this.orderDelivery).pipe(
       map(

@@ -4,15 +4,27 @@
     align-items: center;
     gap: 40px;
     padding: 20px;
-  
     // Responsive: empile sur petits écrans
     flex-wrap: wrap;
   }
+  .heat{
+    margin-bottom: -100px;
+  }
   
-  .chart {
+  .diag {
     width: 450px;
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+
+  .bar {
+    width: 450px;
+  //  height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
