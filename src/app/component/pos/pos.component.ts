@@ -22,6 +22,7 @@ import {OrderService} from '../../services/order/order.service';
 import {DeliveryManService} from '../../services/deliveryMan/delivery-man.service';
 import {Surplus} from '../../common/surplus';
 import {OrderSurplus} from '../../common/orderSurplus';
+import { ApiUrlService } from '../../core/api-url.service';
 
 
 @Component({
@@ -53,6 +54,7 @@ export class PosComponent implements OnInit,OnDestroy{
   constructor(private produitService:ProductService,
     private cartService:CartService,
     private formBuilder:FormBuilder,
+    public apiUrlService: ApiUrlService,
               private caissierService:CaisseService,
               private checkoutService:CheckoutService,
               private orderService:OrderService,

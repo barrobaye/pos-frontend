@@ -245,15 +245,9 @@ modalMode: 'add'  | 'edit' |'view' = 'add';
     formData.append('unitStock', formValue['unitStock']);
     formData.append('categoryId', formValue.categoryId);
 
-    // Dans onSubmit()
-if (this.fileInput.nativeElement.files.length > 0) {
-  formData.append('image', this.fileInput.nativeElement.files[0]);
-} else if (this.modalMode === 'edit') {
-  formData.append('existingImageUrl', this.prod.imageUrl);
-}
-  
-    // Gestion différente de l'image selon le mode
-    if (this.modalMode === 'edit') {
+
+     // Gestion différente de l'image selon le mode
+     if (this.modalMode === 'edit') {
       // Mode UPDATE - l'image est optionnelle
       if (this.imageProduit) {
         formData.append('image', this.imageProduit, this.imageProduit.name);
@@ -266,6 +260,14 @@ if (this.fileInput.nativeElement.files.length > 0) {
       }
       formData.append('image', this.imageProduit, this.imageProduit.name);
     }
+    // Dans onSubmit()
+if (this.fileInput.nativeElement.files.length > 0) {
+  formData.append('image', this.fileInput.nativeElement.files[0]);
+} else if (this.modalMode === 'edit') {
+  formData.append('existingImageUrl', this.prod.imageUrl);
+}
+  
+   
 
 
     interface ProduitInput {

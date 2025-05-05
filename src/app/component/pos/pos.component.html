@@ -264,7 +264,7 @@
                                  (click)="openSuplean(prod.id)">
                               <div class="card-body text-center">
 
-                                <img [src]="prod.imageUrl" class="rounded-3 mb-4 product-image" alt="" />
+                                <img [src]="apiUrlService.getImageUrl(prod.imageUrl)" class="rounded-3 mb-4 product-image" alt="" />
                                 <div class="mb-2">
                                   <div class="text-center">
                                     <span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-3 fs-xl-1">{{ prod.name }}</span>
