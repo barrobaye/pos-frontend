@@ -132,3 +132,12 @@ margin-right: -22px;
   height: 100%;
   cursor: pointer;
 }
+.image-preview-container {
+  position: relative;
+  z-index: 1;
+}
+
+.add-circle {
+  position: absolute;
+  z-index: 2; /* à ajuster si besoin */
+}

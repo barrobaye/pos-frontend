@@ -174,7 +174,7 @@
               </svg>
 
             </a>
-            <span class="badge">{{ ordersEnCours.length }}</span>
+            <span class="badge">{{ ordersEnCours ? ordersEnCours.length : 0 }}</span>
             <div class="modal" *ngIf="enCours">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -232,9 +232,10 @@
                       <li class="nav-item mb-3 me-0 mx-3 card1 bg-transparent" *ngFor="let cat of productCategory" style="border-radius: 1.5rem;">
                         <!--begin::Nav link-->
                         <a class="nav-link nav-link-border-solid btn btn-outline btn-flex btn-active-color-primary flex-column flex-stack pt-9 pb-7 page-bg db"
-                           data-bs-toggle="pill"
+                           data-bs-toggle="pill"                          
+                           [ngClass]="{'btn-primary': selectedCategory === cat}"
+                           (click)="selectCategory(cat)"
                            type="button"
-                           (click)="selectCategoryId = cat.id;"
                            style="width: 138px; height: 180px">
                           <!--begin::Icon-->
                           <div class="nav-icon mb-3">
@@ -256,7 +257,7 @@
                         <div class="d-flex flex-wrap d-grid gap-5 gap-xxl-9">
                           <div class="product-grid">
                             <div class="card card-flush flex-row-fluid p-6 pb-5 mw-100"
-                                 *ngFor="let prod of product; let i = index"
+                                 *ngFor="let prod of filteredProducts; let i = index"
                                  [ngClass]="{'active': selectedProduct === prod}"
                                  (mouseover)="hoveredProduct = prod"
                                  (mouseleave)="hoveredProduct = null"

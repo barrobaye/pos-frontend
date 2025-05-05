@@ -57,7 +57,7 @@ export class ListOrderComponent implements OnInit {
     this.orderService.listOrders().subscribe({
       next:orders =>{
         this.orders = orders;
-        console.log(this.orders);
+       // console.log(this.orders);
         this.applyFilter();
       },
       error:err=>{

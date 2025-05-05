@@ -192,52 +192,45 @@
                   <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 *ngIf="prod; else noProd">Update produit {{ prod.name }}</h5>
-                        <ng-template #noProd>
-                          <h5 class="modal-title">Création de produit</h5>
-                        </ng-template>
+                        {{ modalMode === 'view' ? 'Détail du produit' : (modalMode === 'edit' ? 'Modifier le produit' : 'Créer un produit') }}
                         <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close">
                           <i class="fa fa-times" aria-hidden="true"></i> </button>
                       </div>
                       <div class="modal-body">
-                        <form [formGroup]="produitForm">
+                        <form [formGroup]="produitForm" *ngIf="modalMode !== 'view'; else viewTemplate" [formGroup]="produitForm" >
                           <div class="container-fluid">
+                             <!-- IMAGE UPLOAD -->
                             <div class="row mb-3">
-                              <div class="col-md-4 text-center">
-                                <!-- Label -->
-                                <div class="col-md-4 text-center">
-                                  <!-- Label -->
+                              <div class="col-md-4 text-center">  
                                   <label class="d-block fw-semibold fs-6">Avatar</label>
-                                 <div class="image-preview-container">
-                                      <img *ngIf="selectedImage" [src]="selectedImage" alt="Aperçu" class="image-preview">
-                                    </div>
-                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                      <i class="ki-duotone ki-pencil fs-7">
-                                        <span class="path1"></span>
-                                        <input type="file" formControlName="image" accept=".png, .jpg, .jpeg" (change)="onFileSelected1($event)" style="display:none;" />
-                                        <span class="path2"></span>
-                                      </i>
-                                    </label>
-                                  <div class="form-text">Formats autorisés: PNG, JPG, JPEG.</div>
-                                </div>                                
+                                  <div class="image-preview-container">
+                                    <img *ngIf="selectedImage" [src]="selectedImage" alt="Aperçu" class="image-preview">
+                                  </div>
+                         
+
+                                  <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                    <i class="ki-duotone ki-pencil fs-7">
+                                      <span class="path1"></span>
+                                      <!-- Supprimez formControlName et utilisez une référence locale -->
+                                      <input type="file" #fileInput accept=".png, .jpg, .jpeg" 
+                                             (change)="onFileSelected1($event)" style="display:none;" />
+                                      <span class="path2"></span>
+                                <!--       <span class="path1"></span>
+                                      <input type="file" formControlName="image" accept=".png, .jpg, .jpeg" (change)="onFileSelected1($event)" style="display:none;" />
+                                      <span class="path2"></span> -->
+                                    </i>
+                                  </label>
+                                <div class="form-text">Formats autorisés: PNG, JPG, JPEG.</div>
+                                                     
+                                </div>   
+                                       <!-- INFOS PRODUIT -->
+                                    <div class="col-md-8">
+                                      <div class="mb-3" *ngFor="let field of ['name', 'sku', 'description']">
+                                        <label class="form-label">{{ field.charAt(0).toUpperCase() + field.slice(1) }} Produit</label>
+                                        <input type="text" class="form-control" [placeholder]="field + ' produit'" [formControlName]="field">
+                                      </div>
+                                    </div>                         
                               </div>   
-                              <div class="col-md-8">
-                                <div class="mb-3">
-                                  <label class="form-label">Nom Produit</label>
-                                  <input type="text" class="form-control" placeholder="Nom produit" formControlName="name">
-                                </div>
-                
-                                <div class="mb-3">
-                                  <label class="form-label">Diminutif Produit</label>
-                                  <input type="text" class="form-control" placeholder="Diminutif produit" formControlName="sku">
-                                </div>
-                                
-                                <div class="mb-3">
-                                  <label class="form-label">Description Produit</label>
-                                  <input type="text" class="form-control" placeholder="Description produit" formControlName="description">
-                                </div>
-                              </div>
-                            </div>
                 
                             <div class="row mb-3">
                               <div class="col-md-6">
@@ -262,20 +255,21 @@
                                 </select>
                               </div>
                          <!-- Ajouter Surplus ou non -->
-                              <div class="col-md-6">
+                              <div class="col-md-6" *ngIf="modalMode === 'add'">
                                 <label class="form-label">
-                                  Ajouter un surplus
+                                  Suppléments
                                   <button type="button" class="btn btn-sm btn-outline-primary" (click)="addInput()">+</button>
-                                </label>
-                                
-                                <div formArrayName="inputs">
+                                </label> 
+                              <div formArrayName="inputs">
+                                <div >
                                   <div *ngFor="let input of inputs.controls; let i = index" [formGroupName]="i" class="d-flex gap-2 align-items-center mb-2">
                                     <input class="form-control" formControlName="name" placeholder="Nom supplément">
                                     <input class="form-control" type="number" formControlName="price" placeholder="Prix supplément"> 
                                     <!-- Bouton de suppression dans chaque ligne -->
                                     <button type="button" class="btn btn-danger btn-sm" (click)="removeInput(i)">-</button>
                                   </div>
-                                </div>
+                              </div>
+                            </div>
                               </div>
                             </div>
                           <!-- End  Surplus ou non -->
@@ -285,116 +279,23 @@
                             <button type="submit" class="btn btn-primary" (click)="onSubmit()">Valider</button>
                           </div>
                         </form>
+                        <ng-template #viewTemplate>
+                          <div class="px-5 px-lg-10">
+                            <div class="mb-3 text-center">
+                              <img [src]="prod?.imageUrl" class="img-thumbnail" width="150" height="150">
+                            </div>
+                            <div *ngFor="let info of viewFields">
+                              <label class="fw-semibold">{{ info.label }}</label>
+                              <div class="form-control form-control-solid mb-3">{{ info.value }}</div>
+                            </div>
+                          </div>
+                        </ng-template>
                       </div>
                     </div>
                   </div>
                 </div>    
-                <div class="modal" tabindex="-1" *ngIf="upView">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 *ngIf="prod;else noProd">Update produit {{ prod.name }}</h5>
-                        <ng-template #noProd>
-                          <h5 class="modal-title">Update Produit</h5>
-                        </ng-template>
-                        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <div class="d-flex flex-column  px-5 px-lg-10" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="d-block fw-semibold fs-6 mb-5">Image Produit</label>
-
-                              <div class="image-input image-input-outline image-input-placeholder text-center" data-kt-image-input="true">
-                                <!--begin::Preview existing avatar-->
-
-<<<<<<< HEAD
-                                <div class="image-input-wrapper w-125px h-125px"  style="background-image: url({{ prod.imageUrl }})"></div>
-
-=======
-<!--                                 <div class="image-input-wrapper w-125px h-125px"  style="background-image: url({{ prod.imageUrl }})"></div>
- -->
->>>>>>> mon-travail-local
-                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                  <i class="ki-duotone ki-pencil fs-7">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                  </i>
-<<<<<<< HEAD
-
-                                  <!--end::Inputs-->
-                                </label>
-
-
-=======
-                                </label>
->>>>>>> mon-travail-local
-                                <!--end::Remove-->
-                              </div>
-                              <!--end::Image input-->
-                              <!--begin::Hint-->
-                              <div class="form-text">{{ prod.imageUrl }}</div>
-                              <!--end::Hint-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Nom Produit</label>
-                              <h5 class="form-control form-control-solid mb-3 mb-lg-0">{{ prod.name }}</h5>
-                            </div>
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Diminutif Produit</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <h5 class="form-control form-control-solid mb-3 mb-lg-0">{{ prod.sku }}</h5>
-
-                            </div>
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Description Produit</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <p class="">{{ prod.description }}</p>
-
-                            </div>
-
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Prix Produit</label>
-                              <!--end::Label-->
-                              <!--begin::Input-->
-                              <h5 class="form-control form-control-solid mb-3 mb-lg-0">{{ prod.unitPrice }}</h5>
-
-                            </div>
-                            <div class="fv-row mb-7">
-                              <label class="required fw-semibold fs-6 mb-2">Type de category</label>
-                                <h5 class="form-control form-control-solid mb-3 mb-lg-0">{{ prod.categoryDTO.categoryName }}</h5>
-
-                            </div>
-                            <div class="fv-row mb-7">
-                              <!--begin::Label-->
-                              <label class="required fw-semibold fs-6 mb-2">Stock Produit Disponible</label>
-                              <h5 class="form-control form-control-solid mb-3 mb-lg-0"> {{ prod.unitsInStock }}</h5>
-
-                            </div>
-
-
-                          </div>
-                          <!--end::Scroll-->
-                          <!--begin::Actions-->
-
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
-
             <div class="card-body py-4">
               <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                 <thead>
@@ -481,19 +382,11 @@
                         <input class="form-check-input" type="checkbox" value="1" />
                       </div>
                     </td>
-<<<<<<< HEAD
-
-=======
->>>>>>> mon-travail-local
                     <td class="d-flex align-items-center">
                       <!--begin:: Avatar -->
                       <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                           <div class="symbol-label">
-<<<<<<< HEAD
-                            <img [src]="'http://localhost:8080' + produits.imageUrl" alt="Emma Smith" class="w-100" />
-=======
                             <img [src]="apiUrlService.getImageUrl(produits.imageUrl)" alt="Emma Smith" class="w-100" />
->>>>>>> mon-travail-local
                           </div>
                       </div>
                       <!--end::Avatar-->
@@ -542,11 +435,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
-
     </div>
-
   </div>
 </div>

@@ -1,22 +1,15 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MenuComponent} from '../menu/menu.component';
-<<<<<<< HEAD
-import {DatePipe, NgForOf, NgIf} from '@angular/common';
-=======
 import {DatePipe, isPlatformBrowser, NgForOf, NgIf} from '@angular/common';
->>>>>>> mon-travail-local
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterLink} from '@angular/router';
 import {OrderService} from '../../../services/order/order.service';
 import {AdminService} from '../../../services/auth/admin/admin.service';
-<<<<<<< HEAD
-=======
 import { ProductService } from '../../../services/product/product.service';
 import { NgChartsModule } from 'ng2-charts';
 import { Product } from '../../../common/product';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Inject, PLATFORM_ID } from '@angular/core';
->>>>>>> mon-travail-local
 
 @Component({
   selector: 'app-dashboard',
@@ -28,12 +21,8 @@ import { Inject, PLATFORM_ID } from '@angular/core';
     NgForOf,
     NgIf,
     ReactiveFormsModule,
-<<<<<<< HEAD
-    RouterLink
-=======
     RouterLink,
     NgChartsModule
->>>>>>> mon-travail-local
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -44,11 +33,6 @@ export class DashboardComponent implements OnInit{
   orders!:any;
   loginAdmin!:any;
   imgSite!:string;
-<<<<<<< HEAD
-
-  admin!:any;
-  constructor(private orderService:OrderService,private adminService:AdminService) {
-=======
   products: Product[] = [];
 
   // Data for Doughnut Chart
@@ -61,47 +45,50 @@ export class DashboardComponent implements OnInit{
   barData: number[] = [];
   barType: ChartType = 'bar';
 
+ordersItem!:any[];
+  totalGeneral: number = 0;
+  totalProduit: number = 0;
   admin!:any;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private orderService:OrderService,
     private produitService:ProductService,
     private adminService:AdminService) {
->>>>>>> mon-travail-local
   }
+
   ngOnInit() {
-
     this.loginAdmin = this.adminService.getLoginA();
-
     this.adminService.getAdminByLog(this.loginAdmin).subscribe(
       res=>{
         this.admin = res;
         this.imgSite = res.imgSite;
-<<<<<<< HEAD
-        console.log(this.admin);
-=======
        // console.log(this.admin);
->>>>>>> mon-travail-local
       }
     )
-      
+   
     this.orderService.listOrders().subscribe(
       res=>{
-        this.orders = res;
+       this.orders = res;
+       this.totalGeneral =  -1 + this.orders.length ;
+         console.log(this.orders);
       }
     )
-<<<<<<< HEAD
-  }
 
-
-
-}
-=======
-  /*   this.produitService.getProducts().subscribe(
+/*     seeOrderItems(id: any) {
+      this.orderService.listOrderItem(id).subscribe(
+        data => {
+          this.ordersItem = data;
+          console.log(this.ordersItem);
+        }
+      )
+    } */
+    this.produitService.getProducts().subscribe(
       res=>{
          console.log(res.length);
+         this.totalProduit =  -1 + res.length ;
+
       }
-    ) */
+    )
       if (isPlatformBrowser(this.platformId)) {
         this.loadCharts(); // <--- uniquement côté client
       }     
@@ -129,4 +116,3 @@ export class DashboardComponent implements OnInit{
 
 }
 
->>>>>>> mon-travail-local

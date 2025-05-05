@@ -1,21 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuComponent} from "../menu/menu.component";
 import {RouterLink} from "@angular/router";
 import {ProductService} from '../../../services/product/product.service';
-import {Product} from '../../../common/product';
-import {DatePipe, NgForOf, NgIf} from '@angular/common';
+import {CommonModule, DatePipe, NgForOf, NgIf} from '@angular/common';
 import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {CategoryService} from '../../../services/category/category.service';
-import {ProductCategory} from '../../../common/product-category';
-import {response} from 'express';
 import {AdminService} from '../../../services/auth/admin/admin.service';
-import {Admin} from '../../../common/admin';
-import {Surplus} from '../../../common/surplus';
-import {ProductSup} from '../../../common/productSup';
-<<<<<<< HEAD
-=======
 import { ApiUrlService } from '../../../core/api-url.service';
->>>>>>> mon-travail-local
+import { ElementRef } from '@angular/core';
+
 
 
 @Component({
@@ -38,31 +31,36 @@ export class ProduitsComponent implements OnInit{
   categoryForm!:FormGroup;
   inputs!: FormArray;
   selectedImageUrl: string | null = null;
+  //selectedImage: string | null = null;
+
 
 
   ngOnInit() {
     this.listProduits();
     this.listCategory();
   }
-<<<<<<< HEAD
-=======
 
+  get viewFields() {
+    return [
+      { label: 'Nom', value: this.prod?.name },
+      { label: 'Diminutif', value: this.prod?.sku },
+      { label: 'Description', value: this.prod?.description },
+      { label: 'Prix', value: this.prod?.unitPrice },
+      { label: 'Stock', value: this.prod?.unitsInStock },
+      { label: 'Catégorie', value: this.prod?.categoryDTO?.categoryName },
+    ];
+  }
 
->>>>>>> mon-travail-local
-//Parti Catégorie
   categories!:any;
   listCategory(){
     this.categoryService.listCategory().subscribe(
       res=>{
         this.categories = res;
-<<<<<<< HEAD
-        console.log(this.categories); 
-=======
        // console.log(this.categories); 
->>>>>>> mon-travail-local
       }
     );
   }
+  
   onSubmit1() {
     let formData = new FormData();
     formData.append('categoryName', this.categoryForm.controls['categoryName'].value);
@@ -83,6 +81,7 @@ export class ProduitsComponent implements OnInit{
     )
     console.log(formData);
   }
+
   imageCategory!:File;
   onFileSelected(event: Event) {
     const fileInput = event.target as HTMLInputElement;
@@ -99,15 +98,11 @@ export class ProduitsComponent implements OnInit{
 
 // End Categorie
   constructor(private produitService:ProductService,
-<<<<<<< HEAD
-              private formBuilder:FormBuilder,private categoryService:CategoryService,
-              private authService:AdminService)  {
-=======
               private formBuilder:FormBuilder,
               private categoryService:CategoryService,
               private authService:AdminService,
               public apiUrlService: ApiUrlService)  {
->>>>>>> mon-travail-local
+                this.modalMode = 'add';
 
     this.categoryForm  = this.formBuilder.group({
       categoryName:[''],
@@ -132,12 +127,6 @@ export class ProduitsComponent implements OnInit{
   }
 
 
-//touch01
-
-
-
-//touch01
-
 /*   onFileSelected(event: Event) {
     const fileInput:any  = event.target as HTMLInputElement;
     if (fileInput.files.length > 0) {
@@ -146,9 +135,8 @@ export class ProduitsComponent implements OnInit{
     }
   } */
   imageProduit!: File;
-  selectedImage: string | null = null;
   
-  onFileSelected1(event: Event): void {
+/*   onFileSelected1(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
   
     if (fileInput.files && fileInput.files.length > 0) {
@@ -160,71 +148,36 @@ export class ProduitsComponent implements OnInit{
       };
       reader.readAsDataURL(this.imageProduit);
     }
-  }
-
-
-//admin = 1;
- /*  onSubmit(){
-      let product = new Product();
-      product.sku = this.produitForm.value['sku'];
-      product.name = this.produitForm.value['name'];
-      product.description = this.produitForm.value['description'];
-      product.unitPrice = this.produitForm.value['unitPrice'];
-      product.unitsInStock = this.produitForm.value['unitStock'];
-      let categoryN = new ProductCategory();
-      categoryN.id=this.produitForm.value['category'].categoryId;
-      product.category = categoryN;
-
-      let adminN = new Admin();
-      adminN.login = this.produitForm.value['admin'].login;
-      product.admin =adminN;
-    const inputs = this.produitForm.value.inputs;
-      const surplusL :Surplus[]=[];
-      for(let i=0;i<inputs.length;i++){
-        const surplus = new Surplus();
-        surplus.name = inputs[i].name;
-        surplus.priceS = inputs[i].price;
-        surplusL.push(surplus);
-      }
-
-      let productSup = new ProductSup();
-      productSup.product = product;
-      productSup.surplus = surplusL;
-
-
-      // productSup.imageP = this.imageProduit;
-
-
-
-      // product.imageUrl = this.imageProduit;
-
-    const formData = new FormData();
-    formData.append('productSup', new Blob([JSON.stringify(productSup)], { type: 'application/json' }));
-    formData.append('imageP',this.imageProduit);
-      console.log(productSup);
-      this.produitService.saveProduct(formData).subscribe(
-        {
-          next:response=>{
-            alert(`Produit ${name} ajoute avec succe`);
-            this.produitForm.reset();
-            this.addView = false;
-            window.location.reload();
-          },
-          error:err=>{
-            alert(`Quelque chose n'a pas marche :${err.message}`)
-          }
-        }
-      )
-
   } */
-
-
-
+// Gestion de la sélection de fichier
+onFileSelected1(event: Event) {
+  const input = event.target as HTMLInputElement;
+  if (input.files?.length) {
+    this.currentImageFile = input.files[0];
+    
+    // Aperçu de la nouvelle image
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.selectedImage = e.target.result;
+    };
+    reader.readAsDataURL(this.currentImageFile);
+  }
+}
  
 //modal
+modalMode: 'add'  | 'edit' |'view' = 'add';
+
+
+  isEditMode = false;
   addView = false;
   addCategory = false;
 
+  showEdit(prod: any) {
+    this.modalMode = 'edit';
+    this.prod = prod;
+    this.isEditMode = true;
+    this.addView = true;
+  }
 
   showCategory(){
     this.addCategory = true;
@@ -232,16 +185,30 @@ export class ProduitsComponent implements OnInit{
   closeCategory(){
     this.addCategory = false;
   }
-  showAdd(){
+  showAdd() {
+    this.modalMode = 'add';
     this.addView = true;
-  } 
+  
+    this.produitForm = this.formBuilder.group({
+      name: [''],
+      description: [''],
+      sku: [''],
+      unitPrice: [0],
+      unitStock: [0],
+      active: [true],
+      categoryId: [''],
+      image: [''],
+      inputs: this.formBuilder.array([])  // si tu as des suppléments
+    });
+  }
+
   showUp(){
     this.upView = true;
   } 
 
   closeModal(){
     this.addView = false;
-    this.upView = false;
+   // this.upView = false;
     this.produitForm.reset();
   }
    //End Modal
@@ -255,102 +222,117 @@ export class ProduitsComponent implements OnInit{
       }
     )
   }
+  // Lors de la soumission du formulaire
+
 
   onSubmit() {
-    // Création du FormData
+    if (this.produitForm.invalid) {
+      alert('Veuillez remplir tous les champs obligatoires');
+      return;
+    }  
     const formData = new FormData();
     const formValue = this.produitForm.value;
-
-       // Récupère le login directement via l'authService (ou '1' par défaut si aucun login n'est trouvé)
-  const adminLogin = this.authService.getLoginA() || '1L'; 
-
-  // Ajoute le login dans le FormData sans avoir besoin de l'input caché
-  formData.append('admin', adminLogin);
-    // Ajout des champs du produit
-    formData.append('name', this.produitForm.value['name']);
-    formData.append('sku', this.produitForm.value['sku']);
-    formData.append('description', this.produitForm.value['description']);
-    formData.append('unitPrice', this.produitForm.value['unitPrice']);
-    formData.append('unitStock', this.produitForm.value['unitStock']);
-    formData.append('categoryId', this.produitForm.value.categoryId);
-    //formData.append('active', this.produitForm.value.active);
-<<<<<<< HEAD
+    const adminLogin = (this.authService.getLoginA() || '1').replace('L', '');
+    formData.append('admin', adminLogin);
+   /*  const adminLogin = this.authService.getLoginA() || '1L';
   
-=======
-      // Ajouter seulement si les surplus existent et sont valides
-// Filtrage des surplus valides
+    // Champs communs
+    formData.append('admin', adminLogin); */
+    formData.append('name', formValue['name']);
+    formData.append('sku', formValue['sku']);
+    formData.append('description', formValue['description']);
+    formData.append('unitPrice', formValue['unitPrice']);
+    formData.append('unitStock', formValue['unitStock']);
+    formData.append('categoryId', formValue.categoryId);
 
->>>>>>> mon-travail-local
-
-  /*   const categoryId = typeof formValue.categoryId === 'object'
-    ? formValue.categoryId?.id
-    : formValue.categoryId;
+    // Dans onSubmit()
+if (this.fileInput.nativeElement.files.length > 0) {
+  formData.append('image', this.fileInput.nativeElement.files[0]);
+} else if (this.modalMode === 'edit') {
+  formData.append('existingImageUrl', this.prod.imageUrl);
+}
   
-  if (categoryId) {
-    formData.append('categoryId', categoryId.toString());
-  } */
-
-    // Image
-  if (this.imageProduit) {
-    formData.append('image', this.imageProduit, this.imageProduit.name);
-  } else {
-    alert('Veuillez sélectionner une image');
-    return;
-  }
-    // Ajout de l'image
-   /*  if (this.imageProduit) {
-      formData.append('image', this.imageProduit, this.imageProduit.name);
-    } */
-  
-    // Ajout des surplus
-    const inputs = this.produitForm.value.inputs;
-<<<<<<< HEAD
-    for (let i = 0; i < inputs.length; i++) {
-      formData.append('surplusNames', inputs[i].name);
-      formData.append('surplusPrices', inputs[i].price);
-    }
-=======
-
-    if (inputs && inputs.length > 0) {
-      for (let i = 0; i < inputs.length; i++) {
-        const name = inputs[i].name;
-        const price = inputs[i].price;
-    
-        // S'assurer que les deux valeurs sont présentes
-        if (name && price !== null && price !== undefined) {
-          formData.append('surplusNames', name);
-          formData.append('surplusPrices', price.toString());
-        }
+    // Gestion différente de l'image selon le mode
+    if (this.modalMode === 'edit') {
+      // Mode UPDATE - l'image est optionnelle
+      if (this.imageProduit) {
+        formData.append('image', this.imageProduit, this.imageProduit.name);
       }
+    } else {
+      // Mode CREATE - l'image est obligatoire
+      if (!this.imageProduit) {
+        alert('Veuillez sélectionner une image');
+        return;
+      }
+      formData.append('image', this.imageProduit, this.imageProduit.name);
     }
 
->>>>>>> mon-travail-local
-   //voir les donnés avant l'envoi   
-    // ===== LOGGING COMPLET =====
+
+    interface ProduitInput {
+      name: string;
+      price: number | null; // ou string si vous traitez le prix comme chaîne
+    }
+    
+// 2. Typage explicite dans votre forEach
+const inputs = formValue.inputs as ProduitInput[]; // Cast explicite
+  
+    // Gestion des surplus
+  //  const inputs = formValue.inputs;
+    if (inputs?.length > 0) {
+      inputs.forEach((input: ProduitInput) => {
+        if (input.name && input.price !== null && input.price !== undefined) {
+          formData.append('surplusNames', input.name);
+          formData.append('surplusPrices', input.price.toString());
+        }
+      });
+    }
+  
+    // Debug
     console.log('FormData contents:');
     formData.forEach((value, key) => {
       console.log(`${key}: ${value}`);
     });
-
-    // Envoi au service
-    this.produitService.saveProduct(formData).subscribe({
-      next: (response) => {
-        alert(`Produit ${this.produitForm.value['name']} ajouté avec succès`);
-        this.produitForm.reset();
-        this.addView = false;
-        this.listProduits(); // Rafraîchir la liste au lieu de reload
-      },
-      error: (err) => {
-       // alert(`Erreur lors de l'ajout: ${err.error.message || err.message}`);
-       console.error('Erreur détaillée:', err);
-       if (err.error) {
-         console.error('Corps de l\'erreur:', err.error);
-       }
-       alert(`Erreur lors de l'ajout: ${err.error?.message || err.message}`);
-     }
-      
-    });
+  
+    // Envoi selon le mode
+    if (this.modalMode === 'edit' && this.prod?.id) {
+      this.produitService.updateProduct(this.prod.id, formData).subscribe({
+        next: () => {
+          alert(`Produit ${formValue['name']} modifié avec succès`);
+          this.resetForm();
+        },
+        error: (err) => this.handleError(err, 'mise à jour')
+      });
+    } else {
+      this.produitService.saveProduct(formData).subscribe({
+        next: () => {
+          alert(`Produit ${formValue['name']} ajouté avec succès`);
+          this.resetForm();
+        },
+        error: (err) => this.handleError(err, 'ajout')
+      });
+    }
   }
+//Methode Utilitaire de Add & update
+
+  resetForm() {
+    this.produitForm.reset();
+    this.selectedImage = null;
+    this.addView = false;
+    this.listProduits(); // Recharger la liste des produits
+  }
+
+  private handleError(err: any, action: string) {
+    console.error(`Erreur lors de ${action}`, err);
+    let errorMsg = err.error?.message || err.message;
+    
+    // Amélioration du message d'erreur
+    if (err.status === 400) {
+      errorMsg = 'Données invalides : ' + (err.error?.errors?.join(', ') || errorMsg);
+    }
+    
+    alert(`Erreur lors de ${action}: ${errorMsg}`);
+  }
+ // End Methode Utilitaire 
 
   deleteProd(id:any){
     if(confirm("Voulez-vous vraiment supprimer ce produit")){
@@ -367,41 +349,81 @@ export class ProduitsComponent implements OnInit{
       )
     }
   }
-
+  @ViewChild('fileInput') fileInput!: ElementRef;
+  selectedImage: string | null = '/assets/default-image.jpg';
+  currentImageFile: File | null = null;
   prod!:any;
   updateProd = false;
   upView = false;
   name = "";
-  viewProduit(id:any,update:boolean){
-    if(update == true){
-      this.produitService.getProductById(id).subscribe(
-        res=>{
-          this.prod = res;
-          this.name = res.name;
-        // console.log(this.prod);
-          this.produitForm = this.formBuilder.group({
-               imageUrl:[this.prod.imageUrl],
-              name:[this.prod.name],
-              description:[this.prod.description],
-              sku:[this.prod.sku],
-              unitPrice:[this.prod.unitPrice],
-              unitStock:[this.prod.unitsInStock],
-              active:[this.prod.active],
-              categoryId:[this.prod.categoryDTO.id]
-          })
-        }
-      )
+  viewProduit(id: any, update: boolean) {
+    this.produitService.getProductById(id).subscribe(res => {
+      this.prod = res;
+      console.log(this.prod);
+  
+      // Mise à jour du mode de la modal
+      this.modalMode = update ? 'edit' : 'view';
       this.addView = true;
-    }else{
-      this.produitService.getProductById(id).subscribe(
-        res=>{
-          this.prod = res;
-          console.log(this.prod.categoryDTO.categoryName);
-          this.upView = true;
+  
+      if (update) {
+        // Pré-remplir le formulaire avec les données du produit
+        this.produitForm = this.formBuilder.group({
+          name: [res.name],
+          description: [res.description],
+          sku: [res.sku],
+          unitPrice: [res.unitPrice],
+          unitStock: [res.unitsInStock],
+          active: [res.active ?? true],
+          categoryId: [res.category?.id || ''],
+         
+          inputs: this.formBuilder.array([])  // initialiser vide, puis remplir
+        });
+  
+        // Si des suppléments existent, on les injecte dans le FormArray
+        if (res.surplusDTOList && res.surplusDTOList.length > 0) {
+          const surplusArray = this.produitForm.get('inputs') as FormArray;
+          res.surplusDTOList.forEach((sup: any) => {
+            surplusArray.push(this.formBuilder.group({
+              name: [sup.name],
+              price: [sup.price]
+            }));
+          });
         }
-      )
-    }
+  
+        // Pour afficher l'image actuelle
+        
+       // Gestion de l'image
+       this.selectedImage = res.imageUrl 
+       ? this.getFullImageUrl(res.imageUrl) 
+       : '/assets/default-image.jpg';
+     
+     // Réinitialiser l'input fichier
+     if (this.fileInput) {
+       this.fileInput.nativeElement.value = '';
+     }
+     this.currentImageFile = null;
+   }
+ });
   }
+
+// Méthode pour obtenir l'URL complète
+private getFullImageUrl(imagePath: string): string {
+  if (!imagePath) return '/assets/default-image.jpg';
+  
+  // Si c'est déjà une URL complète
+  if (imagePath.startsWith('http')) return imagePath;
+  
+  // Si c'est un chemin relatif commençant par /static/
+  if (imagePath.startsWith('/static/')) {
+    // Solution 1: Si vos images sont servies par le backend
+    return `${this.apiUrlService.getBaseUrl()}${imagePath}`;
+    
+    // OU Solution 2: Si les images sont dans les assets Angular
+    // return imagePath.replace('/static/', '/assets/');
+  }
+  
+  return imagePath;
+}
 
   // Start champ surplus
   addInput() {
@@ -409,13 +431,8 @@ export class ProduitsComponent implements OnInit{
   }
   createInput(): FormGroup {
     return this.formBuilder.group({
-<<<<<<< HEAD
-      price: [0],
-      name:['']
-=======
       price: [null],
       name: ['']
->>>>>>> mon-travail-local
     });
   }
   removeInput(index: number) {
@@ -423,7 +440,5 @@ export class ProduitsComponent implements OnInit{
     this.inputs.removeAt(index);
   }
 }
-
-// EnD champ surplus
 
 }

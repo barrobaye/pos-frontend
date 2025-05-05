@@ -50,9 +50,14 @@ export class PosComponent implements OnInit,OnDestroy{
   loginS = "";
   supleant!:any;
   selectedSup: Surplus[] = [];
-  constructor(private produitService:ProductService,private cartService:CartService,private formBuilder:FormBuilder,
-              private caissierService:CaisseService,private checkoutService:CheckoutService,private orderService:OrderService,
-              private activeRoute:ActivatedRoute,private route:Router) {
+  constructor(private produitService:ProductService,
+    private cartService:CartService,
+    private formBuilder:FormBuilder,
+              private caissierService:CaisseService,
+              private checkoutService:CheckoutService,
+              private orderService:OrderService,
+              private activeRoute:ActivatedRoute,
+              private route:Router) {
     // this.log = this.caissierService.getLoginV();
     // if(this.log){
     //   this.caissierService.setLoginIn(true);
@@ -73,14 +78,13 @@ export class PosComponent implements OnInit,OnDestroy{
 
     })
 
-
-
   }
 
   showEnd = false;
   closeEnd(){
     this.showEnd = false;
     window.location.reload();
+    
   }
 
   authC:boolean = true;
@@ -104,9 +108,6 @@ export class PosComponent implements OnInit,OnDestroy{
     this.quantite = 0;
   }
   ngOnInit() {
-
-
-
     this.listProducts();
     this.listCategory();
     this.updateCartStatus();
@@ -121,11 +122,9 @@ export class PosComponent implements OnInit,OnDestroy{
     ).subscribe(
       (orders)=>{
         this.ordersEnCours = orders;
-        console.log(this.ordersEnCours);
+        //console.log(this.ordersEnCours);
       }
     ))
-
-
   }
 
   selectCategoryId:any;
@@ -163,6 +162,7 @@ export class PosComponent implements OnInit,OnDestroy{
         next:response=>{
           alert(`Commande lancer avec succes ...`);
           this.closeEnCours();
+          window.location.href = 'http://localhost:4200/cuisine'; // recharge complètement /cuisine
         },
         error:err=>{
           alert(`There was an error: ${err.message}`)
@@ -216,11 +216,26 @@ export class PosComponent implements OnInit,OnDestroy{
         this.product = res;
         // this.applyFilter();
         console.log(this.product);
+        this.filteredProducts = res;
+        console.log(this.product);
       }
-
     )
   }
-
+  selectedCategory: any;
+  filteredProducts: any[] = [];
+  titleHeader = "Tous les produits";
+  selectCategory(category: any): void {
+    this.selectedCategory = category;
+  //  console.log(category)
+    this.titleHeader = category.categoryName;
+    // Filtrer les produits par catégorie
+    this.filteredProducts = this.product.filter(product => product.categoryId === category.id); // Assurez-vous que 'categoryId' et 'id' correspondent à votre modèle
+  }
+  resetFilter(): void {
+    this.titleHeader = "Tous les produits"
+    this.filteredProducts = this.product; // Réinitialiser à tous les produits
+    this.selectedCategory = null; // Réinitialiser la catégorie sélectionnée
+  }
 
 
   productCategory :ProductCategory[] = [];
